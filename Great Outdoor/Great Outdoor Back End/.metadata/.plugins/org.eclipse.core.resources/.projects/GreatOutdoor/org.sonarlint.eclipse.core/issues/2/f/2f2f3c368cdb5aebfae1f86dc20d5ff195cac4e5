@@ -1,0 +1,26 @@
+
+{	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®È×HËRMINORZ
+CODE_SMELL
+…
+java:S2293M"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐØÎÀHÑRMINORZ
+CODE_SMELL
+„
+java:S2293T"YReplace the type specification in this constructor call with the diamond operator ("<>").(ûäÃ	HÏRMINORZ
+CODE_SMELL
+…
+java:S2293?"YReplace the type specification in this constructor call with the diamond operator ("<>").(íºšëHÌRMINORZ
+CODE_SMELL
+Š
+java:S22931"YReplace the type specification in this constructor call with the diamond operator ("<>").(åªë’øÿÿÿÿHÎRMINORZ
+CODE_SMELL
+K
+java:S3751/"Make this method "public".(Â˜’¹HÍRBLOCKERZVULNERABILITY
+J
+java:S3751H"Make this method "public".(®È×HÐRBLOCKERZVULNERABILITY
+y
+java:S4684:"@Replace this persistent entity with a simple POJO or DTO object.(Ý–åá8æÒÓ­Ë.HËRCRITICALZVULNERABILITY
+y
+java:S4684""@Replace this persistent entity with a simple POJO or DTO object.(”´éÛ8æÒÓ­Ë.HÊRCRITICALZVULNERABILITY
+…
+java:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(«¯­¬HÒRMINORZ
+CODE_SMELL

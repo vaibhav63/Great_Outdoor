@@ -5,4 +5,8 @@
     <fullyQualifiedTypeName name="com.cg.go.exception.ProductException"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.cg.go.dao.CustomerDaoImpl"/>
+    <fullyQualifiedTypeName name="com.cg.go.service.CustomerService"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.Customer"/>
+    <fullyQualifiedTypeName name="com.cg.go.exception.IDNotFoundException"/>
 </qualifiedTypeNameHistroy>
