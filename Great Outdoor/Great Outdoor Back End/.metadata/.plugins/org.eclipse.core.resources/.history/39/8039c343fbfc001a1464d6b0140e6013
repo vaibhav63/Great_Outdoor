@@ -1,0 +1,77 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cg.go.entity.WishlistItemEntity;
+import com.cg.go.exception.WishlistException;
+import com.cg.go.model.WishlistItemModel;
+
+public class WishlistServiceImpl implements WishlistService {
+	
+	@Autowired
+	private WishlistService wishlistService;
+	
+	@Autowired
+	private ProductService productService;
+	
+	private WishlistItemEntity of(WishlistItemModel source) {
+		WishlistItemEntity result=null;
+		if(source!=null) {
+			result=new WishlistItemEntity();
+			result.setWishListItemId(0);
+			result.setProductId(source.getProduct().getProductId());
+			result.setUserId(source.getUserId());
+		}
+		return result;
+	}
+	
+	
+	private WishlistItemModel of(WishlistItemEntity source) {
+		WishlistItemModel result=null;
+		if(source!=null) {
+			result=new WishlistItemModel();
+			result.setWishListId(source.getWishListItemId());
+			result.setUserId(source.getUserId());
+			
+			ProductModel product=productProxyService.getProduct(source.getProductId());
+			if(product!=null) {
+				result.setProductName(product.getProductName());
+				result.setProductCategory(product.getProductCategory());
+				result.setProductColor(product.getProductColor());
+				result.setProductPrice(product.getProductPrice());
+				result.setProductSpecification(product.getProductSpecification());
+				result.setProductQuantity(product.getProductQuantity());
+			}
+		}
+		return result;
+	}
+	
+	
+
+	@Override
+	public List<WishlistItemModel> findByUserId(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteWishlistItem(String productId, String userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteWishlist(String userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public WishlistItemModel save(WishlistItemModel wishlist) throws WishlistException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

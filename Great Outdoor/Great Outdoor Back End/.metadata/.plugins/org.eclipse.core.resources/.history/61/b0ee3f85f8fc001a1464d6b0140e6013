@@ -1,0 +1,34 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import com.cg.go.exception.WishlistException;
+import com.cg.go.model.WishlistItemModel;
+
+public class WishlistServiceImpl implements WishlistService {
+
+	@Override
+	public List<WishlistItemModel> findByUserId(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteWishlistItem(String productId, String userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteWishlist(String userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public WishlistItemModel save(WishlistItemModel wishlist) throws WishlistException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
