@@ -1,0 +1,22 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import com.cg.go.model.SalesReportModel;
+
+public interface SalesReportService {
+
+	List<SalesReportModel> findAllSalesReport();
+	
+	SalesReportModel findBySalesReportId(Long salesReportId);
+	
+	SalesReportModel addSalesReport(SalesReportModel salesReportModel);
+	
+	void updateProductReport(String productId,Integer quantitySold,double totalSales);
+	
+	void deleteAllSalesReport();
+	
+	void deleteSalesReportById(long salesReportId);
+	
+	
+}

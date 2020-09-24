@@ -10,8 +10,8 @@ import com.cg.go.entity.ProductEntity;
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity,String > {
 	
-List<ProductEntity> findByProductName(String productName);
+List<ProductEntity> findAllByProductName(String productName);
 
-List<ProductEntity> findByProductCategory(String productCategory);
+List<ProductEntity> findAllByProductCategory(String productCategory);
 
 }

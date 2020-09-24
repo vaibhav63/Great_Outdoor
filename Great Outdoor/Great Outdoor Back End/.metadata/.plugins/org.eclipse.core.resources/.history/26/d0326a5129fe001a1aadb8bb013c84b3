@@ -1,0 +1,68 @@
+package com.cg.go.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cg.go.dao.SalesReportRepository;
+import com.cg.go.entity.SalesReportEntity;
+import com.cg.go.entity.WishlistItemEntity;
+import com.cg.go.model.ProductModel;
+import com.cg.go.model.SalesReportModel;
+import com.cg.go.model.WishlistItemModel;
+
+public class SalesReportSerivceImpl implements SalesReportService{
+
+	@Autowired
+	private SalesReportRepository salesReportRepository;
+	
+	private SalesReportModel of(SalesReportEntity source) {
+		SalesReportModel result=null;
+		if(source!=null) {
+			result=new SalesReportModel();
+			result.setSalesReportId(source.getSalesReportId());
+	        result.setProductId(source.getProductId());
+	        result.setProductName(source.getProductName());
+	        result.setQuantitySold(source.getQuantitySold());
+	        result.setTotalSale(source.getTotalSale());
+		}
+		return result;
+	}
+	
+	@Override
+	public List<SalesReportModel> findAllSalesReport() {
+		return salesReportRepository.findAll().stream()
+				.map(entity -> of(entity))
+				.collect(Collectors.toList());
+				
+				
+	}
+
+	@Override
+	public SalesReportModel addSalesReport(SalesReportModel salesReportModel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateProductReport(String productId, Integer quantitySold, double totalSales) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAllSalesReport() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteSalesReportById(long salesReportId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+}
