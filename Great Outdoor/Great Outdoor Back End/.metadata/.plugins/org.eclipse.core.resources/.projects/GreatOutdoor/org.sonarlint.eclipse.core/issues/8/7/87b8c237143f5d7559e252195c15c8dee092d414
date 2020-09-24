@@ -1,0 +1,12 @@
+
+t
+java:S2583y"CChange this condition so that it does not always evaluate to "true"(ğŸ‘öüÿÿÿÿ8ŒáÚıË.HÉRMAJORZBUG
+s	java:S125"<This block of commented-out lines of code should be removed.(öïÚÚÿÿÿÿÿ8±åĞ€Ì.HûRMAJORZ
+CODE_SMELL
+_
+java:S1612=",Replace this lambda with a method reference.(ÓÎÈ8ù©ÕıË.HÌRMINORZ
+CODE_SMELL
+x
+java:S3518Y"DMake sure "currentRevenue" can't be zero before doing this division.(íôÕ…úÿÿÿÿ8Í¼¥€Ì.HìRCRITICALZBUG
+s	java:S125("<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8±åĞ€Ì.HüRMAJORZ
+CODE_SMELL

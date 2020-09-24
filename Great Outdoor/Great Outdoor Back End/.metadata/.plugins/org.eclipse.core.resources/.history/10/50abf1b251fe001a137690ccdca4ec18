@@ -1,0 +1,11 @@
+package com.cg.go.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cg.go.entity.GrowthReportEntity;
+
+public interface GrowthReportRepository extends JpaRepository<GrowthReportEntity,Long> {
+
+	
+	
+}

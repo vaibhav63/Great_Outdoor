@@ -1,0 +1,79 @@
+package com.cg.go.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cg.go.dao.GrowthReportRepository;
+import com.cg.go.entity.GrowthReportEntity;
+import com.cg.go.entity.ProductEntity;
+import com.cg.go.model.GrowthReportModel;
+import com.cg.go.model.ProductModel;
+
+@Service
+public class GrowthReportServiceImpl implements GrowthReportService{
+	
+	@Autowired
+	private GrowthReportRepository growthReportRepository; 
+	
+	
+	 private GrowthReportEntity of(GrowthReportModel source) {
+	    	GrowthReportEntity result=null;
+	    	if(source!=null) {
+	    		result=new GrowthReportEntity();
+	    		result.setGrowthReportId(source.getGrowthReportId());
+	    		result.setCurrentdate(source.getCurrentdate());
+	    		result.setRevenue(source.getRevenue());
+	    		result.setAmountChange(source.getAmountChange());
+	    		result.setPercentageGrowth(source.getPercentageGrowth());
+	    		result.setColorCode(source.getColorCode());
+	    	}
+	    	return result;
+	   
+	    }
+	
+	 private GrowthReportModel of(GrowthReportEntity source) {
+	    	GrowthReportModel result=null;
+	    	if(source!=null) {
+	    		result=new GrowthReportModel();
+	    		result.setGrowthReportId(source.getGrowthReportId());
+	    		result.setCurrentdate(source.getCurrentdate());
+	    		result.setRevenue(source.getRevenue());
+	    		result.setAmountChange(source.getAmountChange());
+	    		result.setPercentageGrowth(source.getPercentageGrowth());
+	    		result.setColorCode(source.getColorCode());
+	    	}
+	    	return result;
+	   
+	    }
+
+	@Override
+	public List<GrowthReportModel> findAllGrowthReport() {
+	
+		return growthReportRepository.findAll().stream()
+				.map(entity -> of(entity))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public GrowthReportModel addGrowthReport() {
+		
+		return null;
+	}
+
+	@Override
+	public void deleteAllGrowthReport() {
+	
+		
+		
+	}
+
+	@Override
+	public void deleteGrowthReportById(Long growthReportId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
