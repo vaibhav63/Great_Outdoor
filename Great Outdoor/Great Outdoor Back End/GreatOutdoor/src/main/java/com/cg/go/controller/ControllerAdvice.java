@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.cg.go.exception.IDNotFoundException;
+import com.cg.go.exception.OrderException;
 import com.cg.go.exception.ProductException;
 import com.cg.go.exception.WishlistException;
 
@@ -32,5 +33,10 @@ public class ControllerAdvice {
 	@ExceptionHandler(IDNotFoundException.class)
 	public ResponseEntity<String> userNotFound(IDNotFoundException e) {
 		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(OrderException.class)
+	public ResponseEntity<String> orderExceptionHandler(OrderException exception){
+		return new ResponseEntity<>(exception.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }

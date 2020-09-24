@@ -1,9 +1,16 @@
 
 _
+<<<<<<< HEAD
 java:S1612G",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.Hˆ
 RMINORZ
 CODE_SMELL
 _
 java:S1612i",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.H‰
 RMINORZ
+=======
+java:S1612i",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.HëRMINORZ
+CODE_SMELL
+_
+java:S1612G",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.HìRMINORZ
+>>>>>>> vaibhav
 CODE_SMELL

@@ -1,0 +1,16 @@
+package com.cg.go.model;
+
+public class CartModel {
+
+	
+	private long cartId;
+	private String userId;
+	private String productId;
+	private double cartItemPrice;
+	private long quantity;
+	private String productName;
+	private String productColor;
+	private String productCategory;
+	private double actualProductPrice;
+	
+}

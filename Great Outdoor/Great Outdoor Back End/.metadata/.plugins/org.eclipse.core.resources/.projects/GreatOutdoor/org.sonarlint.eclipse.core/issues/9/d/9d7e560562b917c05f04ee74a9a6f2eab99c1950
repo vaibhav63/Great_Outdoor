@@ -1,0 +1,13 @@
+
+‘
+java:S2293)"YReplace the type specification in this constructor call with the diamond operator ("<>").(ö™•Œÿÿÿÿÿ8Ö×ìîË.H‚RMINORZ
+CODE_SMELL
+Œ
+java:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í§‰8Ö×ìîË.HƒRMINORZ
+CODE_SMELL
+a
+java:S1452?"&Remove usage of generic wildcard type.(ÆÆ¨¦ûÿÿÿÿ8Ç®ïË.H˜RCRITICALZ
+CODE_SMELL
+\
+java:S1452G"&Remove usage of generic wildcard type.(ÀşªŸ8£ƒ¹ïË.HRCRITICALZ
+CODE_SMELL

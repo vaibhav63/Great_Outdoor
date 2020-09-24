@@ -72,7 +72,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductModel> findByProductName(String productName) {
 		
-		return productRepository.findByProductName(productName).stream()
+		return productRepository.findAllByProductName(productName).stream()
 				.map(entity -> of(entity))
 				.collect(Collectors.toList());
 	}
@@ -80,7 +80,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductModel> findByProductCategory(String productCategory) {
 		
-		return productRepository.findByProductCategory(productCategory).stream()
+		return productRepository.findAllByProductCategory(productCategory).stream()
 				.map(entity -> of(entity))
 				.collect(Collectors.toList());
 	}

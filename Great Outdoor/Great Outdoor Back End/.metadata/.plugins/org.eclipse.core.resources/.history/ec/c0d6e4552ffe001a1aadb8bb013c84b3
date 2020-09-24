@@ -1,0 +1,23 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import com.cg.go.exception.SalesReportException;
+import com.cg.go.model.SalesReportModel;
+
+public interface SalesReportService {
+
+	List<SalesReportModel> findAllSalesReport();
+	
+	SalesReportModel findSalesReportByProductId(String productId);
+	
+	SalesReportModel addSalesReport(SalesReportModel salesReportModel) throws SalesReportException;
+	
+	void updateProductReport(String productId,Integer quantitySold,double totalSales);
+	
+	void deleteAllSalesReport();
+	
+	void deleteSalesReportById(long salesReportId);
+	
+	
+}

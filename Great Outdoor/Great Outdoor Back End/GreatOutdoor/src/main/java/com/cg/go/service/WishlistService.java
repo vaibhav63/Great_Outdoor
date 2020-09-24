@@ -16,6 +16,6 @@ public interface WishlistService {
 	
 	public void deleteWishlist(String userId) throws WishlistException;
 	
-	public WishlistItemModel addWishlistItem(WishlistItemModel wishlist) throws WishlistException;
+	public WishlistItemModel addWishlistItem(WishlistItemModel wishlistItem) throws WishlistException;
 	
 }

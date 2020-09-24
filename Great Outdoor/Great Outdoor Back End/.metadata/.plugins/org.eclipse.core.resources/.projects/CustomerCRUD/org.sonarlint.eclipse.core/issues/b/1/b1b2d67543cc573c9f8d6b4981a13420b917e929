@@ -1,26 +1,36 @@
 
-„
-java:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐØÎÀHkRMINORZ
+{	java:S117G"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®È×H¦RMINORZ
 CODE_SMELL
-z	java:S117G"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®È×HcRMINORZ
+r
+java:S4684!"@Replace this persistent entity with a simple POJO or DTO object.(”´éÛH§RCRITICALZVULNERABILITY
+…
+java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(«¯­¬H¨RMINORZ
 CODE_SMELL
-q
-java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(Ý–åáHhRCRITICALZVULNERABILITY
+K
+java:S3751."Make this method "public".(Â˜’¹H©RBLOCKERZVULNERABILITY
+Š
+java:S22930"YReplace the type specification in this constructor call with the diamond operator ("<>").(åªë’øÿÿÿÿHªRMINORZ
+CODE_SMELL
+r
+java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(Ý–åáH«RCRITICALZVULNERABILITY
+…
+java:S2293>"YReplace the type specification in this constructor call with the diamond operator ("<>").(íºšëH¬RMINORZ
+CODE_SMELL
 J
-java:S3751."Make this method "public".(Â˜’¹HfRBLOCKERZVULNERABILITY
-ƒ
-java:S2293S"YReplace the type specification in this constructor call with the diamond operator ("<>").(ûäÃ	HlRMINORZ
+java:S3751G"Make this method "public".(®È×H­RBLOCKERZVULNERABILITY
+…
+java:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐØÎÀH®RMINORZ
 CODE_SMELL
-q
-java:S4684!"@Replace this persistent entity with a simple POJO or DTO object.(”´éÛHdRCRITICALZVULNERABILITY
+r
+java:S4684R"@Replace this persistent entity with a simple POJO or DTO object.(œŠµ„H¯RCRITICALZVULNERABILITY
 „
-java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(«¯­¬HeRMINORZ
+java:S2293W"YReplace the type specification in this constructor call with the diamond operator ("<>").(ˆñ»fH°RMINORZ
 CODE_SMELL
-‰
-java:S22930"YReplace the type specification in this constructor call with the diamond operator ("<>").(åªë’øÿÿÿÿHgRMINORZ
+P
+java:S3751_"Make this method "public".(Œ±§«ýÿÿÿÿH±RBLOCKERZVULNERABILITY
+Š
+java:S2293a"YReplace the type specification in this constructor call with the diamond operator ("<>").(ã«†ÎýÿÿÿÿH²RMINORZ
 CODE_SMELL
-I
-java:S3751G"Make this method "public".(®È×HjRBLOCKERZVULNERABILITY
 „
-java:S2293>"YReplace the type specification in this constructor call with the diamond operator ("<>").(íºšëHiRMINORZ
+java:S2293f"YReplace the type specification in this constructor call with the diamond operator ("<>").(ûäÃ	H³RMINORZ
 CODE_SMELL

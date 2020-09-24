@@ -1,0 +1,9 @@
+package com.cg.go.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cg.go.entity.SalesReportEntity;
+
+public interface SalesReportRepository extends JpaRepository<SalesReportEntity, Long>{
+
+}

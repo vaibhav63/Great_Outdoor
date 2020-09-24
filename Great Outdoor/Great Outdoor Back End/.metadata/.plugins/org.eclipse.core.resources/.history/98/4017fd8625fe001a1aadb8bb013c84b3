@@ -1,0 +1,17 @@
+package com.cg.go.model;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class SalesReportModel {
+
+	private long salesReportId;
+
+	private String productId;
+
+	private String productName;
+	
+	private Integer quantitySold;
+
+	private double totalSale;
+}

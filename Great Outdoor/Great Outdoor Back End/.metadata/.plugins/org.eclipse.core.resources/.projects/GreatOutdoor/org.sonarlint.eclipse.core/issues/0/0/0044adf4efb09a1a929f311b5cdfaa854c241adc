@@ -1,9 +1,16 @@
 
 \
+<<<<<<< HEAD
 java:S14524"&Remove usage of generic wildcard type.(ãÒ­Î8¬ž†ºË.HŠ
 RCRITICALZ
 CODE_SMELL
 [
 java:S1452<"&Remove usage of generic wildcard type.(÷é”8±›ý¸Ë.H‹
 RCRITICALZ
+=======
+java:S14524"&Remove usage of generic wildcard type.(ãÒ­Î8¬ž†ºË.HÂRCRITICALZ
+CODE_SMELL
+[
+java:S1452<"&Remove usage of generic wildcard type.(÷é”8±›ý¸Ë.HÃRCRITICALZ
+>>>>>>> vaibhav
 CODE_SMELL
