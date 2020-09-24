@@ -4,7 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 
 import com.cg.go.entity.Customer;
@@ -17,7 +18,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
 	public com.cg.go.entity.Customer addresscreation(Customer addr) {
-		// TODO Auto-generated method stub
 		Customer e=em.merge(addr);
 		return e;
 	}
@@ -26,7 +26,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
 	public List<Customer> getAlladdress() {
-		Query q=em.createQuery("select m from Customer m");
+		TypedQuery<Customer> q=em.createQuery("select m from Customer m",Customer.class);
 		List<Customer> addrlist=q.getResultList();
 		return addrlist;
 	}

@@ -1,0 +1,24 @@
+package com.cg.go.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Wishlist")
+public class WishlistEntity {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="wishlist_id")
+	private long wishListId;
+	
+	@Column(name="user_id",nullable=false)
+	private String userId;
+	
+	@Column(name="product_id",nullable=false)
+	private String productId;
+}

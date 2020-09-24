@@ -1,0 +1,33 @@
+package com.cg.go.model;
+
+
+public class WishlistItemModel {
+
+    private long wishListId;
+    
+	private String userId;
+	
+	private ProductModel product;
+	
+	public long getWishListId() {
+		return wishListId;
+	}
+	public void setWishListId(long wishListId) {
+		this.wishListId = wishListId;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public ProductModel getProduct() {
+		return product;
+	}
+	public void setProduct(ProductModel product) {
+		this.product = product;
+	}
+	
+	
+	
+}

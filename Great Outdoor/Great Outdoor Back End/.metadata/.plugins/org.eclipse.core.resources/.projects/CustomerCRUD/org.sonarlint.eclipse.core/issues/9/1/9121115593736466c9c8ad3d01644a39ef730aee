@@ -1,12 +1,0 @@
-
-€	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£µþ—ûÿÿÿÿHsRMINORZ
-CODE_SMELL
-‰
-java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "e".(â÷ïèúÿÿÿÿHtRMINORZ
-CODE_SMELL
-Š
-java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "addrlist".(áçÈHuRMINORZ
-CODE_SMELL
-a
-java:S1135"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿHvRINFOZ
-CODE_SMELL

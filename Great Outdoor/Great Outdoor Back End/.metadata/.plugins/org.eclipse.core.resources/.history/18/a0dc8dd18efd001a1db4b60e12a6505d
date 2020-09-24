@@ -1,0 +1,52 @@
+package com.cg.go.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+@Entity
+@Table(name="Orders")
+public class OrderEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	@Column(name="orderId")
+	private String orderId;
+	
+	@Column(name="userId")
+	private String userId;
+	
+    @Column(name = "products")
+	private String products;
+    
+    @Column(name="price")
+    private double totalPrice;
+    
+
+    @Column(name="quantity")
+    private long totalQuantity;
+    
+
+	@Column(name="addressId")
+	private String addressId;
+	
+	
+	@Column(name="dispatch_date")
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDate orderInitiateTime; 
+	
+	@Column(name="arrival_date")
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDate orderDispatchTime;
+	
+}

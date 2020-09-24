@@ -1,0 +1,21 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import com.cg.go.exception.WishlistException;
+import com.cg.go.model.WishlistItemModel;
+
+public interface WishlistService {
+
+	
+    public List<WishlistItemModel> findByUserId(String userId);
+	
+	public WishlistItemModel findByIdAndUserId(String productId,String userId);
+	
+	public void delete(String productId,String userId);
+	
+	public void deleteByUserId(String userId);
+	
+	public WishlistItemModel save(WishlistItemModel wishlist) throws WishlistException;
+	
+}

@@ -1,0 +1,21 @@
+package com.cg.go.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.cg.go.model.OrderModel;
+
+public interface OrderService {
+
+	public List<OrderModel> findOrdersByUserId(String userId);
+	
+	public List<OrderModel> findAllOrders();
+	
+	public void deleteAllOrders();
+	
+	public void deleteOrderById(Long id);
+	
+	public OrderModel updateDate(long id,LocalDate dispatchDate,LocalDate arrivalDate);
+	
+	
+}

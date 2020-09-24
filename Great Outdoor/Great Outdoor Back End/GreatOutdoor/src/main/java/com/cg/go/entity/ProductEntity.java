@@ -22,7 +22,7 @@ public class ProductEntity {
 	    @Column(name="p_color",nullable=false)
 	    private String productColor;
 	    
-	    @Column(name="p_cat",nullable=false)
+	    @Column(name="p_ctg",nullable=false)
 	    private String productCategory;
 	    
 	    @Column(name="p_qty",nullable=false)
