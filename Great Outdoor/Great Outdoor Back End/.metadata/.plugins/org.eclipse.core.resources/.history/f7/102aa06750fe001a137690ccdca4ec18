@@ -1,0 +1,20 @@
+package com.cg.go.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+
+public class GrowthReportModel {
+
+	private long growthReportId;
+
+	private LocalDate currentdate;
+	
+	private double revenue;
+
+	private double amountChange;
+	
+	private double percentageGrowth;
+
+	private String colorCode;
+}

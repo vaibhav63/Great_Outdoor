@@ -65,8 +65,6 @@ d
 4src/main/java/com/cg/go/service/CartServiceImpl.java,b\0\b0850f334924cd26d11a7b3e396618ca295adf0b
 g
 7src/main/java/com/cg/go/controller/OrderController.java,9\d\9d7e560562b917c05f04ee74a9a6f2eab99c1950
-\
-,src/main/java/com/cg/go/model/SalesInfo.java,9\5\9538337d97860d9e92e86ae27f400d2160f4b439
 k
 ;src/main/java/com/cg/go/exception/SalesReportException.java,d\d\dd3db5ffe1298ae6b0e390bfc870fea4d0cc22a9
 m
@@ -81,3 +79,17 @@ f
 6src/main/java/com/cg/go/dao/SalesReportRepository.java,7\7\77e2d805491cef4358c05342c653db69ce996d3f
 e
 5src/main/java/com/cg/go/entity/SalesReportEntity.java,f\2\f2a06e5b6fc768c1340fe080810e05e2fee65391
+n
+>src/main/java/com/cg/go/controller/GrowthReportController.java,7\4\744e8134baa7ba0a8b93be855711744fd23059ac
+l
+<src/main/java/com/cg/go/exception/GrowthReportException.java,9\1\91c30905752435665fba9efa8fd82b2cc87637f0
+d
+4src/main/java/com/cg/go/model/GrowthReportModel.java,3\f\3ff5bbf426beda8c4c7d44dac0ade5d446bd267f
+f
+6src/main/java/com/cg/go/entity/GrowthReportEntity.java,e\0\e0516145b8abd894d605f481a51a8731c66e049d
+h
+8src/main/java/com/cg/go/service/GrowthReportService.java,9\3\9348fac65f45493219149b218b11cc60d955783f
+g
+7src/main/java/com/cg/go/dao/GrowthReportRepository.java,5\9\594a9c80baefc5461f18f39134bf9e372e0325e8
+l
+<src/main/java/com/cg/go/service/GrowthReportServiceImpl.java,8\7\87b8c237143f5d7559e252195c15c8dee092d414

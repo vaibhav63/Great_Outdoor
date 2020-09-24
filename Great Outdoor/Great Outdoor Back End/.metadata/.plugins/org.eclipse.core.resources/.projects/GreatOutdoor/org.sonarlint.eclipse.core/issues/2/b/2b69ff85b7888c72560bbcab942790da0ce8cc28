@@ -1,13 +1,13 @@
 
 _
-java:S1612L",Replace this lambda with a method reference.(ù”Œ»8ßí©˜À.HÌRMINORZ
-CODE_SMELL
-]
-java:S1612<",Replace this lambda with a method reference.(æßÉï˚ˇˇˇˇHÓRMINORZ
-CODE_SMELL
-e
-java:S1611<"4Remove the parentheses around the "entity" parameter(æßÉï˚ˇˇˇˇHÔRMINORZ
+java:S1612T",Replace this lambda with a method reference.(ù”Œ»8ÃÚ©˜À.H◊RMINORZ
 CODE_SMELL
 _
-java:S1612T",Replace this lambda with a method reference.(ù”Œ»8ÃÚ©˜À.HRMINORZ
+java:S1612L",Replace this lambda with a method reference.(ù”Œ»8ßí©˜À.HÿRMINORZ
+CODE_SMELL
+e
+java:S1611<"4Remove the parentheses around the "entity" parameter(æßÉï˚ˇˇˇˇHŸRMINORZ
+CODE_SMELL
+]
+java:S1612<",Replace this lambda with a method reference.(æßÉï˚ˇˇˇˇH⁄RMINORZ
 CODE_SMELL
