@@ -23,21 +23,7 @@ public class GrowthReportServiceImpl implements GrowthReportService{
 	@Autowired
 	private SalesReportService salesReportService;
 	
-	
-//	 private GrowthReportEntity of(GrowthReportModel source) {
-//	    	GrowthReportEntity result=null;
-//	    	if(source!=null) {
-//	    		result=new GrowthReportEntity();
-//	    		result.setGrowthReportId(source.getGrowthReportId());
-//	    		result.setCurrentdate(source.getCurrentdate());
-//	    		result.setRevenue(source.getRevenue());
-//	    		result.setAmountChange(source.getAmountChange());
-//	    		result.setPercentageGrowth(source.getPercentageGrowth());
-//	    		result.setColorCode(source.getColorCode());
-//	    	}
-//	    	return result;
-//	   
-//	    }
+
 	
 	 private GrowthReportModel of(GrowthReportEntity source) {
 	    	GrowthReportModel result=null;

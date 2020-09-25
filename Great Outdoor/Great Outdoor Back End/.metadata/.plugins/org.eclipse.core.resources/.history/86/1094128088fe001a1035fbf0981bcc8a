@@ -1,0 +1,69 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import com.cg.go.entity.CartItemEntity;
+import com.cg.go.entity.WishlistItemEntity;
+import com.cg.go.exception.CartException;
+import com.cg.go.model.CartItemModel;
+import com.cg.go.model.ProductModel;
+import com.cg.go.model.WishlistItemModel;
+
+public class CartServiceImpl implements CartService {
+	
+	private CartItemEntity of(CartItemModel source) {
+		WishlistItemEntity result=null;
+		if(source!=null) {
+			result=new WishlistItemEntity();
+			result.setWishlistItemId(0);
+			result.setProductId(source.getProduct().getProductId());
+			result.setUserId(source.getUserId());
+		}
+		return result;
+	}
+	
+	
+	private WishlistItemModel of(WishlistItemEntity source) {
+		WishlistItemModel result=null;
+		if(source!=null) {
+			result=new WishlistItemModel();
+			result.setWishlistItemId(source.getWishlistItemId());
+			result.setUserId(source.getUserId());
+			
+			ProductModel product=productService.findByProductId(source.getProductId());
+			result.setProduct(product);
+		}
+		return result;
+	}
+
+	@Override
+	public List<CartItemModel> findCartlist(String userId) {
+		
+		return ;
+	}
+
+	@Override
+	public CartItemModel findCartItem(String productId, String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CartItemModel addCart(CartItemModel cartItemModel) throws CartException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteCartItem(String productId, String userId) throws CartException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCartlist(String userId) throws CartException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -14,6 +14,9 @@ public interface ProductService {
     public ProductModel addProduct(ProductModel productModel) throws ProductException;
     public ProductModel updateProduct(ProductModel productModel) throws ProductException;
     public void deleteByProductId(String id) throws ProductException;
+    public List<ProductModel> search(String keyword);
+    public List<ProductModel> filter(double maxPrice );
 
+    
 	
 }

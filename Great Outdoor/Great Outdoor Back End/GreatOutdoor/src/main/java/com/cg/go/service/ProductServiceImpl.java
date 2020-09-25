@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	 private ProductEntity of(ProductModel source) {
+	 public ProductEntity of(ProductModel source) {
 	    	ProductEntity result=null;
 	    	if(source!=null) {
 	    		result=new ProductEntity();
@@ -34,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
 	   
 	    }
 	
-		private ProductModel of(ProductEntity source) {
+		public ProductModel of(ProductEntity source) {
 	    	ProductModel result=null;
 	    	if(source!=null) {
 	    		result=new ProductModel();
@@ -132,6 +132,22 @@ public class ProductServiceImpl implements ProductService {
 			throw new ProductException("Product Id for Deletion is null");
 		}
 		
+	}
+
+	@Override
+	public List<ProductModel> search(String keyword) {
+
+		return productRepository.search(keyword).stream()
+				.map(entity -> of(entity))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<ProductModel> filter(double maxPrice) {
+		
+		return productRepository.filter(maxPrice).stream()
+				.map(entity -> of(entity))
+				.collect(Collectors.toList());
 	}
 
 	

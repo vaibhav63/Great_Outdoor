@@ -1,9 +1,9 @@
 
 _
-java:S1612E",Replace this lambda with a method reference.(ÓÎÈ8÷¨ÇàË.HöRMINORZ
-CODE_SMELL
-_
-java:S1612=",Replace this lambda with a method reference.(ÓÎÈ8É÷ÁàË.H÷RMINORZ
+java:S1612=",Replace this lambda with a method reference.(ÓÎÈ8É÷ÁàË.HµRMINORZ
 CODE_SMELL
 o
-java:S2583["CChange this condition so that it does not always evaluate to "true"(œ«øÿ8‹ğ‚îË.HùRMAJORZBUG
+java:S2583["CChange this condition so that it does not always evaluate to "true"(œ«øÿ8‹ğ‚îË.H¶RMAJORZBUG
+_
+java:S1612E",Replace this lambda with a method reference.(ÓÎÈ8÷¨ÇàË.H·RMINORZ
+CODE_SMELL

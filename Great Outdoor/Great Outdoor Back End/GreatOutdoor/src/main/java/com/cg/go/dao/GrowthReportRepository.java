@@ -9,7 +9,7 @@ import com.cg.go.entity.GrowthReportEntity;
 @Repository
 public interface GrowthReportRepository extends JpaRepository<GrowthReportEntity,Long> {
 
-	@Query("FROM GrowthReportEntity g ORDER BY g.growthReportId DESC LIMIT 1")
+	@Query(value = "SELECT * FROM  growth_report ORDER BY g_report_id DESC LIMIT 1",nativeQuery = true)
 	GrowthReportEntity getLastGrowthReport();
 	
 }

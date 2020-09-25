@@ -18,6 +18,25 @@ public class ProductModel {
 	    private String productSpecification;
 	    
 	    private String productManufacturer;
+	    
+	    public ProductModel() {
+	    	
+	    }
+	    
+
+		public ProductModel(String productId, String productName, Double productPrice, String productColor,
+				String productCategory, Integer productQuantity, String productSpecification,
+				String productManufacturer) {
+			super();
+			this.productId = productId;
+			this.productName = productName;
+			this.productPrice = productPrice;
+			this.productColor = productColor;
+			this.productCategory = productCategory;
+			this.productQuantity = productQuantity;
+			this.productSpecification = productSpecification;
+			this.productManufacturer = productManufacturer;
+		}
 
 		public String getProductId() {
 			return productId;

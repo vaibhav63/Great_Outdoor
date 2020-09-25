@@ -8,14 +8,16 @@ import com.cg.go.model.WishlistItemModel;
 public interface WishlistService {
 
 	
-    public List<WishlistItemModel> findWishlist(String userId);
+	 List<WishlistItemModel> findAllItems();
+	
+     List<WishlistItemModel> findWishlist(String userId);
     
-    public WishlistItemModel findWishlistItem(String productId,String userId);
+     WishlistItemModel findWishlistItem(String productId,String userId);
 	
-	public void deleteWishlistItem(String productId,String userId) throws WishlistException;
+	 void deleteWishlistItem(String productId,String userId) throws WishlistException;
 	
-	public void deleteWishlist(String userId) throws WishlistException;
+	 void deleteWishlist(String userId) throws WishlistException;
 	
-	public WishlistItemModel addWishlistItem(WishlistItemModel wishlistItem) throws WishlistException;
+	 WishlistItemModel addWishlistItem(WishlistItemModel wishlistItem) throws WishlistException;
 	
 }

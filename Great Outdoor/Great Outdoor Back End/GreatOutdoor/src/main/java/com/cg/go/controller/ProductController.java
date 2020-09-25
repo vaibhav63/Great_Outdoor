@@ -46,10 +46,20 @@ public class ProductController {
 	        			response=new ResponseEntity<>(product,HttpStatus.OK);
 	        		}
 					return response;
-	        		
-	       
 	    }
 
+	    @GetMapping("/search/{keyword}")
+	    public ResponseEntity<List<ProductModel>> searchKeyword(@PathVariable("keyword") String keyword){
+	    	
+	    	return new ResponseEntity<>(productService.search(keyword),HttpStatus.OK);
+	    }
+	    
+	    @GetMapping("/filter/{maxPrice}")
+	    public ResponseEntity<List<ProductModel>> filterPrice(@PathVariable("maxPrice") double maxPrice){
+	    	
+	    	return new ResponseEntity<>(productService.filter(maxPrice),HttpStatus.OK);
+	    }
+	    
 	    @PostMapping()
 	    public ResponseEntity<ProductModel> addProduct( @RequestBody ProductModel productModel) throws ProductException{
 	    
@@ -64,11 +74,11 @@ public class ProductController {
 
 
 	    @DeleteMapping("/{id}")
-	    public ResponseEntity<Boolean> deleteProduct(@PathVariable(value = "id") String id)
+	    public ResponseEntity<String> deleteProduct(@PathVariable(value = "id") String id)
 	            throws ProductException {
 	       
 	        productService.deleteByProductId(id);
-	        return new ResponseEntity<Boolean>(true,HttpStatus.OK);
+	        return new ResponseEntity<>("Product Deleted Successfully !!",HttpStatus.OK);
 	    }
 	    
 

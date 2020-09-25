@@ -1,10 +1,10 @@
 
 ‘
-java:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(íŠ³æýÿÿÿÿ8°ßç÷Ë.H‚RMINORZ
+java:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(íŠ³æýÿÿÿÿ8°ßç÷Ë.HñRMINORZ
 CODE_SMELL
 ‘
-java:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐƒÊ¸úÿÿÿÿ8¶»Í÷Ë.HƒRMINORZ
+java:S2293("YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠÓæ·üÿÿÿÿ8µ©Õ÷Ë.HòRMINORZ
 CODE_SMELL
 ‘
-java:S2293("YReplace the type specification in this constructor call with the diamond operator ("<>").(ŠÓæ·üÿÿÿÿ8µ©Õ÷Ë.H„RMINORZ
+java:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐƒÊ¸úÿÿÿÿ8¶»Í÷Ë.HóRMINORZ
 CODE_SMELL
