@@ -60,17 +60,17 @@ public class OrderController {
 	}
 	
 	@DeleteMapping("/removeAll")
-	public ResponseEntity<?> deleteAllOrder() throws OrderException{
+	public ResponseEntity<String> deleteAllOrder() throws OrderException{
 		
 		orderService.deleteAllOrders();
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>("Order List Deleted Successfully !!",HttpStatus.OK);
 		
 	}
 	
 	@DeleteMapping("/remove/{id}")
-	public ResponseEntity<?> deleteOrderById(@PathVariable("id") long id) throws OrderException{
+	public ResponseEntity<String> deleteOrderById(@PathVariable("id") long id) throws OrderException{
 		
 		orderService.deleteOrderById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>("Order Item Deleted Successfully !!",HttpStatus.OK);
 	}
 }

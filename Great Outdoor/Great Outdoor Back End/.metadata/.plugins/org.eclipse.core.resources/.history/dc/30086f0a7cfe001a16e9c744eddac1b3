@@ -1,0 +1,35 @@
+package com.cg.go.dao;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.cg.go.entity.CartEntity;
+import com.cg.go.entity.WishlistItemEntity;
+
+@Repository
+public interface CartRepository extends JpaRepository<CartEntity,Long> {
+
+	
+    List<CartEntity> findAllByUserId(String userId);
+
+	@Query("select w from CartEntity w where w.userId=:uid")
+	CartEntity findCart(@Param("uid")String userId);
+	
+	@Modifying
+    @Transactional
+	@Query("DELETE FROM CartEntity w WHERE w.userId=:uid")
+	void deleteCart(@Param("uid")String userId);
+	
+	@Modifying
+    @Transactional
+	@Query("DELETE  FROM CartEntity w WHERE w.productId =:pid   and w.userId=:uid")
+	void deleteCartItem(@Param("uid")String userId,@Param("pid") String productId);
+		
+}

@@ -1,6 +1,7 @@
 
 Š
 <<<<<<< HEAD
+<<<<<<< HEAD
 java:S2293G"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÔôäúúÿÿÿÿH‚
 RMINORZ
 CODE_SMELL
@@ -12,5 +13,8 @@ java:S2293>"YReplace the type specification in this constructor call with the d
 CODE_SMELL
 Š
 java:S2293G"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÔôäúúÿÿÿÿHôRMINORZ
+>>>>>>> vaibhav
+=======
+java:S2293H"YReplace the type specification in this constructor call with the diamond operator ("<>").(ƒÄÓøÿÿÿÿHëRMINORZ
 >>>>>>> vaibhav
 CODE_SMELL

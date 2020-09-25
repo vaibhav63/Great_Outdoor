@@ -110,6 +110,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\Vaibhav Important projects\Temp Bootcamp\goproj"/>
 			<item value="E:\Vaibhav Important projects\Capgemini Project\MovieTicketBookingSystemDashboard\BackEnd\MovieBookingMangement\SpringBootRestMovieShow"/>
 			<item value="E:\Vaibhav Important projects\Temp Bootcamp\CustomerCRUD-SpringBoot"/>
 			<item value="E:\Vaibhav Important projects\Bootcamp\Great Outdoor\Great Outdoor Back End\GreatOutdoor"/>

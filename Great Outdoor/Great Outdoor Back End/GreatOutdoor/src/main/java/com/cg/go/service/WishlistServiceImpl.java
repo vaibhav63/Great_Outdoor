@@ -84,7 +84,7 @@ public class WishlistServiceImpl implements WishlistService {
 
 		if(productId!=null && userId!=null) {
 			
-			WishlistItemModel wishlistItem=of(wishlistRepository.findWishlistItem(productId, userId));
+			WishlistItemModel wishlistItem=findWishlistItem(productId, userId);
 			if(wishlistItem!=null) {
 				wishlistRepository.deleteWishlistItem(userId, productId);
 			}else {
@@ -101,9 +101,7 @@ public class WishlistServiceImpl implements WishlistService {
 	public void deleteWishlist(String userId) throws WishlistException {
 		if(userId!=null) {
 			
-			List<WishlistItemModel> wishlist =wishlistRepository.findAllByUserId(userId).stream()
-					.map(entity -> of(entity))
-					.collect(Collectors.toList());
+			List<WishlistItemModel> wishlist =findWishlist(userId);
 			if(wishlist!=null) {
 				
 				wishlistRepository.deleteWishlist(userId);
@@ -115,6 +113,15 @@ public class WishlistServiceImpl implements WishlistService {
 		}else {
 			throw new WishlistException("User Id For Deletion Is Null");
 		}
+	}
+
+
+	@Override
+	public List<WishlistItemModel> findAllItems() {
+		
+		return wishlistRepository.findAll().stream()
+				.map(entity -> of(entity))
+				.collect(Collectors.toList());
 	}
 
 

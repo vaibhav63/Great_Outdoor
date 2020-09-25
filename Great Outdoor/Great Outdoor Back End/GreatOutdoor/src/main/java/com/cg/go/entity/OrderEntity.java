@@ -44,7 +44,7 @@ public class OrderEntity {
 	
 	@Column(name="arrival_date")
 	private LocalDate arrivalDate;
-
+	
 	public long getId() {
 		return id;
 	}

@@ -1,6 +1,7 @@
 
 _
 <<<<<<< HEAD
+<<<<<<< HEAD
 java:S1612G",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.Hˆ
 RMINORZ
 CODE_SMELL
@@ -12,5 +13,11 @@ java:S1612i",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.HëRMINO
 CODE_SMELL
 _
 java:S1612G",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.HìRMINORZ
+>>>>>>> vaibhav
+=======
+java:S1612G",Replace this lambda with a method reference.(ÓÎÈ8ôÖæÅË.HÙRMINORZ
+CODE_SMELL
+_
+java:S1612{",Replace this lambda with a method reference.(ÓÎÈ8”†¡–Ì.HáRMINORZ
 >>>>>>> vaibhav
 CODE_SMELL

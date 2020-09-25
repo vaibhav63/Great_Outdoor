@@ -34,7 +34,22 @@ public class ProductEntity {
 	    @Column(name="p_spec")
 	    private String productSpecification;
 	    
-	  
+	   public ProductEntity() {
+		   
+	   }
+
+		public ProductEntity(String productId, String productName, Double productPrice, String productColor,
+				String productCategory, Integer productQuantity, String productManufacturer,
+				String productSpecification) {
+			this.productId = productId;
+			this.productName = productName;
+			this.productPrice = productPrice;
+			this.productColor = productColor;
+			this.productCategory = productCategory;
+			this.productQuantity = productQuantity;
+			this.productManufacturer = productManufacturer;
+			this.productSpecification = productSpecification;
+		}
 
 		public String getProductId() {
 			return productId;

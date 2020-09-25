@@ -1,0 +1,19 @@
+package com.cg.go.service;
+
+import java.util.List;
+
+import com.cg.go.exception.CartException;
+import com.cg.go.model.CartModel;
+
+public interface CartService {
+
+	List<CartModel> findcartlist(String userId);
+	
+	public CartModel addCart(CartModel wishlist) throws CartException;
+	
+    public void deleteCartItem(String productId,String userId) throws CartException;
+	
+	public void deleteCartlist(String userId) throws CartException;
+	
+
+}

@@ -1,0 +1,27 @@
+package com.cg.go;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.cg.go.dao.ProductRepository;
+import com.cg.go.service.ProductService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class GreatOutdoorApplicationTests {
+	
+	@Autowired
+	private ProductService ProductService;
+	
+	@MockBean
+	private ProductRepository ProductRepository;
+
+	@Test
+	void contextLoads() {
+	}
+
+}
