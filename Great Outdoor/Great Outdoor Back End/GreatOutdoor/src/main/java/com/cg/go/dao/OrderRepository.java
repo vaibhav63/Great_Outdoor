@@ -17,13 +17,11 @@ import com.cg.go.entity.OrderEntity;
 public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
 	public List<OrderEntity> findAllByUserId(String userId);
-	
+
 	@Modifying
-    @Transactional
+	@Transactional
 	@Query("update OrderEntity o set o.dispatchDate=:d_date ,o.arrivalDate=:a_date WHERE o.id=:id")
-	void updateDate(@Param("id") long id,
-			@Param("d_date") LocalDate dispatchDate,
+	void updateDate(@Param("id") long id, @Param("d_date") LocalDate dispatchDate,
 			@Param("a_date") LocalDate arrivalDate);
-	
 
 }

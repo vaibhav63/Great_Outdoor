@@ -1,12 +1,5 @@
 
-_
-java:S1612=",Replace this lambda with a method reference.(ÓÎÈ8ù©ÕıË.HöRMINORZ
-CODE_SMELL
-x
-java:S3518Y"DMake sure "currentRevenue" can't be zero before doing this division.(íôÕ…úÿÿÿÿ8Ë¸å„Ì.H÷RCRITICALZBUG
-s	java:S125"<This block of commented-out lines of code should be removed.(öïÚÚÿÿÿÿÿ8±åĞ€Ì.HøRMAJORZ
-CODE_SMELL
 t
-java:S2583y"CChange this condition so that it does not always evaluate to "true"(ğŸ‘öüÿÿÿÿ8ŒáÚıË.HùRMAJORZBUG
-s	java:S125("<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8±åĞ€Ì.HúRMAJORZ
-CODE_SMELL
+java:S2583T"CChange this condition so that it does not always evaluate to "true"(ğŸ‘öüÿÿÿÿ8ŒáÚıË.HƒRMAJORZBUG
+x
+java:S35184"DMake sure "currentRevenue" can't be zero before doing this division.(íôÕ…úÿÿÿÿ8Ë¸å„Ì.H„RCRITICALZBUG

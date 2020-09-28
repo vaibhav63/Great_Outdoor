@@ -13,24 +13,21 @@ import org.springframework.stereotype.Repository;
 import com.cg.go.entity.CartItemEntity;
 
 @Repository
-public interface CartRepository extends JpaRepository<CartItemEntity,Long> {
+public interface CartRepository extends JpaRepository<CartItemEntity, Long> {
 
-	
-    List<CartItemEntity> findAllByUserId(String userId);
+	List<CartItemEntity> findAllByUserId(String userId);
 
 	@Query("select c from CartItemEntity c where c.productId =:pid and c.userId=:uid")
-	CartItemEntity findCartItem(@Param("pid") String productId,@Param("uid")String userId);
-	
+	CartItemEntity findCartItem(@Param("pid") String productId, @Param("uid") String userId);
+
 	@Modifying
-    @Transactional
+	@Transactional
 	@Query("DELETE FROM CartItemEntity c WHERE c.userId=:uid")
-	void deleteCart(@Param("uid")String userId);
-	
+	void deleteCart(@Param("uid") String userId);
+
 	@Modifying
-    @Transactional
+	@Transactional
 	@Query("DELETE  FROM CartItemEntity c WHERE c.productId =:pid   and c.userId=:uid")
-	void deleteCartItem(@Param("uid")String userId,@Param("pid") String productId);
-	
-	
-		
+	void deleteCartItem(@Param("uid") String userId, @Param("pid") String productId);
+
 }

@@ -8,24 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="sales_report")
+@Table(name = "sales_report")
 public class SalesReportEntity {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="s_report_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "s_report_id")
 	private long salesReportId;
-	
-	@Column(name="p_id")
+
+	@Column(name = "p_id")
 	private String productId;
-	
-	@Column(name="p_name")
+
+	@Column(name = "p_name")
 	private String productName;
-	
-	@Column(name="qty_sold")
+
+	@Column(name = "qty_sold")
 	private Integer quantitySold;
-	
-	@Column(name="total_sale")
+
+	@Column(name = "total_sale")
 	private double totalSale;
 
 	public long getSalesReportId() {
@@ -67,7 +67,5 @@ public class SalesReportEntity {
 	public void setTotalSale(double totalSale) {
 		this.totalSale = totalSale;
 	}
-	
-	
-	
+
 }

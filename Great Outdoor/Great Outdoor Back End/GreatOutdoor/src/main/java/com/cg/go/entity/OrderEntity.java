@@ -1,7 +1,6 @@
 package com.cg.go.entity;
 
 import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,42 +8,38 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="Orders")
+@Table(name = "Orders")
 public class OrderEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@Column(name="o_id")
+
+	@Column(name = "o_id")
 	private String orderId;
-	
-	@Column(name="u_id")
+
+	@Column(name = "u_id")
 	private String userId;
-	
-    @Column(name = "products")
+
+	@Column(name = "products")
 	private String products;
-    
-    @Column(name="price")
-    private double totalPrice;
-    
 
-    @Column(name="qty")
-    private long totalQuantity;
-    
+	@Column(name = "price")
+	private double totalPrice;
 
-	@Column(name="address_id")
+	@Column(name = "qty")
+	private long totalQuantity;
+
+	@Column(name = "address_id")
 	private String addressId;
-	
-	
-	@Column(name="dispatch_date")
-	private LocalDate dispatchDate; 
-	
-	@Column(name="arrival_date")
+
+	@Column(name = "dispatch_date")
+	private LocalDate dispatchDate;
+
+	@Column(name = "arrival_date")
 	private LocalDate arrivalDate;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -117,9 +112,4 @@ public class OrderEntity {
 		this.arrivalDate = arrivalDate;
 	}
 
-
-	
-	
-	
-	
 }

@@ -11,15 +11,15 @@ import org.springframework.stereotype.Repository;
 import com.cg.go.entity.SalesReportEntity;
 
 @Repository
-public interface SalesReportRepository extends JpaRepository<SalesReportEntity, Long>{
-	
+public interface SalesReportRepository extends JpaRepository<SalesReportEntity, Long> {
+
 	@Modifying
-    @Transactional
+	@Transactional
 	@Query("update SalesReportEntity s set s.quantitySold=:qty ,s.totalSale=:t_sale WHERE s.productId=:pid")
-	void updateProductReport(@Param("pid") String productId ,@Param("qty") Integer quantity,
+	void updateProductReport(@Param("pid") String productId, @Param("qty") Integer quantity,
 			@Param("t_sale") double totalSale);
 
 	boolean existsByProductId(String productId);
-	
+
 	SalesReportEntity findByProductId(String productId);
 }

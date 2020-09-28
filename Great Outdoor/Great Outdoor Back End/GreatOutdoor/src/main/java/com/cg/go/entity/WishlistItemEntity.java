@@ -8,20 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Wishlist")
+@Table(name = "Wishlist")
 public class WishlistItemEntity {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="w_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "w_id")
 	private long wishlistItemId;
-	
-	@Column(name="u_id",nullable=false)
-	private String userId;
-	
-	@Column(name="p_id",nullable=false)
-	private String productId;
 
+	@Column(name = "u_id", nullable = false)
+	private String userId;
+
+	@Column(name = "p_id", nullable = false)
+	private String productId;
 
 	public long getWishlistItemId() {
 		return wishlistItemId;
@@ -46,6 +45,5 @@ public class WishlistItemEntity {
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
-	
-	
+
 }

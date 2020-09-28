@@ -1,9 +1,3 @@
 
-_
-java:S16129",Replace this lambda with a method reference.(ÓÎÈ8•Ù˜õË.H¸RMINORZ
-CODE_SMELL
 t
-java:S2583U"CChange this condition so that it does not always evaluate to "true"(’—‡âúÿÿÿÿ8‰ËæöË.H¹RMAJORZBUG
-|
-java:S1854K"DRemove this useless assignment to local variable "salesReportModel".(ó•÷œûÿÿÿÿ8ìÈ½öË.HºRMAJORZ
-CODE_SMELL
+java:S2583*"CChange this condition so that it does not always evaluate to "true"(’—‡âúÿÿÿÿ8‰ËæöË.H¡RMAJORZBUG

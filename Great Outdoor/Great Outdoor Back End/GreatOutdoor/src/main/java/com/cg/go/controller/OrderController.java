@@ -2,7 +2,6 @@ package com.cg.go.controller;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -16,9 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.cg.go.entity.OrderEntity;
 import com.cg.go.exception.OrderException;
-import com.cg.go.model.OrderModel;
 import com.cg.go.service.OrderService;
 
 @RestController
@@ -28,49 +26,48 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
-	
+
 	@GetMapping()
-	public ResponseEntity<List<OrderModel>> getAllOrders(){
-		
-		return new ResponseEntity<List<OrderModel>>(orderService.findAllOrders(),HttpStatus.OK);
+	public ResponseEntity<List<OrderEntity>> getAllOrders() {
+
+		return new ResponseEntity<List<OrderEntity>>(orderService.findAllOrders(), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/{userId}")
-	public ResponseEntity<List<OrderModel>> getOrdersByUserId(@PathVariable("userId") String userId){
-		
-		return new ResponseEntity<List<OrderModel>>(orderService.findOrdersByUserId(userId),HttpStatus.OK);
+	public ResponseEntity<List<OrderEntity>> getOrdersByUserId(@PathVariable("userId") String userId) {
+
+		return new ResponseEntity<List<OrderEntity>>(orderService.findOrdersByUserId(userId), HttpStatus.OK);
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<OrderModel> addOrder(@RequestBody OrderModel model) throws OrderException{
-		
-		
-		return new ResponseEntity<>(orderService.addOrder(model),HttpStatus.OK);
+	public ResponseEntity<OrderEntity> addOrder(@RequestBody OrderEntity entity) throws OrderException {
+
+		return new ResponseEntity<>(orderService.addOrder(entity), HttpStatus.OK);
 	}
-	
+
 	@PutMapping("updateSchedule/{id}/{dispatchDate}/{arrivalDate}")
 	public ResponseEntity<String> updateSchedule(@PathVariable("id") Long id,
-			@PathVariable("dispatchDate")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dispatchDate,
-			@PathVariable("arrivalDate")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate arrivalDate )
-			throws OrderException{
-		
+			@PathVariable("dispatchDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dispatchDate,
+			@PathVariable("arrivalDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate arrivalDate)
+			throws OrderException {
+
 		orderService.updateDate(id, dispatchDate, arrivalDate);
-		return new ResponseEntity<>("Schedule Is Updated !!",HttpStatus.OK);
-		
+		return new ResponseEntity<>("Schedule Is Updated !!", HttpStatus.OK);
+
 	}
-	
+
 	@DeleteMapping("/removeAll")
-	public ResponseEntity<String> deleteAllOrder() throws OrderException{
-		
+	public ResponseEntity<String> deleteAllOrder() throws OrderException {
+
 		orderService.deleteAllOrders();
-		return new ResponseEntity<>("Order List Deleted Successfully !!",HttpStatus.OK);
-		
+		return new ResponseEntity<>("Order List Deleted Successfully !!", HttpStatus.OK);
+
 	}
-	
+
 	@DeleteMapping("/remove/{id}")
-	public ResponseEntity<String> deleteOrderById(@PathVariable("id") long id) throws OrderException{
-		
+	public ResponseEntity<String> deleteOrderById(@PathVariable("id") long id) throws OrderException {
+
 		orderService.deleteOrderById(id);
-		return new ResponseEntity<>("Order Item Deleted Successfully !!",HttpStatus.OK);
+		return new ResponseEntity<>("Order Item Deleted Successfully !!", HttpStatus.OK);
 	}
 }
