@@ -1,16 +1,11 @@
 package com.cg.go.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cg.go.dao.CartRepository;
 import com.cg.go.entity.CartItemEntity;
 import com.cg.go.exception.CartException;
-import com.cg.go.model.CartItemModel;
-import com.cg.go.model.ProductModel;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -18,78 +13,48 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	private CartRepository cartRepository;
 
-	@Autowired
-	private ProductService productService;
+	@Override
+	public List<CartItemEntity> findCartlist(String userId) {
 
-	private CartItemEntity of(CartItemModel source) {
-		CartItemEntity result = null;
-		if (source != null) {
-			result = new CartItemEntity();
-			result.setCartId(0);
-			result.setProductId(source.getProduct().getProductId());
-			result.setUserId(source.getUserId());
-			result.setQuantity(source.getQuantity());
-			result.setCartItemPrice(source.getCartItemPrice());
-		}
-		return result;
-	}
-
-	private CartItemModel of(CartItemEntity source) {
-		CartItemModel result = null;
-		if (source != null) {
-			result = new CartItemModel();
-			result.setCartId(source.getCartId());
-			ProductModel product = productService.findByProductId(source.getProductId());
-			result.setProduct(product);
-			result.setUserId(source.getUserId());
-			result.setQuantity(source.getQuantity());
-			result.setCartItemPrice(source.getCartItemPrice());
-		}
-		return result;
+		return cartRepository.findAllByUserId(userId);
 	}
 
 	@Override
-	public List<CartItemModel> findCartlist(String userId) {
+	public CartItemEntity findCartItem(String productId, String userId) {
 
-		return cartRepository.findAllByUserId(userId).stream().map(entity -> of(entity)).collect(Collectors.toList());
+		return cartRepository.findCartItem(productId, userId);
 	}
 
 	@Override
-	public CartItemModel findCartItem(String productId, String userId) {
+	public CartItemEntity addCart(CartItemEntity cartItemEntity) throws CartException {
 
-		return of(cartRepository.findCartItem(productId, userId));
-	}
+		if (cartItemEntity != null) {
 
-	@Override
-	public CartItemModel addCart(CartItemModel cartItemModel) throws CartException {
-
-		if (cartItemModel != null) {
-
-			if (cartRepository.existsById(cartItemModel.getCartId())) {
+			if (cartRepository.existsById(cartItemEntity.getCartId())) {
 
 				throw new CartException("Cart Item Already Exists !!");
 			} else {
-				cartItemModel = of(cartRepository.save(of(cartItemModel)));
+				cartItemEntity = cartRepository.save(cartItemEntity);
 			}
 		}
 
-		return cartItemModel;
+		return cartItemEntity;
 	}
 
 	@Override
-	public CartItemModel updateCart(CartItemModel cartItemModel) throws CartException {
+	public CartItemEntity updateCart(CartItemEntity cartItemEntity) throws CartException {
 
-		if (cartItemModel != null) {
+		if (cartItemEntity != null) {
 
-			if (!cartRepository.existsById(cartItemModel.getCartId())) {
+			if (!cartRepository.existsById(cartItemEntity.getCartId())) {
 
 				throw new CartException("Cart Item Does Not Exists !!");
 			} else {
-				cartItemModel = of(cartRepository.save(of(cartItemModel)));
+				cartItemEntity = cartRepository.save(cartItemEntity);
 			}
 		}
 
-		return cartItemModel;
+		return cartItemEntity;
 	}
 
 	@Override
@@ -97,8 +62,8 @@ public class CartServiceImpl implements CartService {
 
 		if (productId != null && userId != null) {
 
-			CartItemModel cartItemModel = findCartItem(productId, userId);
-			if (cartItemModel != null) {
+			CartItemEntity cartItemEntity = findCartItem(productId, userId);
+			if (cartItemEntity != null) {
 				cartRepository.deleteCartItem(userId, productId);
 			} else {
 				throw new CartException("Wishlist Item Does Not Exists !!");
@@ -113,7 +78,7 @@ public class CartServiceImpl implements CartService {
 
 		if (userId != null) {
 
-			List<CartItemModel> cartlist = findCartlist(userId);
+			List<CartItemEntity> cartlist = findCartlist(userId);
 
 			if (cartlist != null) {
 

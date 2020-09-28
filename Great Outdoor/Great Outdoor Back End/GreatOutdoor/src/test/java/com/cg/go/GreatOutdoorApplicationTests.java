@@ -4,22 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import com.cg.go.dao.ProductRepository;
 import com.cg.go.entity.ProductEntity;
 import com.cg.go.exception.ProductException;
-import com.cg.go.model.ProductModel;
 import com.cg.go.service.ProductService;
 
 @RunWith(SpringRunner.class)
@@ -55,8 +51,9 @@ class GreatOutdoorApplicationTests {
 	@Test
 	public void addProductTest() throws ProductException {
 
-		ProductModel model = new ProductModel("1", "Digital", 2000.0, "Black", "Watch", 2, "Fastrack", "water-proof");
-		productService.addProduct(model);
+		ProductEntity entity = new ProductEntity("1", "Digital", 2000.0, "Black", "Watch", 2, "Fastrack",
+				"water-proof");
+		productService.addProduct(entity);
 
 	}
 

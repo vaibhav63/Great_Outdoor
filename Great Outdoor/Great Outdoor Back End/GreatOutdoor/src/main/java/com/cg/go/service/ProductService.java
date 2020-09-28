@@ -1,22 +1,27 @@
 package com.cg.go.service;
 
 import java.util.List;
-
+import com.cg.go.entity.ProductEntity;
 import com.cg.go.exception.ProductException;
-import com.cg.go.model.ProductModel;
 
 public interface ProductService {
 
-    public List<ProductModel> findAllProducts();
-    public ProductModel findByProductId(String id);
-    public List<ProductModel> findByProductName(String productName);
-    public List<ProductModel> findByProductCategory(String productCategory);
-    public ProductModel addProduct(ProductModel productModel) throws ProductException;
-    public ProductModel updateProduct(ProductModel productModel) throws ProductException;
-    public void deleteByProductId(String id) throws ProductException;
-    public List<ProductModel> search(String keyword);
-    public List<ProductModel> filter(double maxPrice );
+	List<ProductEntity> findAllProducts();
 
-    
-	
+	ProductEntity findByProductId(String id);
+
+	List<ProductEntity> findByProductName(String productName);
+
+	List<ProductEntity> findByProductCategory(String productCategory);
+
+	ProductEntity addProduct(ProductEntity productEntity) throws ProductException;
+
+	ProductEntity updateProduct(ProductEntity productEntity) throws ProductException;
+
+	void deleteByProductId(String id) throws ProductException;
+
+	List<ProductEntity> search(String keyword);
+
+	List<ProductEntity> filter(double maxPrice);
+
 }

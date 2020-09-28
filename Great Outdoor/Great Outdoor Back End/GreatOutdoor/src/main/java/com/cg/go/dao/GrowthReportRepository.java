@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import com.cg.go.entity.GrowthReportEntity;
 
 @Repository
-public interface GrowthReportRepository extends JpaRepository<GrowthReportEntity,Long> {
+public interface GrowthReportRepository extends JpaRepository<GrowthReportEntity, Long> {
 
-	@Query(value = "SELECT * FROM  growth_report ORDER BY g_report_id DESC LIMIT 1",nativeQuery = true)
+	@Query(value = "SELECT * FROM  growth_report ORDER BY g_report_id DESC LIMIT 1", nativeQuery = true)
 	GrowthReportEntity getLastGrowthReport();
-	
+
 }

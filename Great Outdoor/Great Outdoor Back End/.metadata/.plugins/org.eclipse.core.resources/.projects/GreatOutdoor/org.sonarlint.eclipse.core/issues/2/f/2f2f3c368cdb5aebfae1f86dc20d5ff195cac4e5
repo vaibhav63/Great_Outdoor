@@ -1,23 +1,23 @@
 
 …
-java:S2293>"YReplace the type specification in this constructor call with the diamond operator ("<>").(íºšëHçRMINORZ
-CODE_SMELL
-…
-java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(«¯­¬HêRMINORZ
-CODE_SMELL
-y
-java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(Ý–åá8æÒÓ­Ë.HéRCRITICALZVULNERABILITY
-y
-java:S4684!"@Replace this persistent entity with a simple POJO or DTO object.(”´éÛ8æÒÓ­Ë.HïRCRITICALZVULNERABILITY
-{	java:S117G"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®È×HîRMINORZ
-CODE_SMELL
-Š
-java:S22930"YReplace the type specification in this constructor call with the diamond operator ("<>").(åªë’øÿÿÿÿHëRMINORZ
-CODE_SMELL
-J
-java:S3751G"Make this method "public".(®È×HíRBLOCKERZVULNERABILITY
-…
-java:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐØÎÀHæRMINORZ
+java:S22938"YReplace the type specification in this constructor call with the diamond operator ("<>").(íºšëHôRMINORZ
 CODE_SMELL
 K
-java:S3751."Make this method "public".(Â˜’¹HìRBLOCKERZVULNERABILITY
+java:S3751*"Make this method "public".(Â˜’¹HîRBLOCKERZVULNERABILITY
+Š
+java:S2293,"YReplace the type specification in this constructor call with the diamond operator ("<>").(åªë’øÿÿÿÿHìRMINORZ
+CODE_SMELL
+y
+java:S46843"@Replace this persistent entity with a simple POJO or DTO object.(Ý–åá8æÒÓ­Ë.HóRCRITICALZVULNERABILITY
+y
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(”´éÛ8æÒÓ­Ë.HñRCRITICALZVULNERABILITY
+…
+java:S2293D"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÐØÎÀHíRMINORZ
+CODE_SMELL
+{	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®È×HòRMINORZ
+CODE_SMELL
+J
+java:S3751?"Make this method "public".(®È×HðRBLOCKERZVULNERABILITY
+…
+java:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(«¯­¬HïRMINORZ
+CODE_SMELL

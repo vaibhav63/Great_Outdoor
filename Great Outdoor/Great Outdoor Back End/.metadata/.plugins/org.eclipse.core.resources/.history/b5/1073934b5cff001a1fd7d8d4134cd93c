@@ -1,0 +1,79 @@
+package com.cg.go.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.go.entity.WishlistItemEntity;
+import com.cg.go.exception.WishlistException;
+import com.cg.go.model.WishlistItemModel;
+import com.cg.go.service.WishlistService;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/wishlist")
+public class WishlistController {
+	
+	@Autowired
+	private WishlistService wishlistService;
+	
+	@GetMapping()
+	public ResponseEntity<List<WishlistItemEntity>> getWishlist(){
+		
+		return new ResponseEntity<>( wishlistService.findAllItems(),HttpStatus.OK);
+		
+		
+	}
+	
+	
+	@GetMapping("/{userId}")
+	public ResponseEntity<List<WishlistItemEntity>> getWishlistByUserId(@PathVariable("userId") String userId){
+	
+		ResponseEntity<List<WishlistItemEntity>> response=null;
+		List<WishlistItemEntity> wishlist=wishlistService.findWishlist(userId);
+		if(wishlist==null) {
+			response=new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			response=new ResponseEntity<>(wishlist, HttpStatus.OK);
+		}
+		return response;
+	}
+	
+	@PostMapping("/addToWishlist")
+	public ResponseEntity<WishlistItemEntity> addToWishlist( @RequestBody WishlistItemEntity entity) throws WishlistException{
+		
+		return new ResponseEntity<>( wishlistService.addWishlistItem(model),HttpStatus.OK);
+		
+	}
+	
+	
+	@DeleteMapping("/deleteWishlistItem/{productId}/{userId}")
+	public ResponseEntity<String> deleteWishlistItem(@PathVariable("productId") String productId,@PathVariable("userId") String userId) throws WishlistException{
+
+		wishlistService.deleteWishlistItem(productId, userId);
+		return new ResponseEntity<>("Deleted Wishlist Item !!",HttpStatus.OK);
+	}
+	
+	
+	@DeleteMapping("/deleteWishlist/{userId}")
+	public ResponseEntity<String> deleteWishlist(@PathVariable("userId") String userId) throws WishlistException {
+	
+			wishlistService.deleteWishlist(userId);
+			return new ResponseEntity<>("Deleted Wishlist !!",HttpStatus.OK);
+		
+		
+	}
+	
+
+}

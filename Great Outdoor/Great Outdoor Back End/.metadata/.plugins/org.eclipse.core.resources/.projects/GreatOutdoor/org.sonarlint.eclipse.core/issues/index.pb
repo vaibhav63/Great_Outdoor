@@ -37,15 +37,11 @@ h
 8src/main/java/com/cg/go/service/WishlistServiceImpl.java,6\8\6820cfce1b74af6b0e848e68d261c7bc2f2a4ecf
 h
 8src/main/java/com/cg/go/exception/WishlistException.java,2\1\21a1a95bc18b64f35fe772f4c5c2a1a8002cfa29
-d
-4src/main/java/com/cg/go/model/WishlistItemModel.java,f\4\f47a8c9a891beeb24f5bb3793ea71f3ce0fad568
 f
 <<<<<<< HEAD
 6src/main/java/com/cg/go/entity/WishlistItemEntity.java,5\8\5834186396ec7307bab9a5d243d7b224e379fddd
 =======
 6src/main/java/com/cg/go/entity/WishlistItemEntity.java,5\8\5834186396ec7307bab9a5d243d7b224e379fddd
-]
--src/main/java/com/cg/go/model/OrderModel.java,2\d\2d44742e4b4cc14aa04748c94ca23e878feba659
 e
 5src/main/java/com/cg/go/exception/OrderException.java,1\f\1fbe2dd811e969e10420eb2722b834499352d9f3
 _
@@ -68,8 +64,6 @@ k
 ;src/main/java/com/cg/go/exception/SalesReportException.java,d\d\dd3db5ffe1298ae6b0e390bfc870fea4d0cc22a9
 m
 =src/main/java/com/cg/go/controller/SalesReportController.java,3\f\3fe2b18cde9c86fbb8f05b92d64f5368e5603f3d
-c
-3src/main/java/com/cg/go/model/SalesReportModel.java,6\d\6d85d5cc1a14a324bcbae3a70306d39c0dea6db4
 k
 ;src/main/java/com/cg/go/service/SalesReportSerivceImpl.java,0\c\0c5356082ab1cc30152770941085d2a63b32d446
 g
@@ -85,8 +79,6 @@ n
 >src/main/java/com/cg/go/controller/GrowthReportController.java,7\4\744e8134baa7ba0a8b93be855711744fd23059ac
 l
 <src/main/java/com/cg/go/exception/GrowthReportException.java,9\1\91c30905752435665fba9efa8fd82b2cc87637f0
-d
-4src/main/java/com/cg/go/model/GrowthReportModel.java,3\f\3ff5bbf426beda8c4c7d44dac0ade5d446bd267f
 f
 6src/main/java/com/cg/go/entity/GrowthReportEntity.java,e\0\e0516145b8abd894d605f481a51a8731c66e049d
 h
@@ -100,16 +92,17 @@ l
 =======
 `
 0src/main/java/com/cg/go/service/CartService.java,6\b\6b556328d060061edd674c637c232465de867b2c
-`
-0src/main/java/com/cg/go/model/CartItemModel.java,b\0\b0c0514e434d46565c859a18ee04a671b062edf7
 b
 2src/main/java/com/cg/go/entity/CartItemEntity.java,e\7\e77bc7331e985a85c6915cdad51ca2df4a0b4f4f
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-_
-/src/main/java/com/cg/go/model/ProductModel.java,d\2\d2df3e92072b6528ef1ee3e0bba612c61f555cdc
 i
 9src/test/java/com/cg/go/GreatOutdoorApplicationTests.java,e\d\edae69064c498566272d4be9d2370a6e847a67a7
 f
 6src/main/java/com/cg/go/controller/CartController.java,8\f\8f5fb0e6fc477f842ad801372fa92625c09ae37e
+<<<<<<< HEAD
+>>>>>>> vaibhav
+=======
+d
+4src/main/java/com/cg/go/exception/CartException.java,3\d\3dfdb140add1388daf41001abc6450e8a32114ee
 >>>>>>> vaibhav

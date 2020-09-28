@@ -1,154 +1,98 @@
 package com.cg.go.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cg.go.dao.ProductRepository;
 import com.cg.go.entity.ProductEntity;
 import com.cg.go.exception.ProductException;
-import com.cg.go.model.ProductModel;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-	
+
 	@Autowired
 	private ProductRepository productRepository;
-	
-	 public ProductEntity of(ProductModel source) {
-	    	ProductEntity result=null;
-	    	if(source!=null) {
-	    		result=new ProductEntity();
-	    		result.setProductId(source.getProductId());
-	    		result.setProductName(source.getProductName());
-	    		result.setProductPrice(source.getProductPrice());
-	    		result.setProductCategory(source.getProductCategory());
-	    		result.setProductQuantity(source.getProductQuantity());
-	    		result.setProductSpecification(source.getProductSpecification());
-	    		result.setProductManufacturer(source.getProductManufacturer());
-	    		result.setProductColor(source.getProductColor());
-	    	}
-	    	return result;
-	   
-	    }
-	
-		public ProductModel of(ProductEntity source) {
-	    	ProductModel result=null;
-	    	if(source!=null) {
-	    		result=new ProductModel();
-	    		result.setProductId(source.getProductId());
-	    		result.setProductName(source.getProductName());
-	    		result.setProductPrice(source.getProductPrice());
-	    		result.setProductCategory(source.getProductCategory());
-	    		result.setProductQuantity(source.getProductQuantity());
-	    		result.setProductSpecification(source.getProductSpecification());
-	    		result.setProductManufacturer(source.getProductManufacturer());
-	    		result.setProductColor(source.getProductColor());
-	    	}
-	    	return result;
-	    }
-	
-	
-	
 
 	@Override
-	public List<ProductModel> findAllProducts() {
-		
-	   return productRepository.findAll().stream()
-			   .map((entity)->of(entity))
-			   .collect(Collectors.toList());
+	public List<ProductEntity> findAllProducts() {
+
+		return productRepository.findAll();
 	}
 
 	@Override
-	public ProductModel findByProductId(String id) {
-	
-		return of(productRepository.findById(id).orElse(null));
-	}
+	public ProductEntity findByProductId(String id) {
 
-	
-
-	@Override
-	public List<ProductModel> findByProductName(String productName) {
-		
-		return productRepository.findAllByProductName(productName).stream()
-				.map(entity -> of(entity))
-				.collect(Collectors.toList());
+		return productRepository.findById(id).orElse(null);
 	}
 
 	@Override
-	public List<ProductModel> findByProductCategory(String productCategory) {
-		
-		return productRepository.findAllByProductCategory(productCategory).stream()
-				.map(entity -> of(entity))
-				.collect(Collectors.toList());
+	public List<ProductEntity> findByProductName(String productName) {
+
+		return productRepository.findAllByProductName(productName);
 	}
 
-	
 	@Override
-	public ProductModel addProduct(ProductModel productModel) throws ProductException {
-		
-		if(productModel!=null) {
-			if(productRepository.existsById(productModel.getProductId())) {
+	public List<ProductEntity> findByProductCategory(String productCategory) {
+
+		return productRepository.findAllByProductCategory(productCategory);
+	}
+
+	@Override
+	public ProductEntity addProduct(ProductEntity productEntity) throws ProductException {
+
+		if (productEntity != null) {
+			if (productRepository.existsById(productEntity.getProductId())) {
 				throw new ProductException("Prdouct Already Exists !!");
-			}
-			else {
-				productModel= of(productRepository.save(of(productModel)));
+			} else {
+				productEntity = productRepository.save(productEntity);
 			}
 		}
-		return productModel;
-		
+		return productEntity;
+
 	}
 
 	@Override
-	public ProductModel updateProduct(ProductModel productModel) throws ProductException {
-		
-		if(productModel!=null) {
-			if(!productRepository.existsById(productModel.getProductId())) {
+	public ProductEntity updateProduct(ProductEntity productEntity) throws ProductException {
+
+		if (productEntity != null) {
+			if (!productRepository.existsById(productEntity.getProductId())) {
 				throw new ProductException("Prdouct Does Not Exists !!");
-			}
-			else {
-				productModel= of(productRepository.save(of(productModel)));
+			} else {
+				productEntity = productRepository.save(productEntity);
 			}
 		}
-		return productModel;
+		return productEntity;
 	}
 
 	@Override
 	public void deleteByProductId(String id) throws ProductException {
-		
-	if(id!=null) {
-			
-			ProductEntity entity=productRepository.findById(id).orElse(null);
-			if(entity!=null) {
-			
+
+		if (id != null) {
+
+			ProductEntity entity = productRepository.findById(id).orElse(null);
+			if (entity != null) {
+
 				productRepository.deleteById(id);
-				
-			}else {
+
+			} else {
 				throw new ProductException("Product Does Not Exists");
 			}
-		}else {
+		} else {
 			throw new ProductException("Product Id for Deletion is null");
 		}
-		
+
 	}
 
 	@Override
-	public List<ProductModel> search(String keyword) {
+	public List<ProductEntity> search(String keyword) {
 
-		return productRepository.search(keyword).stream()
-				.map(entity -> of(entity))
-				.collect(Collectors.toList());
+		return productRepository.search(keyword);
 	}
 
 	@Override
-	public List<ProductModel> filter(double maxPrice) {
-		
-		return productRepository.filter(maxPrice).stream()
-				.map(entity -> of(entity))
-				.collect(Collectors.toList());
+	public List<ProductEntity> filter(double maxPrice) {
+
+		return productRepository.filter(maxPrice);
 	}
 
-	
 }

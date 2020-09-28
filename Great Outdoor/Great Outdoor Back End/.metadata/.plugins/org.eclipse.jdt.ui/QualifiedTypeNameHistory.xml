@@ -3,8 +3,6 @@
 <qualifiedTypeNameHistroy/>
 =======
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat.ISO"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Modifying"/>
@@ -24,12 +22,10 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.cg.go.dao.GrowthReportRepository"/>
-    <fullyQualifiedTypeName name="com.cg.go.entity.SalesReportEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.model.SalesReportModel"/>
     <fullyQualifiedTypeName name="com.cg.go.service.GrowthReportService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="com.cg.go.model.GrowthReportModel"/>
-    <fullyQualifiedTypeName name="com.cg.go.entity.GrowthReportEntity"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -57,11 +53,15 @@
     <fullyQualifiedTypeName name="com.cg.go.dao.OrderRepository"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="com.cg.go.entity.OrderEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.service.SalesReportService"/>
     <fullyQualifiedTypeName name="com.cg.go.dao.SalesReportRepository"/>
     <fullyQualifiedTypeName name="org.mockito.Mockito"/>
-    <fullyQualifiedTypeName name="com.cg.go.entity.ProductEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.model.ProductModel"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.CartItemEntity"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.GrowthReportEntity"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.SalesReportEntity"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.OrderEntity"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.ProductEntity"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.WishlistItemEntity"/>
 </qualifiedTypeNameHistroy>
 >>>>>>> vaibhav

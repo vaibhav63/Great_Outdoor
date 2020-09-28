@@ -3,8 +3,8 @@ package com.cg.go.service;
 import java.util.List;
 
 import com.cg.go.entity.Customer;
-public interface CustomerService {
 
+public interface CustomerService {
 
 	Customer addresscreation(Customer addr);
 
@@ -14,4 +14,4 @@ public interface CustomerService {
 
 	Customer deleteaddrByID(int addr_id);
 
-	}
+}

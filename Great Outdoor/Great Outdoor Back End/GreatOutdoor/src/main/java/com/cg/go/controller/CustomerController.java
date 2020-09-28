@@ -1,7 +1,6 @@
 package com.cg.go.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,11 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.go.entity.Customer;
 import com.cg.go.exception.IDNotFoundException;
 import com.cg.go.service.CustomerService;
-
 
 @RestController
 @RequestMapping("/addr")
@@ -38,21 +35,18 @@ public class CustomerController {
 			return new ResponseEntity<String>(" Address entered successfully", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
-	
 
 	// Get All addresses
-	
+
 	@GetMapping("/getAlladdress")
 	private ResponseEntity<List<Customer>> getAlladdress() {
 		List<Customer> addrlist = serviceobj.getAlladdress();
 		return new ResponseEntity<List<Customer>>(addrlist, new HttpHeaders(), HttpStatus.OK);
 
 	}
-	
-	
+
 	// Updating address
-	
-	
+
 	@PutMapping("/Updateaddr/{addr_id}")
 	public ResponseEntity<String> updateaddr(@RequestBody Customer addr) {
 		Customer e = serviceobj.updateaddr(addr);
@@ -62,11 +56,9 @@ public class CustomerController {
 			return new ResponseEntity<String>("Address updated successfully", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
-	
 
 	// Deleting address
-	
-	
+
 	@DeleteMapping("/Deleteaddr/{addr_id}")
 	private ResponseEntity<String> deleteaddrByID(@PathVariable("addr_id") int addr_id) {
 		Customer e = serviceobj.deleteaddrByID(addr_id);
@@ -77,6 +69,4 @@ public class CustomerController {
 		}
 	}
 
-
-	
 }

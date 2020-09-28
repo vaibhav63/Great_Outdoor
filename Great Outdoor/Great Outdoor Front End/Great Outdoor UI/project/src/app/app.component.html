@@ -1,0 +1,58 @@
+<div class="main-page">
+
+  <nav>
+    <mat-toolbar class="px-5">
+      <a mat-icon-button [disableRipple]="true">
+        <mat-icon>menu</mat-icon>
+      </a>
+      <span style="font-size:30px;">GREAT OUTDOOR</span>
+      <a mat-button routerLink="#" routerLinkActive="active">HOME</a>
+      <a mat-button routerLink="#" routerLinkActive="active">MY CART</a>
+      <a mat-button routerLink="#" routerLinkActive="active">WISHLIST</a>
+      <a mat-button routerLink="#" routerLinkActive="active" (click)="isHidden=isHidden?false:true">CATEGORIES</a>
+      <span class="example-spacer"></span>
+      <a mat-button>Sign up</a>
+      <a mat-icon-button [matMenuTriggerFor]="menu" [disableRipple]="true">
+        <mat-icon>settings</mat-icon>
+      </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Voice</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <div style="background-color: black;color:white;font-size:12px;height:30px;"
+      class="pl-5 d-flex justify-content-center align-items-center">Free shipping when your order is above €99.99 | 2
+      Year Limited Warranty. </div>
+    <div class="categories  text-center" [ngStyle]="{'display':isHidden?'none':'flex'}">
+      <div class="col-md-3">
+        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <h1 class="mt-4">MOBILE</h1>
+      </div>
+      <div class="col-md-3">
+        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <h1 class="mt-4">CLOTHES</h1>
+      </div>
+      <div class="col-md-3">
+        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <h1 class="mt-4">SPORTS</h1>
+      </div>
+      <div class="col-md-3">
+        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <h1 class="mt-4">GROCERY</h1>
+      </div>
+    </div>
+  </nav>
+  <app-home></app-home>
+
+
+</div>

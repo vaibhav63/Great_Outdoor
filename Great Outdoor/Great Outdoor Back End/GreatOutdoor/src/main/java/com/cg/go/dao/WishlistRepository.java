@@ -13,21 +13,21 @@ import org.springframework.stereotype.Repository;
 import com.cg.go.entity.WishlistItemEntity;
 
 @Repository
-public interface WishlistRepository extends JpaRepository<WishlistItemEntity,Long> {
+public interface WishlistRepository extends JpaRepository<WishlistItemEntity, Long> {
 
-    List<WishlistItemEntity> findAllByUserId(String userId);
+	List<WishlistItemEntity> findAllByUserId(String userId);
 
 	@Query("select w from WishlistItemEntity w where w.productId =:pid   and w.userId=:uid")
-	WishlistItemEntity findWishlistItem(@Param("pid") String productId,@Param("uid")String userId);
-	
+	WishlistItemEntity findWishlistItem(@Param("pid") String productId, @Param("uid") String userId);
+
 	@Modifying
-    @Transactional
+	@Transactional
 	@Query("DELETE FROM WishlistItemEntity w WHERE w.userId=:uid")
-	void deleteWishlist(@Param("uid")String userId);
-	
+	void deleteWishlist(@Param("uid") String userId);
+
 	@Modifying
-    @Transactional
+	@Transactional
 	@Query("DELETE  FROM WishlistItemEntity w WHERE w.productId =:pid   and w.userId=:uid")
-	void deleteWishlistItem(@Param("uid")String userId,@Param("pid") String productId);
-	
+	void deleteWishlistItem(@Param("uid") String userId, @Param("pid") String productId);
+
 }

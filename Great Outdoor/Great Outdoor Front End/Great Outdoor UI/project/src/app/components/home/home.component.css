@@ -1,0 +1,50 @@
+.carousel-indicators li{
+   border-radius: 50%;
+   height: 10px;
+   width:10px;
+}
+
+.carousel-indicators {
+   margin-bottom:0px;
+   width: 100%;
+   background-color: black;
+}
+
+.categories{
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   height: 795px;
+
+}
+.mobile-section{
+
+   height: 600px;
+   width: 85%;
+}
+
+.mobile-section .card{
+   height: 440px;
+   background-color: rgba(0, 0, 0, 0.7);
+   border: 2px solid black;
+   box-shadow: 5px 5px 10px 2px rgb(0, 0, 0);
+   color: white;
+}
+
+.mobile-section .card h1{
+  margin:0; 
+  text-align: center;
+  font-size: 15px;
+}
+
+.mobile-section .card img{
+ width:200px;
+ align-self: center;
+ }
+
+/* in parent 
+display:table;
+in child 
+display:table-cell;
+vertical-align:middle */

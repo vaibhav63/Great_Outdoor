@@ -12,28 +12,28 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="growth_report")
+@Table(name = "growth_report")
 public class GrowthReportEntity {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="g_report_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "g_report_id")
 	private long growthReportId;
-	
-	@Column(name="date")
+
+	@Column(name = "date")
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate currentdate;
-	
-	@Column(name="revenue")
+
+	@Column(name = "revenue")
 	private double revenue;
-	
-	@Column(name="amount_change")
+
+	@Column(name = "amount_change")
 	private double amountChange;
-	
-	@Column(name="percentage_growth")
+
+	@Column(name = "percentage_growth")
 	private double percentageGrowth;
-	
-	@Column(name="color_code")
+
+	@Column(name = "color_code")
 	private String colorCode;
 
 	public long getGrowthReportId() {
@@ -83,7 +83,5 @@ public class GrowthReportEntity {
 	public void setColorCode(String colorCode) {
 		this.colorCode = colorCode;
 	}
-	
-	
-}
 
+}

@@ -12,38 +12,29 @@ import com.cg.go.entity.Customer;
 
 @Service
 @Transactional
-public class CustomerServiceImpl implements CustomerService 
-{
-@Autowired
-CustomerDaoImpl dao;
+public class CustomerServiceImpl implements CustomerService {
+	@Autowired
+	CustomerDaoImpl dao;
 
-@Override
-public Customer addresscreation(Customer addr) {
-	return dao.addresscreation(addr);
-}
+	@Override
+	public Customer addresscreation(Customer addr) {
+		return dao.addresscreation(addr);
+	}
 
+	@Override
 
-@Override
+	public List<Customer> getAlladdress() {
+		return dao.getAlladdress();
+	}
 
-public List<Customer> getAlladdress() 
-{
-return dao.getAlladdress();
-}
+	@Override
+	public Customer updateaddr(Customer addr) {
+		return dao.updateaddr(addr);
+	}
 
-
-
-@Override
-public Customer updateaddr(Customer addr) {
-	return dao.updateaddr(addr);	
-}
-
-
-@Override
-public Customer deleteaddrByID(int addr_id) 
-{
-	return dao.deleteaddrByID(addr_id);
-}
-
-
+	@Override
+	public Customer deleteaddrByID(int addr_id) {
+		return dao.deleteaddrByID(addr_id);
+	}
 
 }

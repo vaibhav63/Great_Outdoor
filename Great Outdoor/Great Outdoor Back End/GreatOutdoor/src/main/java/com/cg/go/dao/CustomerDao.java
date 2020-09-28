@@ -13,7 +13,5 @@ public interface CustomerDao {
 	Customer updateaddr(Customer addr);
 
 	Customer deleteaddrByID(int addr_id);
-	
-	
 
 }

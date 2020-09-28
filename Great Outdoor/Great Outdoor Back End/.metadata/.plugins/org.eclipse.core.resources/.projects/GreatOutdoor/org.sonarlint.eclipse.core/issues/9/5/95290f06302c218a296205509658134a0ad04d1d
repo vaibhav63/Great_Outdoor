@@ -1,5 +1,6 @@
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£µþ—ûÿÿÿÿHíRMINORZ
 CODE_SMELL
 ‹
@@ -10,13 +11,20 @@ java:S1488"YImmediately return this expression instead of assigning it to the 
 =======
 	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£µþ—ûÿÿÿÿHä
 RMINORZ
+=======
+‹
+java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "addrlist".(áçÈHöRMINORZ
+>>>>>>> vaibhav
 CODE_SMELL
 Š
-java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "e".(â÷ïèúÿÿÿÿHå
-RMINORZ
+java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "e".(â÷ïèúÿÿÿÿH÷RMINORZ
 CODE_SMELL
+<<<<<<< HEAD
 ‹
 java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "addrlist".(áçÈHæ
 RMINORZ
+>>>>>>> vaibhav
+=======
+	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£µþ—ûÿÿÿÿHõRMINORZ
 >>>>>>> vaibhav
 CODE_SMELL
