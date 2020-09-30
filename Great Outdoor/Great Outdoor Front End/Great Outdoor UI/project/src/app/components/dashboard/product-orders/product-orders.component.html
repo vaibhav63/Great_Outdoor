@@ -1,0 +1,98 @@
+<div class="order-details-page">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Watch" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+
+      <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>USER ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="products">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>PRODUCTS</th>
+        <td mat-cell *matCellDef="let element"> {{element.products}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalPrice">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL PRICE </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalPrice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalQuantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL QUANTITY </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalQuantity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="addressId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ADDRESS ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.addressId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dispatchDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DISPATCH DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.dispatchDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="arrivalDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ARRIVAL DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.arrivalDate}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="actions">
+        <th class="pl-3" mat-header-cell *matHeaderCellDef mat-sort-header>ACTIONS </th>
+        <td mat-cell *matCellDef="let element;">
+          <button mat-icon-button (click)="updateSchedule(element['orderId'])">
+            <mat-icon>launch</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteOrder(element['orderId'])">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+
+            <div class="update-schedule row justify-content-center text-center pb-5">
+
+              <div class="col-md-4">
+                <label>DISPATCH DATE</label>
+                <input #dDate type="date" class="form-control" (change)="date1=dDate.value"
+                  [value]="element['dispatchDate']" placeholder="mm/dd/yyyy" autocomplete="off">
+              </div>
+
+              <div class="col-md-4">
+                <label>ARRIVAL DATE</label>
+                <input #aDate type="date" class="form-control" (change)="date2=aDate.value"
+                  [value]="element['arrivalDate']" placeholder="mm/dd/yyyy" autocomplete="off">
+              </div>
+
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element;">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>

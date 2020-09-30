@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=El+Messiri:wght@500&family=Srisakdi:wght@700&display=swap');
+
+.order-details-page{
+  margin:0 2% 0 5%;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+th{
+  background-color: black;
+  color: white;
+}
+
+::ng-deep .mat-sort-header-arrow {
+  color: #fff;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+/*change color of label*/
+color: black !important;
+}
+
+::ng-deep.mat-form-field-underline {
+/*change color of underline*/
+background-color: black !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color:black !important;
+}
+
+.update-schedule{
+  width: 100%;
+  background-color:rgb(201, 157, 238) ;
+}
+
+
+.update-schedule input{
+  box-shadow: none;
+  background-color: rgb(112, 27, 182);
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight:bold;
+  border: none;
+
+}
+
+.update-schedule input::placeholder{
+  color: black;
+  
+}
+
+.update-schedule input:focus{
+ box-shadow: 5px 5px 12px 2px rgb(0, 0, 0);
+
+}
+
+.update-schedule label{
+  font-size: 25px;
+  margin-top:17px;
+  font-family: 'Aclonica', sans-serif;
+}
