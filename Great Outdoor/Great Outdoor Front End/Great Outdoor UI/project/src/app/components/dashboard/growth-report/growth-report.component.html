@@ -1,0 +1,56 @@
+<div class="growth-report-table">
+  <mat-form-field>
+    <mat-label style="color: black;">Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Red" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+
+      <ng-container matColumnDef="growthReportId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> GROWTH REPORT ID </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.growthReportId}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="currentDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CURRENT DATE </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.currentDate}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="revenue">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> REVENUE </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.revenue}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amountChange">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> AMOUNT CHANGE </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.amountChange}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="percentageGrowth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> GROWTH(%) </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.percentageGrowth}}% </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="colorCode">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> COLOR CODE </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.colorCode}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>
