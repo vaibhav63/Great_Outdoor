@@ -43,8 +43,7 @@
  align-self: center;
  }
 
-/* in parent 
-display:table;
-in child 
-display:table-cell;
-vertical-align:middle */
+ .card a:hover{
+    color: rgb(255, 196, 0);
+ }
+

@@ -1,1 +1,61 @@
-<p>cart works!</p>
+<div class="cart-page">
+
+    <h1 class=" m-3 font-weight-bold" style="font-family: 'Aclonica';">Shopping Cart</h1>
+    <div class=" d-flex">
+
+
+        <div class="cart-list col-md-9">
+
+            <ul class="list-group" *ngFor="let item of cartService.cartItems;let i = index">
+                <li class="list-group-item">
+                    <div class="row">
+
+                        <div class="col-md-3 text-center">
+                            <img width="150px" height="200px" [src]="item.productImg">
+                        </div>
+
+                        <div class="col-md-4 description mt-3">
+                            <h1 class="text-primary">{{item.productName}}</h1>
+                            <p class="text-success">In Stock</p>
+                            <p>Eligible for FREE Shipping</p>
+                            <span class="badge badge-pill badge-dark">Fulfilled</span><br>
+                            <button mat-flat-button style="margin-left:-13px;"
+                                (click)=cartService.deleteItem(i)>Delete</button>
+                            <span class="divider"></span>
+                            <button mat-flat-button>Save for later</button>
+                            <span class="divider"></span>
+                            <button mat-flat-button>See more like this</button>
+
+                        </div>
+
+                        <div class="col-md-4 text-right mt-3">
+                            <h3>{{item.cartItemPrice}}Rs.</h3>
+                            <p style="margin-top: 35%;margin-left:10%">Quantity({{item.quantity}})</p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+            <h2 class="float-right">Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}}Rs</h2>
+        </div>
+
+        <div class="payment-details col-md-3" style="margin-left: -15px;">
+
+            <ul class="list-group">
+
+                <li class="list-group-item text-center">
+
+                    <h3 class="text-success">Your order is eligible for FREE Delivery.</h3>
+
+                </li>
+                <li class="list-group-item text-center" style="background-color:rgba(0, 0, 0, 0.089);">
+                    <h1>Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}}Rs.</h1>
+                    <button class="mt-2 w-75 create-button" mat-raised-button (click)="onPay()">Proceed to Buy</button>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+</div>

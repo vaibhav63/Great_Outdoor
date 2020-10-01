@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrderService } from 'src/app/service/order.service';
-import { ProductData } from '../product/product.component';
+import { ProductData } from '../product-management/product-management.component';
 
 @Component({
   selector: 'app-product-orders',

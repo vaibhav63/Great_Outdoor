@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CartService } from 'src/app/service/cart.service';
+import { PaymentGatewayComponent } from '../payment-gateway/payment-gateway.component';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(public cartService: CartService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+
+    this.cartService.subTotal = this.cartService.findSubTotal();
+    this.cartService.totalQuantity = this.cartService.findTotalQuantity();
+  };
+
+  onPay() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.backdropClass = 'backdropBackground';
+    dialogConfig.panelClass = 'custom-dialog-container';
+    dialogConfig.data = { amount: this.cartService.subTotal, quantity: this.cartService.totalQuantity };
+    this.dialog.open(PaymentGatewayComponent, dialogConfig);
   }
 
+
+
+
+}
+
+export interface CartDetails {
+  cartId: number;
+  userId: string;
+  productId: string;
+  cartItemPrice: number;
+  quantity: number;
 }

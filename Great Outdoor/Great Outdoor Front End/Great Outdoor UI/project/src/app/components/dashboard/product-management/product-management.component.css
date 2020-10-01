@@ -1,9 +1,9 @@
-  table {
+table {
     width: 100%;
   }
 
   .products-table{
-    margin:0 2% 0 5%;
+    margin:5% 2% 0 5%;
   }
   
   .mat-form-field {
