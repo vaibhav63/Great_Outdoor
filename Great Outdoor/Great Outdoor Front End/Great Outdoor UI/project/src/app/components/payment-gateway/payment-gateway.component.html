@@ -1,0 +1,69 @@
+<div class="payment-page mx-5">
+    <div class="d-flex">
+
+        <div class="card col-md-6 ">
+
+            <div class="card-header">
+                <h1><strong>PAY INVOICE</strong></h1>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="p-2 bd-highlight"><img src="assets/images/visa.png" style="height:60px;width:6z0px" alt="">
+                </div>
+                <div class="p-2 bd-highlight"><img src="assets/images/mastercard.png" style="height:60px;width:6z0px"
+                        alt=""></div>
+                <div class="p-2 bd-highlight"><img src="assets/images/paytm.png" style="height:60px;width:6z0px" alt="">
+                </div>
+                <div class="p-2 bd-highlight"><img src="assets/images/rupay.png" style="height:60px;width:6z0px" alt="">
+                </div>
+            </div>
+
+            <div class=" text-center mt-2">
+                <h1 class="text-success">Pay Rs{{payAmount}}</h1>
+                <h3>Transaction Id : XXXXXXXXXX</h3>
+            </div>
+            <form class="paymentForm text-center" [formGroup]="">
+
+                <div class="row">
+                    <span>Card Number</span>
+                    <input type="number" placeholder="XXXX XXXX XXXX XXXX" disabled>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <span>Expire Date</span>
+                        <input type="date" placeholder="Date" disabled>
+                    </div>
+
+                    <div class="col">
+                        <span>CVV</span>
+                        <input type="password" placeholder="123" disabled>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <span>Card Holder</span>
+                    <input type="text" placeholder="Vaibhav Bisht" disabled>
+                </div>
+
+                <br><br>
+
+                <button class="mb-3" (click)="onSubmit()">CONFIRM PAYMENT</button>
+
+            </form>
+
+            <br>
+            <br>
+
+        </div>
+
+        <div class="paymentImage col-md-6">
+
+            <img src="assets/images/payment.png" alt="">
+
+        </div>
+
+    </div>
+
+</div>

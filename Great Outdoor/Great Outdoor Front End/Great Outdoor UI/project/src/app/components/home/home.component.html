@@ -8,7 +8,7 @@
 
         <div class="carousel-inner">
             <div class="carousel-item " *ngFor="let obj of carouselInfo;let i =index" [ngClass]="{'active' : i == 0}">
-                <img width="100%" height="657px" [src]="obj.imageURL" alt="New Slide"
+                <img width="100%" height="687px" [src]="obj.imageURL" alt="New Slide"
                     style="object-fit: cover;object-position:top;">
             </div>
         </div>
@@ -33,8 +33,10 @@
                 <ng-container *ngFor="let item of obj.items;let i=index">
                     <ng-template carouselSlide [id]="i">
                         <div class="card m-3 pt-4">
-                            <img width="100%" height="300px" [src]="item" [alt]="" [title]="">
-                            <h1 class="mt-1">SIZE : 8 , DISPLAY : WATER PROOF</h1>
+                            <img width="100%" height="300px" [src]="item.image" [alt]="" [title]="">
+                            <a role="button" (click)="goToProduct(item)">
+                                <h1 class="mt-1">Samsung S20</h1>
+                            </a>
                             <h1>PRICE = 2800 RS</h1>
                             <div class="d-flex justify-content-between text-warning">
                                 <a mat-icon-button [disableRipple]="true">

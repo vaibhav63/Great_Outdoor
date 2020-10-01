@@ -6,8 +6,8 @@
         <mat-icon>menu</mat-icon>
       </a>
       <span style="font-size:30px;">GREAT OUTDOOR</span>
-      <a mat-button routerLink="#" routerLinkActive="active">HOME</a>
-      <a mat-button routerLink="#" routerLinkActive="active">MY CART</a>
+      <a mat-button routerLink="home" routerLinkActive="active">HOME</a>
+      <a mat-button routerLink="cart" routerLinkActive="active">MY CART</a>
       <a mat-button routerLink="#" routerLinkActive="active">WISHLIST</a>
       <a mat-button routerLink="#" routerLinkActive="active" (click)="isHidden=isHidden?false:true">CATEGORIES</a>
       <span class="example-spacer"></span>
@@ -16,7 +16,7 @@
         <mat-icon>settings</mat-icon>
       </a>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button routerLink="dashboard" routerLinkActive="active" mat-menu-item>
           <mat-icon>dashboard</mat-icon>
           <span>Dashboard</span>
         </button>
@@ -52,8 +52,6 @@
       </div>
     </div>
   </nav>
-  <!-- <app-home></app-home> -->
-  <app-dashboard></app-dashboard>
 
-
+  <router-outlet></router-outlet>
 </div>

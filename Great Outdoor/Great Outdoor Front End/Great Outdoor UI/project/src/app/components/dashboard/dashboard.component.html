@@ -1,24 +1,23 @@
 <div class="example-container">
   <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav id="sidenav" #snav mode="over" (mouseenter)="snav.toggle()"
-      (mouseleave)="snav.toggle()">
+    <mat-sidenav id="sidenav" #snav mode="over" (mouseenter)="snav.toggle()" (mouseleave)="snav.toggle()">
       <mat-nav-list>
-        <a class="mt-3" mat-list-item routerLink="dashboard/product">PRODUCT<span class="example-spacer"></span>
+        <a class="mt-3" mat-list-item routerLink="manage_products">PRODUCT<span class="example-spacer"></span>
           <mat-icon>shopping_bag</mat-icon>
         </a>
-        <a class="mt-3" mat-list-item routerLink="dashboard/order">ORDERS<span class="example-spacer"></span>
+        <a class="mt-3" mat-list-item routerLink="order">ORDERS<span class="example-spacer"></span>
           <mat-icon>list_alt</mat-icon>
         </a>
-        <a class="mt-3" mat-list-item routerLink="dashboard/sales_report">SALES REPORT<span class="example-spacer"></span>
+        <a class="mt-3" mat-list-item routerLink="sales_report">SALES REPORT<span class="example-spacer"></span>
           <mat-icon>leaderboard</mat-icon>
         </a>
-        <a class="mt-3" mat-list-item routerLink="dashboard/growth_report">GROWTH REPORT<span class="example-spacer"></span>
+        <a class="mt-3" mat-list-item routerLink="growth_report">GROWTH REPORT<span class="example-spacer"></span>
           <mat-icon>trending_up</mat-icon>
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav-content >
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
