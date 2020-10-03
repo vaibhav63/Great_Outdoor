@@ -10,14 +10,6 @@ export class AppComponent {
 
   isHidden: boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  goToHome() {
-    this.router.navigate(['/']);
-  }
-
-  goToDashboard() {
-
-    this.router.navigate(['/adminPage']);
-  }
 }

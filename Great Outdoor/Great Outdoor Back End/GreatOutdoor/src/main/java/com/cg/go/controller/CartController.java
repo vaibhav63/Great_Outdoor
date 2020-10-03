@@ -39,24 +39,21 @@ public class CartController {
 	}
 
 	@PostMapping("/addToCart")
-	public ResponseEntity<CartItemEntity> addToCart(@RequestBody CartItemEntity model) throws CartException {
+	public ResponseEntity<CartItemEntity> addToCart(@RequestBody CartItemEntity entity) throws CartException {
 
-		return new ResponseEntity<>(cartService.addCart(model), HttpStatus.OK);
-
+		return new ResponseEntity<>(cartService.addCart(entity), HttpStatus.OK);
 	}
 
 	@PutMapping("/updateCart")
-	public ResponseEntity<CartItemEntity> updateCart(@RequestBody CartItemEntity model) throws CartException {
+	public ResponseEntity<CartItemEntity> updateCart(@RequestBody CartItemEntity entity) throws CartException {
 
-		return new ResponseEntity<>(cartService.updateCart(model), HttpStatus.OK);
-
+		return new ResponseEntity<>(cartService.updateCart(entity), HttpStatus.OK);
 	}
 
-	@DeleteMapping("/deleteCartItem/{productId}/{userId}")
-	public ResponseEntity<String> deleteCartItem(@PathVariable("productId") String productId,
-			@PathVariable("userId") String userId) throws CartException {
+	@DeleteMapping("/deleteCartItem/{cartId}")
+	public ResponseEntity<String> deleteCartItem(@PathVariable("cartId") Long cartId) throws CartException {
 
-		cartService.deleteCartItem(productId, userId);
+		cartService.deleteCartItem(cartId);
 		return new ResponseEntity<>("Cart Item Deleted Successfully !!", HttpStatus.OK);
 	}
 
@@ -65,7 +62,5 @@ public class CartController {
 
 		cartService.deleteCartlist(userId);
 		return new ResponseEntity<>("Cart List Is Deleted Successfully !!", HttpStatus.OK);
-
 	}
-
 }

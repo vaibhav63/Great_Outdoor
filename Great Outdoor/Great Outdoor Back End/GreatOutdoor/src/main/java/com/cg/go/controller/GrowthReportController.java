@@ -38,14 +38,14 @@ public class GrowthReportController {
 	}
 
 	@DeleteMapping("/deleteAll")
-	public ResponseEntity<String> deleteAllSalesReport() throws GrowthReportException {
+	public ResponseEntity<String> deleteAllGrowthReport() throws GrowthReportException {
 
 		growthReportService.deleteAllGrowthReport();
 		return new ResponseEntity<String>("All Growth Report Deleted Successfully !!", HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteSalesReportById(@PathVariable("id") Long id) throws GrowthReportException {
+	public ResponseEntity<String> deleteGrowthReportById(@PathVariable("id") Long id) throws GrowthReportException {
 
 		growthReportService.deleteGrowthReportById(id);
 		return new ResponseEntity<String>("Growth Report with Id:" + id + " Deleted Successfully !!", HttpStatus.OK);

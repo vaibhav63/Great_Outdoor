@@ -31,13 +31,12 @@ public class ProductController {
 		return productService.findAllProducts();
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<ProductEntity> getProductById(@PathVariable("id") String id) {
+	@GetMapping("/{userId}")
+	public ResponseEntity<ProductEntity> getProductById(@PathVariable("userId") String id) {
 
 		ResponseEntity<ProductEntity> response = null;
 		ProductEntity product = productService.findByProductId(id);
 		if (product == null) {
-
 			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			response = new ResponseEntity<>(product, HttpStatus.OK);
@@ -57,6 +56,21 @@ public class ProductController {
 		return new ResponseEntity<>(productService.filter(maxPrice), HttpStatus.OK);
 	}
 
+	@GetMapping("/category/{productCategory}")
+	public ResponseEntity<List<ProductEntity>> findProductsByCategory(
+			@PathVariable("productCategory") String productCategory) {
+
+		ResponseEntity<List<ProductEntity>> response = null;
+		List<ProductEntity> list = productService.findByProductCategory(productCategory);
+
+		if (list == null) {
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			response = new ResponseEntity<>(list, HttpStatus.OK);
+		}
+		return response;
+	}
+
 	@PostMapping()
 	public ResponseEntity<ProductEntity> addProduct(@RequestBody ProductEntity productModel) throws ProductException {
 
@@ -70,7 +84,15 @@ public class ProductController {
 		return new ResponseEntity<ProductEntity>(productService.updateProduct(productEntity), HttpStatus.OK);
 	}
 
-	@DeleteMapping("/{id}")
+	@PutMapping("/updateQuantity/{quantity}/{productId}")
+	public ResponseEntity<String> updateProductQuantity(@PathVariable("quantity") Integer quantity,
+			@PathVariable("productId") String productId) {
+
+		productService.updateProductQuantity(quantity, productId);
+		return new ResponseEntity<>("Quantity is updated !!", HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteProduct(@PathVariable(value = "id") String id) throws ProductException {
 
 		productService.deleteByProductId(id);

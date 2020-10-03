@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Cart } from 'src/app/model/cart.model';
+import { Product } from 'src/app/model/product.model';
 import { CartService } from 'src/app/service/cart.service';
-import { CartDetails } from '../cart/cart.component';
-import { ProductData } from '../dashboard/product-management/product-management.component';
 
 
 @Component({
@@ -10,24 +10,20 @@ import { ProductData } from '../dashboard/product-management/product-management.
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent{
 
-  product: ProductData;
+  product: Product;
   specificationArray = [];
   minValue: number = 1;
   maxValue: number = 10;
   quantity: number = 1;
 
-
   constructor(private dialogRef: MatDialogRef<ProductComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     public cartService: CartService) {
     this.product = data.product;
-    this.specificationArray = this.product['specification'].split(',');
-    this.maxValue = this.product.quantity;
+    this.specificationArray = this.product['productSpecification'].split(',');
+    this.maxValue = this.product.productQuantity;
   }
-
-  ngOnInit() { }
-
 
   plus() {
     if (this.quantity != this.maxValue) {
@@ -42,12 +38,9 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart() {
-
     this.dialogRef.close();
-    const cartItem: CartDetails = {
-      cartId: 1, userId: '11', productId: this.product.id,
-      cartItemPrice: this.product.price * this.quantity, quantity: this.quantity
-    };
+    const cartItem = new Cart(1, '11', this.product.productId,
+      this.product.productPrice * this.quantity, this.quantity);
     this.cartService.addToCart(cartItem);
   }
 }

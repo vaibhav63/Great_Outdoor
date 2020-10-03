@@ -2,30 +2,26 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { SalesReport } from 'src/app/model/sales-report.model';
+import { SalesReportService } from 'src/app/service/sales-report.service';
 
 @Component({
   selector: 'app-sales-report',
   templateUrl: './sales-report.component.html',
   styleUrls: ['./sales-report.component.css']
 })
-export class SalesReportComponent implements AfterViewInit {
+export class SalesReportComponent implements OnInit, AfterViewInit {
 
 
   displayedColumns: string[] = ['salesReportId', 'productId', 'productName', 'quantitySold',
     'totalSale'];
-  dataSource: MatTableDataSource<SalesReportData>;
 
+  dataSource: MatTableDataSource<SalesReport>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
-    var salesReport = [
-      { salesReportId: 1, productId: '1', productName: 'Digital', quantitySold: 10, totalSale: 12000 },
-      { salesReportId: 2, productId: '2', productName: 'T-Shirt', quantitySold: 304, totalSale: 72000 },
-      { salesReportId: 3, productId: '3', productName: 'Maggy', quantitySold: 540, totalSale: 23450 }
-    ];
-
-    this.dataSource = new MatTableDataSource(salesReport);
+  constructor(public salesReportService: SalesReportService) {
+    this.dataSource = new MatTableDataSource(salesReportService.salesReport);
   }
 
   ngAfterViewInit() {
@@ -33,21 +29,24 @@ export class SalesReportComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  ngOnInit() {
+    this.salesReportService.subject.subscribe(
+      (salesReport) => {
+        this.dataSource = new MatTableDataSource(salesReport);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-
-}
-
-export interface SalesReportData {
-  salesReportId: number;
-  productId: string;
-  productName: string;
-  quantitySold: number;
-  totalSale: number;
 }

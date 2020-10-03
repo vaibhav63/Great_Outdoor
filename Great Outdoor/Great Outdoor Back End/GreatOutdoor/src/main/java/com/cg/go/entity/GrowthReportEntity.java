@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class GrowthReportEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "g_report_id")
 	private long growthReportId;
 

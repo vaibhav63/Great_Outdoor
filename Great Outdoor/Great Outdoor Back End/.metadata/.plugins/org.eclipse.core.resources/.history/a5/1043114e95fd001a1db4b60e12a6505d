@@ -1,9 +1,0 @@
-package com.cg.go.dao;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.cg.go.entity.OrderEntity;
-
-public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
-
-}

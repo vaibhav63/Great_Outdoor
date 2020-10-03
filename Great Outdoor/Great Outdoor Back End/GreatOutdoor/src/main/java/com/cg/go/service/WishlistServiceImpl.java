@@ -17,15 +17,12 @@ public class WishlistServiceImpl implements WishlistService {
 	public WishlistItemEntity addWishlistItem(WishlistItemEntity wishlistItem) throws WishlistException {
 
 		if (wishlistItem != null) {
-
 			if (wishlistRepository.existsById(wishlistItem.getWishlistItemId())) {
-
 				throw new WishlistException("Wishlist Item Already Exists !!");
 			} else {
 				wishlistItem = wishlistRepository.save(wishlistItem);
 			}
 		}
-
 		return wishlistItem;
 	}
 
@@ -45,32 +42,27 @@ public class WishlistServiceImpl implements WishlistService {
 	public void deleteWishlistItem(String productId, String userId) throws WishlistException {
 
 		if (productId != null && userId != null) {
-
 			WishlistItemEntity wishlistItem = findWishlistItem(productId, userId);
 			if (wishlistItem != null) {
 				wishlistRepository.deleteWishlistItem(userId, productId);
 			} else {
 				throw new WishlistException("Wishlist Item Does Not Exists !!");
 			}
-
 		} else {
 			throw new WishlistException("Product Id OR User Id Is Null !!");
 		}
-
 	}
 
 	@Override
 	public void deleteWishlist(String userId) throws WishlistException {
-		if (userId != null) {
 
+		if (userId != null) {
 			List<WishlistItemEntity> wishlist = findWishlist(userId);
 			if (wishlist != null) {
-
 				wishlistRepository.deleteWishlist(userId);
 			} else {
 				throw new WishlistException("Wishlist Does Not Exists");
 			}
-
 		} else {
 			throw new WishlistException("User Id For Deletion Is Null");
 		}
@@ -81,5 +73,4 @@ public class WishlistServiceImpl implements WishlistService {
 
 		return wishlistRepository.findAll();
 	}
-
 }

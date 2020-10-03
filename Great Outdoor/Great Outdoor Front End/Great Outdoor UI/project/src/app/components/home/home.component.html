@@ -5,39 +5,34 @@
             <li data-target="#carousel" *ngFor="let obj of carouselInfo;let i = index" [attr.data-slide-to]="i"
                 ngClass="i == 0 ? 'active'"></li>
         </ul>
-
         <div class="carousel-inner">
             <div class="carousel-item " *ngFor="let obj of carouselInfo;let i =index" [ngClass]="{'active' : i == 0}">
                 <img width="100%" height="687px" [src]="obj.imageURL" alt="New Slide"
                     style="object-fit: cover;object-position:top;">
             </div>
         </div>
-
-
         <a class="carousel-control-prev" href="#carousel" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </a>
         <a class="carousel-control-next" href="#carousel" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
-
     </div>
+
     <div class="categories d-flex justify-content-center align-items-center" *ngFor="let obj of categories"
         style="background-image: linear-gradient( rgba(116, 116, 116, 0.3), rgba(116, 116, 116, 0.3)), url({{obj.imageURL}}) ">
-        <div class="mobile-section">
-
+        <div class="category-section">
             <div class="display-3 mb-3 d-inline"
                 style="color: rgb(219, 179, 0);font-weight:bold;text-shadow: 0 10px 10px black;">{{obj.category}}</div>
             <owl-carousel-o [options]="customOptions">
-
-                <ng-container *ngFor="let item of obj.items;let i=index">
+                <ng-container *ngFor="let item of service.products | productFilter:obj.category;let i=index">
                     <ng-template carouselSlide [id]="i">
                         <div class="card m-3 pt-4">
-                            <img width="100%" height="300px" [src]="item.image" [alt]="" [title]="">
+                            <img width="100%" height="300px" [src]="item.productImage" [alt]="" [title]="">
                             <a role="button" (click)="goToProduct(item)">
-                                <h1 class="mt-1">Samsung S20</h1>
+                                <h1 class="mt-1">{{item.productName}}</h1>
                             </a>
-                            <h1>PRICE = 2800 RS</h1>
+                            <h1>PRICE = {{item.productPrice}} RS</h1>
                             <div class="d-flex justify-content-between text-warning">
                                 <a mat-icon-button [disableRipple]="true">
                                     <mat-icon>favorite</mat-icon>
@@ -46,14 +41,10 @@
                                     <mat-icon>add_shopping_cart</mat-icon>
                                 </a>
                             </div>
-
                         </div>
-
                     </ng-template>
                 </ng-container>
-
             </owl-carousel-o>
         </div>
     </div>
-
 </div>

@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="com.cg.go.exception.OrderException"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
@@ -56,8 +55,9 @@
     <fullyQualifiedTypeName name="com.cg.go.model.ProductModel"/>
     <fullyQualifiedTypeName name="com.cg.go.entity.CartItemEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.entity.GrowthReportEntity"/>
-    <fullyQualifiedTypeName name="com.cg.go.entity.SalesReportEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.entity.OrderEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.entity.ProductEntity"/>
     <fullyQualifiedTypeName name="com.cg.go.entity.WishlistItemEntity"/>
+    <fullyQualifiedTypeName name="com.cg.go.entity.SalesReportEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 </qualifiedTypeNameHistroy>

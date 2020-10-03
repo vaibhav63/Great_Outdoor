@@ -1,9 +1,7 @@
 package com.cg.go.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,7 +25,7 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<OrderEntity>> getAllOrders() {
 
 		return new ResponseEntity<List<OrderEntity>>(orderService.findAllOrders(), HttpStatus.OK);
@@ -45,13 +43,11 @@ public class OrderController {
 		return new ResponseEntity<>(orderService.addOrder(entity), HttpStatus.OK);
 	}
 
-	@PutMapping("updateSchedule/{id}/{dispatchDate}/{arrivalDate}")
-	public ResponseEntity<String> updateSchedule(@PathVariable("id") Long id,
-			@PathVariable("dispatchDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dispatchDate,
-			@PathVariable("arrivalDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate arrivalDate)
+	@PutMapping("updateSchedule")
+	public ResponseEntity<String> updateSchedule(@RequestBody OrderEntity entity)
 			throws OrderException {
 
-		orderService.updateDate(id, dispatchDate, arrivalDate);
+		orderService.updateDate(entity.getId(), entity.getDispatchDate(), entity.getArrivalDate());
 		return new ResponseEntity<>("Schedule Is Updated !!", HttpStatus.OK);
 
 	}

@@ -54,7 +54,6 @@ class GreatOutdoorApplicationTests {
 		ProductEntity entity = new ProductEntity("1", "Digital", 2000.0, "Black", "Watch", 2, "Fastrack",
 				"water-proof");
 		productService.addProduct(entity);
-
 	}
 
 	@Test

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { OrderDetails } from '../components/dashboard/product-orders/product-orders.component';
+import { Cart } from '../model/cart.model';
+import { Order } from '../model/order.model';
+import { Product } from '../model/product.model';
+import { OrderCommunicationService } from './order-communication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,27 +11,20 @@ import { OrderDetails } from '../components/dashboard/product-orders/product-ord
 export class OrderService {
 
   subject = new Subject<any>();
-  orders: Array<OrderDetails> = [];
+  orders: Array<Order> = [];
+  arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-  constructor() {
+  constructor(private orderCommunication: OrderCommunicationService) {
 
-    this.orders = [
-      {
-        id: 1, orderId: 'ASD577DKN8', userId: '1', products: 'Hat(2),Shirt(3)',
-        totalPrice: 23400, totalQuantity: 5, addressId: '11', dispatchDate: '2020-09-21',
-        arrivalDate: '2020-09-25'
+    orderCommunication.getAllOrders().subscribe(
+      (orders) => {
+        this.orders = orders;
+        this.subject.next(orders);
       },
-      {
-        id: 2, orderId: 'JJB876BK7', userId: '2', products: 'Maggy(5),Coke(3)',
-        totalPrice: 1200, totalQuantity: 8, addressId: '12', dispatchDate: '2020-11-02',
-        arrivalDate: '2020-11-04'
-      },
-      {
-        id: 3, orderId: 'GLLH78HL8', userId: '3', products: 'Bat(1),Muffler(2)',
-        totalPrice: 600, totalQuantity: 3, addressId: '13', dispatchDate: '2020-02-12',
-        arrivalDate: '2020-02-17'
-      }
-    ];
+      (error) => {
+        console.log(error);
+      });
   }
 
 
@@ -36,12 +32,54 @@ export class OrderService {
 
     this.orders[index].dispatchDate = dispatchDate;
     this.orders[index].arrivalDate = arrivalDate;
+    this.orderCommunication.updateOrderSchedule(this.orders[index]).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
     this.subject.next(this.orders);
   }
 
   deleteOrder(index: number) {
 
+    this.orderCommunication.removeOrderById(this.orders[index].id).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
     this.orders.splice(index, 1);
     this.subject.next(this.orders);
+  }
+
+  addOrder(userId: string, products: string, totalPrice: number, totalQuantity: number) {
+
+    var date1 = new Date();
+    var date2 = new Date();
+    date2.setDate(date2.getDate() + 3);
+    var orderId = this.randomStr(15);
+    const order = new Order(1, orderId, userId, products, totalPrice, totalQuantity, "001",
+      date1.toISOString().substring(0, 10), date2.toISOString().substring(0, 10));
+    this.orderCommunication.addOrder(order).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
+    this.orders.push(order);
+    this.subject.next(this.orders);
+  }
+
+  randomStr(len) {
+    var ans = '';
+    for (var i = len; i > 0; i--) {
+      ans +=
+        this.arr[Math.floor(Math.random() * this.arr.length)];
+    }
+    return ans;
   }
 }

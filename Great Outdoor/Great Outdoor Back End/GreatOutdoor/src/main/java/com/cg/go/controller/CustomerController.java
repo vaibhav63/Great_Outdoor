@@ -42,7 +42,6 @@ public class CustomerController {
 	private ResponseEntity<List<Customer>> getAlladdress() {
 		List<Customer> addrlist = serviceobj.getAlladdress();
 		return new ResponseEntity<List<Customer>>(addrlist, new HttpHeaders(), HttpStatus.OK);
-
 	}
 
 	// Updating address
