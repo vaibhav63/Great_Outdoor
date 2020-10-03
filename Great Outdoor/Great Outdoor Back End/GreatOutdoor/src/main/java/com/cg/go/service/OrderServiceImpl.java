@@ -30,7 +30,6 @@ public class OrderServiceImpl implements OrderService {
 	public OrderEntity addOrder(OrderEntity orderEntity) throws OrderException {
 
 		if (orderEntity != null) {
-
 			if (orderRepository.existsById(orderEntity.getId())) {
 				throw new OrderException("Order Already Exists !!");
 			} else {
@@ -48,26 +47,21 @@ public class OrderServiceImpl implements OrderService {
 		} else {
 			throw new OrderException("No Order To Delete From Order List !!");
 		}
-
 	}
 
 	@Override
 	public void deleteOrderById(Long id) throws OrderException {
 
 		if (id != null) {
-
 			OrderEntity entity = orderRepository.findById(id).orElse(null);
 			if (entity != null) {
-
 				orderRepository.deleteById(id);
-
 			} else {
 				throw new OrderException("Order Does Not Exists");
 			}
 		} else {
 			throw new OrderException("Order Id for Deletion is null");
 		}
-
 	}
 
 	@Override
@@ -80,10 +74,7 @@ public class OrderServiceImpl implements OrderService {
 				orderRepository.updateDate(id, dispatchDate, arrivalDate);
 			}
 		} else {
-
 			throw new OrderException("Any Parameter To update Scheduled Date Is Missing !!");
 		}
-
 	}
-
 }

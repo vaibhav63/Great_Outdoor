@@ -15,25 +15,24 @@ public class SalesReportSerivceImpl implements SalesReportService {
 
 	@Override
 	public List<SalesReportEntity> findAllSalesReport() {
+		
 		return salesReportRepository.findAll();
-
 	}
 
 	@Override
 	public void updateProductReport(SalesReportEntity salesReportEntity) {
-
+		
 		if (salesReportEntity != null) {
-
 			if (salesReportRepository.existsByProductId(salesReportEntity.getProductId())) {
+				SalesReportEntity tempEntity=findSalesReportByProductId(salesReportEntity.getProductId());
 				salesReportRepository.updateProductReport(salesReportEntity.getProductId(),
-						salesReportEntity.getQuantitySold(), salesReportEntity.getTotalSale());
+						salesReportEntity.getQuantitySold()+tempEntity.getQuantitySold(),
+						salesReportEntity.getTotalSale()+tempEntity.getTotalSale());
 
 			} else {
 				salesReportRepository.save(salesReportEntity);
 			}
-
 		}
-
 	}
 
 	@Override
@@ -44,7 +43,6 @@ public class SalesReportSerivceImpl implements SalesReportService {
 		} else {
 			throw new SalesReportException("Nothing To Delete In Sales Report !!");
 		}
-
 	}
 
 	@Override
@@ -52,17 +50,13 @@ public class SalesReportSerivceImpl implements SalesReportService {
 
 		if (salesReportId != null) {
 			if (salesReportRepository.existsById(salesReportId)) {
-
 				salesReportRepository.deleteById(salesReportId);
-
 			} else {
 				throw new SalesReportException("Sales Report Id Does Not Exists !!");
 			}
-
 		} else {
 			throw new SalesReportException("Sales Report Id Is Null !!");
 		}
-
 	}
 
 	@Override
@@ -70,5 +64,4 @@ public class SalesReportSerivceImpl implements SalesReportService {
 
 		return salesReportRepository.findByProductId(productId);
 	}
-
 }

@@ -2,7 +2,10 @@ package com.cg.go.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -10,8 +13,6 @@ import com.cg.go.entity.ProductEntity;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, String> {
-
-	List<ProductEntity> findAllByProductName(String productName);
 
 	List<ProductEntity> findAllByProductCategory(String productCategory);
 
@@ -22,4 +23,9 @@ public interface ProductRepository extends JpaRepository<ProductEntity, String> 
 
 	@Query("FROM ProductEntity p WHERE p.productPrice BETWEEN 50 AND ?1")
 	List<ProductEntity> filter(double maxPrice);
+
+	@Modifying
+	@Transactional
+	@Query("update ProductEntity p set p.productQuantity=?1  WHERE p.productId=?2")
+    void updateQuantity(Integer quantity,String productId);
 }

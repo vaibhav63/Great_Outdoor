@@ -23,7 +23,6 @@ public class ControllerAdvice {
 
 	@ExceptionHandler(ProductException.class)
 	public ResponseEntity<String> productExceptionHandler(ProductException exception) {
-
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 	}
 

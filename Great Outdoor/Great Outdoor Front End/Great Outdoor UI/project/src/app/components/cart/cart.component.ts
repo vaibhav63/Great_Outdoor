@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CartService } from 'src/app/service/cart.service';
+import { OrderService } from 'src/app/service/order.service';
 import { PaymentGatewayComponent } from '../payment-gateway/payment-gateway.component';
 
 @Component({
@@ -19,7 +20,7 @@ export class CartComponent implements OnInit {
     this.cartService.totalQuantity = this.cartService.findTotalQuantity();
   };
 
-  onPay() {
+  onProceedToPay() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -30,15 +31,4 @@ export class CartComponent implements OnInit {
     this.dialog.open(PaymentGatewayComponent, dialogConfig);
   }
 
-
-
-
-}
-
-export interface CartDetails {
-  cartId: number;
-  userId: string;
-  productId: string;
-  cartItemPrice: number;
-  quantity: number;
 }

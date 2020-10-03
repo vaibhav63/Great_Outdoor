@@ -13,6 +13,7 @@ import com.cg.go.entity.Customer;
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
+	
 	@Autowired
 	CustomerDaoImpl dao;
 
@@ -22,7 +23,6 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-
 	public List<Customer> getAlladdress() {
 		return dao.getAlladdress();
 	}

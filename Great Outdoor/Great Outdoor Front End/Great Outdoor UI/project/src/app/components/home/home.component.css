@@ -18,13 +18,14 @@
    height: 795px;
 
 }
-.mobile-section{
+
+.category-section{
 
    height: 600px;
    width: 85%;
 }
 
-.mobile-section .card{
+.category-section .card{
    height: 440px;
    background-color: rgba(0, 0, 0, 0.7);
    border: 2px solid black;
@@ -32,13 +33,13 @@
    color: white;
 }
 
-.mobile-section .card h1{
+.category-section .card h1{
   margin:0; 
   text-align: center;
   font-size: 15px;
 }
 
-.mobile-section .card img{
+.category-section .card img{
  width:200px;
  align-self: center;
  }

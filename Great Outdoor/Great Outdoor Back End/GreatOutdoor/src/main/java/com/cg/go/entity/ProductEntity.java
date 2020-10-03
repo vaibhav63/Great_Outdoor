@@ -19,6 +19,9 @@ public class ProductEntity {
 	@Column(name = "p_price", nullable = false)
 	private Double productPrice;
 
+	@Column(name = "p_image", nullable = false)
+	private String productImage;
+
 	@Column(name = "p_color", nullable = false)
 	private String productColor;
 
@@ -112,6 +115,14 @@ public class ProductEntity {
 
 	public void setProductManufacturer(String productManufacturer) {
 		this.productManufacturer = productManufacturer;
+	}
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 
 }

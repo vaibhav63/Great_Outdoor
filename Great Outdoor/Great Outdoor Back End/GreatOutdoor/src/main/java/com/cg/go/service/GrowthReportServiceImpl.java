@@ -33,11 +33,8 @@ public class GrowthReportServiceImpl implements GrowthReportService {
 		double percentageGrowth = 0;
 		GrowthReportEntity newEntity = null;
 		GrowthReportEntity oldEntity = growthReportRepository.getLastGrowthReport();
-
 		if (oldEntity != null) {
-
 			if (LocalDate.now().isAfter(oldEntity.getCurrentdate().plusDays(1))) {
-
 				newEntity = new GrowthReportEntity();
 				newEntity.setGrowthReportId(0);
 				newEntity.setCurrentdate(LocalDate.now().minusDays(1));
@@ -58,13 +55,9 @@ public class GrowthReportServiceImpl implements GrowthReportService {
 				} else {
 					newEntity.setColorCode("Red");
 				}
-
 				growthReportRepository.save(newEntity);
-
 			}
-
 		} else {
-
 			newEntity = new GrowthReportEntity();
 			newEntity.setGrowthReportId(0);
 			newEntity.setCurrentdate(LocalDate.now().minusDays(1));
@@ -72,10 +65,8 @@ public class GrowthReportServiceImpl implements GrowthReportService {
 			newEntity.setAmountChange(0);
 			newEntity.setPercentageGrowth(0);
 			newEntity.setColorCode("Red");
-
 			growthReportRepository.save(newEntity);
 		}
-
 	}
 
 	@Override
@@ -86,7 +77,6 @@ public class GrowthReportServiceImpl implements GrowthReportService {
 		} else {
 			throw new GrowthReportException("Nothing To Delete In Growth Report !!");
 		}
-
 	}
 
 	@Override
@@ -94,17 +84,12 @@ public class GrowthReportServiceImpl implements GrowthReportService {
 
 		if (growthReportId != null) {
 			if (growthReportRepository.existsById(growthReportId)) {
-
 				growthReportRepository.deleteById(growthReportId);
-
 			} else {
 				throw new GrowthReportException("Growth Report Id Does Not Exists !!");
 			}
-
 		} else {
 			throw new GrowthReportException("Growth Report Id Is Null !!");
 		}
-
 	}
-
 }

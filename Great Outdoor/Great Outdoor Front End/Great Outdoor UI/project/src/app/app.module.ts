@@ -12,7 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SalesReportComponent } from './components/dashboard/sales-report/sales-report.component';
 import { GrowthReportComponent } from './components/dashboard/growth-report/growth-report.component';
 import { EditProductComponent } from './components/dashboard/edit-product/edit-product.component';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ProductOrdersComponent } from './components/dashboard/product-orders/product-orders.component';
 import { ProductService } from './service/product.service';
 import { OrderService } from './service/order.service';
@@ -20,6 +20,15 @@ import { CartService } from './service/cart.service';
 import { ProductManagementComponent } from './components/dashboard/product-management/product-management.component';
 import { ProductComponent } from './components/product/product.component';
 import { PaymentGatewayComponent } from './components/payment-gateway/payment-gateway.component';
+import { ProductCommunicationService } from './service/product-communication.service';
+import { OrderCommunicationService } from './service/order-communication.service';
+import { CartCommunicationService } from './service/cart-communication.service';
+import { GrowthReportCommunicationService } from './service/growth-report-communication.service';
+import { SalesReportCommunicationService } from './service/sales-report-communication.service';
+import { HttpClientModule } from '@angular/common/http';
+import { SalesReportService } from './service/sales-report.service';
+import { GrowthReportService } from './service/growth-report.service';
+import { ProductFilterPipe } from './pipe/product-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +42,9 @@ import { PaymentGatewayComponent } from './components/payment-gateway/payment-ga
     ProductOrdersComponent,
     ProductManagementComponent,
     ProductComponent,
-    PaymentGatewayComponent
+    PaymentGatewayComponent,
+    ProductFilterPipe
+
   ],
   imports: [
     BrowserModule,
@@ -41,10 +52,14 @@ import { PaymentGatewayComponent } from './components/payment-gateway/payment-ga
     BrowserAnimationsModule,
     MaterialModule,
     CarouselModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ProductService,OrderService,CartService],
+  providers: [ProductService, OrderService, CartService, ProductCommunicationService,
+    CartCommunicationService, GrowthReportCommunicationService,
+    OrderCommunicationService, SalesReportCommunicationService,
+    SalesReportService, GrowthReportService],
   bootstrap: [AppComponent],
-  entryComponents:[EditProductComponent,ProductComponent,PaymentGatewayComponent]
+  entryComponents: [EditProductComponent, ProductComponent, PaymentGatewayComponent]
 })
 export class AppModule { }

@@ -10,13 +10,13 @@ public interface ProductService {
 
 	ProductEntity findByProductId(String id);
 
-	List<ProductEntity> findByProductName(String productName);
-
 	List<ProductEntity> findByProductCategory(String productCategory);
 
 	ProductEntity addProduct(ProductEntity productEntity) throws ProductException;
 
 	ProductEntity updateProduct(ProductEntity productEntity) throws ProductException;
+
+	void updateProductQuantity(Integer quantity,String productId);
 
 	void deleteByProductId(String id) throws ProductException;
 

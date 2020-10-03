@@ -25,11 +25,6 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findById(id).orElse(null);
 	}
 
-	@Override
-	public List<ProductEntity> findByProductName(String productName) {
-
-		return productRepository.findAllByProductName(productName);
-	}
 
 	@Override
 	public List<ProductEntity> findByProductCategory(String productCategory) {
@@ -48,7 +43,6 @@ public class ProductServiceImpl implements ProductService {
 			}
 		}
 		return productEntity;
-
 	}
 
 	@Override
@@ -64,23 +58,25 @@ public class ProductServiceImpl implements ProductService {
 		return productEntity;
 	}
 
+    @Override
+	public void updateProductQuantity(Integer quantity,String productId){
+
+		 productRepository.updateQuantity(quantity, productId);
+	}
+
 	@Override
 	public void deleteByProductId(String id) throws ProductException {
 
 		if (id != null) {
-
 			ProductEntity entity = productRepository.findById(id).orElse(null);
 			if (entity != null) {
-
 				productRepository.deleteById(id);
-
 			} else {
 				throw new ProductException("Product Does Not Exists");
 			}
 		} else {
 			throw new ProductException("Product Id for Deletion is null");
 		}
-
 	}
 
 	@Override

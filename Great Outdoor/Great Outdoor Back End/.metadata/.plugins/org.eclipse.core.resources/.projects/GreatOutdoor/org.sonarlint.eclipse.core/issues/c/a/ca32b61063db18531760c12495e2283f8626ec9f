@@ -20,10 +20,14 @@ java:S2293H"YReplace the type specification in this constructor call with the d
 >>>>>>> vaibhav
 =======
 ~
-java:S4684="@Replace this persistent entity with a simple POJO or DTO object.(±ÙÒ§ûÿÿÿÿ8æ–Þ³Ì.HÒRCRITICALZVULNERABILITY
+java:S4684K"@Replace this persistent entity with a simple POJO or DTO object.(±ÙÒ§ûÿÿÿÿ8æ–Þ³Ì.H¯RCRITICALZVULNERABILITY
 ~
-java:S4684C"@Replace this persistent entity with a simple POJO or DTO object.(ÎÝ‘ñýÿÿÿÿ8æ–Þ³Ì.HÓRCRITICALZVULNERABILITY
+java:S4684Q"@Replace this persistent entity with a simple POJO or DTO object.(ÎÝ‘ñýÿÿÿÿ8æ–Þ³Ì.H°RCRITICALZVULNERABILITY
 Œ
+<<<<<<< HEAD
 java:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(”…žù8æ–Þ³Ì.HÔRMINORZ
+>>>>>>> vaibhav
+=======
+java:S2293T"YReplace the type specification in this constructor call with the diamond operator ("<>").(”…žù8æ–Þ³Ì.H±RMINORZ
 >>>>>>> vaibhav
 CODE_SMELL

@@ -1,25 +1,23 @@
 <div class="product-page row p-5 ">
 
     <div class="product-image  col-md-6 text-center align-self-center ">
-
-        <img width="400px" height="500px" [src]="product.image">
+        <img width="400px" height="500px" [src]="product.productImage">
     </div>
-
 
     <div class=" ml-4 product-details col-md-5 align-self-center">
 
-        <h1 style="font-family: 'Aclonica', sans-serif;font-size:50px;">{{product['name']}}</h1>
-        <p style="font-size: 20px;color: rgb(243, 189, 11);" class="font-weight-bold mb-5">#{{product['manufacturer']}}
-            #{{product['category']}} #{{product['color']}}</p>
+        <h1 style="font-family: 'Aclonica', sans-serif;font-size:50px;">{{product['productName']}}</h1>
+        <p style="font-size: 20px;color: rgb(243, 189, 11);" class="font-weight-bold mb-5">
+            #{{product['productManufacturer']}}
+            #{{product['productCategory']}} #{{product['productColor']}}</p>
         <h3 class="font-weight-bold">SPECIFICATIONS:</h3>
         <div class="ml-2" *ngFor="let spec of specificationArray">
             <p>- {{spec}}</p>
         </div>
-        <p><b>Quantity: </b> Hurry Up!! Only {{product['quantity']}} items are <span style="color: red;">LEFT.</span>
+        <p><b>Quantity: </b> Hurry Up!! Only {{product['productQuantity']}} items are <span
+                style="color: red;">LEFT.</span>
         </p>
-        <h2 style="color: rgb(243, 189, 11);">{{product['price']}} Rs.</h2>
-
-
+        <h2 style="color: rgb(243, 189, 11);">{{product['productPrice']}} Rs.</h2>
         <p>Qty:</p>
         <div style="margin-top: -15px;margin-left: -37px;">
             <button mat-icon-button [disableRipple]="true" (click)="minus()">
@@ -30,12 +28,8 @@
                 <mat-icon>add_circle</mat-icon>
             </button>
         </div>
-
-
         <button class="mt-5 create-button" mat-raised-button (click)="addToCart()" routerLink="cart">ADD TO
             CART</button>
 
-
     </div>
-
 </div>

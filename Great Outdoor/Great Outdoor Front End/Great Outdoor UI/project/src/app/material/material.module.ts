@@ -11,16 +11,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDialogModule} from '@angular/material/dialog'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+
 const MaterialComponents = [MatListModule, MatButtonModule, MatIconModule,
   MatToolbarModule, MatMenuModule, MatSidenavModule, MatCardModule,
   MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule,
-  MatSortModule,MatSnackBarModule,MatNativeDateModule,MatDatepickerModule,
-  MatGridListModule,MatDialogModule];
+  MatSortModule, MatSnackBarModule, MatNativeDateModule, MatDatepickerModule,
+  MatGridListModule, MatDialogModule, MatSelectModule];
 
 @NgModule({
   imports: [MaterialComponents], exports: [MaterialComponents]

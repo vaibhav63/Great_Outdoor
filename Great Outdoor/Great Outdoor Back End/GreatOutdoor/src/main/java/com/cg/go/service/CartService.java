@@ -15,7 +15,7 @@ public interface CartService {
 
 	CartItemEntity updateCart(CartItemEntity cartItemEntity) throws CartException;
 
-	void deleteCartItem(String productId, String userId) throws CartException;
+	void deleteCartItem(Long cartId) throws CartException;
 
 	void deleteCartlist(String userId) throws CartException;
 

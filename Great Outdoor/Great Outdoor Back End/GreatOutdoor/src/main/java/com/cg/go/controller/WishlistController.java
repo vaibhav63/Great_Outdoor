@@ -49,7 +49,6 @@ public class WishlistController {
 			throws WishlistException {
 
 		return new ResponseEntity<>(wishlistService.addWishlistItem(entity), HttpStatus.OK);
-
 	}
 
 	@DeleteMapping("/deleteWishlistItem/{productId}/{userId}")
@@ -65,7 +64,6 @@ public class WishlistController {
 
 		wishlistService.deleteWishlist(userId);
 		return new ResponseEntity<>("Deleted Wishlist !!", HttpStatus.OK);
-
 	}
 
 }

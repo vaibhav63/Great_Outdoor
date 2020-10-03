@@ -21,7 +21,6 @@ export class EditProductComponent implements OnInit {
   onSubmit() {
     this.productService.saveProduct();
     this.onClose();
-
   }
 
   onClose() {

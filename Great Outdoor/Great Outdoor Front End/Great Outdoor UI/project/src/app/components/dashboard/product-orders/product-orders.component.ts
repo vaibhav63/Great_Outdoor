@@ -4,8 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Order } from 'src/app/model/order.model';
+import { Product } from 'src/app/model/product.model';
 import { OrderService } from 'src/app/service/order.service';
-import { ProductData } from '../product-management/product-management.component';
 
 @Component({
   selector: 'app-product-orders',
@@ -19,45 +20,49 @@ import { ProductData } from '../product-management/product-management.component'
     ]),
   ]
 })
-export class ProductOrdersComponent implements OnInit {
+export class ProductOrdersComponent implements OnInit, AfterViewInit {
 
   columnsToDisplay: string[] = ['orderId', 'userId', 'products', 'totalPrice',
     'totalQuantity', 'addressId', 'dispatchDate', 'arrivalDate', 'actions'];
 
   date1: string;
   date2: string;
-
-  expandedElement: ProductData | null;
-  dataSource: MatTableDataSource<OrderDetails>;
-
+  //Yet to understand
+  expandedElement: Product | null;
+  dataSource: MatTableDataSource<Order>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private dialog: MatDialog, public orderService: OrderService) {
-
-
     this.dataSource = new MatTableDataSource(orderService.orders);
+  }
+
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   ngOnInit() {
     this.orderService.subject.subscribe(
       (orders) => {
         this.dataSource = new MatTableDataSource(orders);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     )
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
 
+  //need to check
   updateSchedule(orderId) {
     let index = this.orderService.orders.findIndex(x => x.orderId === orderId);
     if (this.date1 == null) {
@@ -66,13 +71,10 @@ export class ProductOrdersComponent implements OnInit {
     if (this.date2 == null) {
       this.date2 = this.orderService.orders[index].arrivalDate;
     }
-
     this.orderService.updateSchedule(index, this.date1, this.date2);
-
   }
 
   deleteOrder(orderId) {
-
     let index = this.orderService.orders.findIndex(x => x.orderId === orderId);
     this.orderService.deleteOrder(index);
   }
@@ -80,17 +82,6 @@ export class ProductOrdersComponent implements OnInit {
 }
 
 
-export interface OrderDetails {
-  id: number;
-  orderId: string;
-  userId: string;
-  products: string;
-  totalPrice: number;
-  totalQuantity: number,
-  addressId: string,
-  dispatchDate: string,
-  arrivalDate: string
-}
 
 
 

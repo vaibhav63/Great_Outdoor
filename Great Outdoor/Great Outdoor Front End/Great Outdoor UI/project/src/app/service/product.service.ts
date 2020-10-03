@@ -1,7 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { ProductData } from '../components/dashboard/product-management/product-management.component';
+import { Product } from '../model/product.model';
+import { ProductCommunicationService } from './product-communication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,40 +11,30 @@ export class ProductService {
 
   subject = new Subject<any>();
   tempIndex: number = -1;
-  products: Array<ProductData> = [];
-  constructor(public fb: FormBuilder) {
-    this.products = [{
-      id: '1', name: 'IPhone', price: 120, color: 'Black', category: 'Mobile',
-      quantity: 20, manufacturer: 'Apple', specification: 'Dual Camera,Liquid Retina,6.1 inch Display',
-      image: "/assets/images/iphone.png"
-    },
-    {
-      id: '2', name: 'One Plus Nord', price: 300, color: 'Golden', category: 'Mobile',
-      quantity: 2, manufacturer: 'One Plus', specification: 'Dual Camera,Liquid Retina,6.1 inch Display',
-      image: "/assets/images/one_plus.png"
-    },
-    {
-      id: '3', name: 'Oppo F17 Pro', price: 3440, color: 'Red', category: 'Mobile',
-      quantity: 5, manufacturer: 'Guangdong Oppo', specification: 'Dual Camera,Liquid Retina,6.1 inch Display',
-      image: "/assets/images/oppo.png"
-    },
-    {
-      id: '4', name: 'Samsung S20', price: 2140, color: 'White', category: 'Mobile',
-      quantity: 15, manufacturer: 'Samsung', specification: 'Dual Camera,Liquid Retina,6.1 inch Display',
-      image: "/assets/images/samsung.png"
-    }];
+  products: Array<Product> = [];
+
+  constructor(public fb: FormBuilder, private productCommunication: ProductCommunicationService) {
+
+    productCommunication.getProducts().subscribe(
+      (products) => {
+        this.products = products;
+        this.subject.next(products);
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   formGroup: FormGroup = this.fb.group({
-    id: ['', Validators.required],
-    name: ['', Validators.required],
-    image: ['', Validators.required],
-    price: ['', Validators.required],
-    color: ['', Validators.required],
-    category: ['', Validators.required],
-    quantity: ['', Validators.required],
-    manufacturer: ['', Validators.required],
-    specification: ['', Validators.required],
+    productId: ['', Validators.required],
+    productName: ['', Validators.required],
+    productImage: ['', Validators.required],
+    productPrice: ['', Validators.required],
+    productColor: ['', Validators.required],
+    productCategory: ['', Validators.required],
+    productQuantity: ['', Validators.required],
+    productManufacturer: ['', Validators.required],
+    productSpecification: ['', Validators.required],
   });
 
   initializeFormGroup(index: number) {
@@ -51,38 +42,86 @@ export class ProductService {
     this.tempIndex = index;
     if (this.products[index] != null) {
       this.formGroup.setValue({
-        id: this.products[index].id,
-        name: this.products[index].name,
-        image: this.products[index].image,
-        price: this.products[index].price,
-        color: this.products[index].color,
-        category: this.products[index].category,
-        quantity: this.products[index].quantity,
-        manufacturer: this.products[index].manufacturer,
-        specification: this.products[index].specification
+        productId: this.products[index].productId,
+        productName: this.products[index].productName,
+        productImage: this.products[index].productImage,
+        productPrice: this.products[index].productPrice,
+        productColor: this.products[index].productColor,
+        productCategory: this.products[index].productCategory,
+        productQuantity: this.products[index].productQuantity,
+        productManufacturer: this.products[index].productManufacturer,
+        productSpecification: this.products[index].productSpecification
       });
     } else {
       this.formGroup.reset();
     }
-
   }
 
   saveProduct() {
 
-
     if (this.tempIndex != -1) {
+      console.log(this.formGroup.value);
       this.products[this.tempIndex] = this.formGroup.value;
+      console.log(this.products[this.tempIndex]);
+      this.productCommunication.updateProduct(this.formGroup.value).subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        });
     } else {
       this.products.push(this.formGroup.value);
+      this.productCommunication.addProduct(this.formGroup.value).subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        });
     }
-
     this.subject.next(this.products);
   }
 
+  updateProductQuantity(quantity: number, productId: string) {
+    this.productCommunication.updateProductQuantity(quantity, productId).subscribe(
+      (product) => {
+        console.log(product);
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
+  // splice will return deleted elements I'm taking first element of that array
 
   deleteProduct(index: number) {
-    this.products.splice(index, 1);
+    const product = this.products.splice(index, 1);
+    this.productCommunication.deleteProduct(product[0].productId).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
     this.subject.next(this.products);
   }
 
+
+
+  //Not used Yet
+  getProductById(productId) {
+
+    this.productCommunication.getProductById(productId).subscribe(
+      (product) => {
+        console.log(product);
+      });
+  }
+
+
+  getProductsByCategory(category: string) {
+
+    console.log(this.products);
+    console.log(this.products.filter(product =>
+      product.productCategory.toLowerCase().indexOf(category.toLowerCase()) !== -1));
+  }
 }

@@ -28,5 +28,9 @@ CODE_SMELL
 =======
 
 ~
+<<<<<<< HEAD
 java:S46840"@Replace this persistent entity with a simple POJO or DTO object.(í¯›¡ýÿÿÿÿ8ÍÌ‡´Ì.H¤RCRITICALZVULNERABILITY
+>>>>>>> vaibhav
+=======
+java:S46840"@Replace this persistent entity with a simple POJO or DTO object.(í¯›¡ýÿÿÿÿ8ÍÌ‡´Ì.HÈRCRITICALZVULNERABILITY
 >>>>>>> vaibhav

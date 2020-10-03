@@ -37,7 +37,6 @@ public class CartServiceImpl implements CartService {
 				cartItemEntity = cartRepository.save(cartItemEntity);
 			}
 		}
-
 		return cartItemEntity;
 	}
 
@@ -45,31 +44,26 @@ public class CartServiceImpl implements CartService {
 	public CartItemEntity updateCart(CartItemEntity cartItemEntity) throws CartException {
 
 		if (cartItemEntity != null) {
-
 			if (!cartRepository.existsById(cartItemEntity.getCartId())) {
-
 				throw new CartException("Cart Item Does Not Exists !!");
 			} else {
 				cartItemEntity = cartRepository.save(cartItemEntity);
 			}
 		}
-
 		return cartItemEntity;
 	}
 
 	@Override
-	public void deleteCartItem(String productId, String userId) throws CartException {
+	public void deleteCartItem(Long cartId) throws CartException {
 
-		if (productId != null && userId != null) {
-
-			CartItemEntity cartItemEntity = findCartItem(productId, userId);
-			if (cartItemEntity != null) {
-				cartRepository.deleteCartItem(userId, productId);
+		if (cartId != null) {
+			if (cartRepository.existsById(cartId)) {
+				cartRepository.deleteById(cartId);
 			} else {
-				throw new CartException("Wishlist Item Does Not Exists !!");
+				throw new CartException("Cart Item Does Not Exists !!");
 			}
 		} else {
-			throw new CartException("Product Id OR User Id Is Null !!");
+			throw new CartException("Cart Id Is Null !!");
 		}
 	}
 
@@ -77,21 +71,14 @@ public class CartServiceImpl implements CartService {
 	public void deleteCartlist(String userId) throws CartException {
 
 		if (userId != null) {
-
 			List<CartItemEntity> cartlist = findCartlist(userId);
-
 			if (cartlist != null) {
-
 				cartRepository.deleteCart(userId);
-				;
 			} else {
 				throw new CartException("Cart Does Not Exists");
 			}
-
 		} else {
 			throw new CartException("User Id For Deletion Is Null");
 		}
-
 	}
-
 }
