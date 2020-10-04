@@ -50,12 +50,12 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void deleteOrderById(Long id) throws OrderException {
+	public void deleteOrderById(String orderId) throws OrderException {
 
-		if (id != null) {
-			OrderEntity entity = orderRepository.findById(id).orElse(null);
+		if (orderId != null) {
+			OrderEntity entity = orderRepository.findByOrderId(orderId);
 			if (entity != null) {
-				orderRepository.deleteById(id);
+				orderRepository.deleteByOrderId(orderId);
 			} else {
 				throw new OrderException("Order Does Not Exists");
 			}
@@ -65,13 +65,13 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void updateDate(Long id, LocalDate dispatchDate, LocalDate arrivalDate) throws OrderException {
+	public void updateDate(String orderId, LocalDate dispatchDate, LocalDate arrivalDate) throws OrderException {
 
-		if (id != null && dispatchDate != null && arrivalDate != null) {
-			if (!orderRepository.existsById(id)) {
+		if (orderId != null && dispatchDate != null && arrivalDate != null) {
+			if (!orderRepository.existsByOrderId(orderId)) {
 				throw new OrderException("Order Id Does Not Exists !!");
 			} else {
-				orderRepository.updateDate(id, dispatchDate, arrivalDate);
+				orderRepository.updateDate(orderId, dispatchDate, arrivalDate);
 			}
 		} else {
 			throw new OrderException("Any Parameter To update Scheduled Date Is Missing !!");

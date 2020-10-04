@@ -31,8 +31,8 @@ public class ProductController {
 		return productService.findAllProducts();
 	}
 
-	@GetMapping("/{userId}")
-	public ResponseEntity<ProductEntity> getProductById(@PathVariable("userId") String id) {
+	@GetMapping("/{productId}")
+	public ResponseEntity<ProductEntity> getProductById(@PathVariable("productId") String id) {
 
 		ResponseEntity<ProductEntity> response = null;
 		ProductEntity product = productService.findByProductId(id);
@@ -85,18 +85,18 @@ public class ProductController {
 	}
 
 	@PutMapping("/updateQuantity/{quantity}/{productId}")
-	public ResponseEntity<String> updateProductQuantity(@PathVariable("quantity") Integer quantity,
+	public ResponseEntity<?> updateProductQuantity(@PathVariable("quantity") Integer quantity,
 			@PathVariable("productId") String productId) {
 
 		productService.updateProductQuantity(quantity, productId);
-		return new ResponseEntity<>("Quantity is updated !!", HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteProduct(@PathVariable(value = "id") String id) throws ProductException {
+	public ResponseEntity<?> deleteProduct(@PathVariable(value = "id") String id) throws ProductException {
 
 		productService.deleteByProductId(id);
-		return new ResponseEntity<>("Product Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 
 }

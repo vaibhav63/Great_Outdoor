@@ -1,0 +1,113 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>Enter Adress</h3>
+
+    <form #addressForm="ngForm" (ngSubmit)='onSubmit(addressForm.value)'>
+
+        <div class="form-group">
+
+            <label>Address_ID: </label>
+
+            <input required minlength="1" type="number" #addr_idRef='ngModel' name="addr_id" ngModel class="form-control">
+
+            <div *ngIf='addr_idRef.errors && addr_idRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!addr_idRef.errors.required'> Provide Address Id </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Name: </label>
+
+            <input required minlength="3" type="text" #retailer_nameRef='ngModel' name="retailer_name" ngModel class="form-control">
+
+            <div *ngIf='retailer_nameRef.errors && retailer_nameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!retailer_nameRef.errors.required'> Provide Name </div>
+
+                <div *ngIf='retailer_nameRef.errors.pattern'>Name should be minimum of 3 characters length</div>
+
+            </div>
+
+        </div>
+
+        
+       
+     
+        <div class="form-group">
+
+            <label>Building NO: </label>
+
+            <input required  type="number" #building_noRef='ngModel' name="building_no" ngModel class="form-control">
+
+            <div *ngIf='building_noRef.errors && building_noRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!building_noRef.errors.required'> Provide Building Number </div>
+
+                <div *ngIf='building_noRef.errors.pattern'> It should contain proper building number</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>City: </label>
+
+            <input required minlength="3" type="text" #cityRef='ngModel' name="city" ngModel class="form-control">
+
+            <div *ngIf='cityRef.errors && cityRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!cityRef.errors.required'> Provide City </div>
+
+                <div *ngIf='cityRef.errors.pattern'>Name should be minimum of 3 characters length</div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>State: </label>
+
+            <input required minlength="3" type="text" #stateRef='ngModel' name="state" ngModel class="form-control">
+
+            <div *ngIf='stateRef.errors && stateRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!stateRef.errors.required'> Provide State </div>
+
+                <div *ngIf='stateRef.errors.pattern'>Name should be minimum of 3 characters length</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>Zipcode: </label>
+
+            <input required  type="number" #zipRef='ngModel' name="zip" ngModel class="form-control">
+
+            <div *ngIf='zipRef.errors && zipRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!zipRef.errors.required'> Provide zipcode </div>
+
+                <div *ngIf='zipRef.errors.pattern'> It should contain minimum 6 numbers</div>
+
+            </div>
+        </div>     
+        
+        <input [disabled]="addressForm.invalid" type="submit"   value="Enter" class="btn btn-primary">
+
+    </form>
+
+</div>
+
+ <div align="center">
+    <h2>{{message}}</h2>
+</div>

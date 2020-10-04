@@ -18,11 +18,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 
+
 const MaterialComponents = [MatListModule, MatButtonModule, MatIconModule,
   MatToolbarModule, MatMenuModule, MatSidenavModule, MatCardModule,
   MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule,
   MatSortModule, MatSnackBarModule, MatNativeDateModule, MatDatepickerModule,
-  MatGridListModule, MatDialogModule, MatSelectModule];
+  MatGridListModule, MatDialogModule, MatSelectModule,MatSnackBarModule];
 
 @NgModule({
   imports: [MaterialComponents], exports: [MaterialComponents]

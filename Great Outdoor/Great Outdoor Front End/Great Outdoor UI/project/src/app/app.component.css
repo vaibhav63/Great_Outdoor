@@ -37,3 +37,23 @@
       border-right: 2px solid rgba(112, 112, 112, 0.397);
       
   }
+
+  .search-bar{
+   
+    font-size: 20px;
+    padding-left: 150px;
+    padding-top: 5px;
+  
+  }
+
+  .search-bar input{
+    position: relative;
+    padding-left: 20px;
+  }
+  .search-bar a{
+    position: absolute;
+    top:-12px;
+    left:320px;
+    z-index: 2;
+    color: black;
+  }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cart } from '../model/cart.model';
+import { OrderCommunicationService } from '../communication/order-communication.service';
 import { Order } from '../model/order.model';
-import { Product } from '../model/product.model';
-import { OrderCommunicationService } from './order-communication.service';
+import { NotificationService } from './notification.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +14,14 @@ export class OrderService {
   orders: Array<Order> = [];
   arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-  constructor(private orderCommunication: OrderCommunicationService) {
+  
+    constructor(private orderCommunication: OrderCommunicationService,
+    private notification:NotificationService) {
 
     orderCommunication.getAllOrders().subscribe(
       (orders) => {
         this.orders = orders;
         this.subject.next(orders);
-      },
-      (error) => {
-        console.log(error);
       });
   }
 
@@ -34,25 +32,27 @@ export class OrderService {
     this.orders[index].arrivalDate = arrivalDate;
     this.orderCommunication.updateOrderSchedule(this.orders[index]).subscribe(
       (response) => {
-        console.log(response);
+        this.notification.showNotification('Order Schedule Updated Successfully !!','✓','success');
       },
       (error) => {
-        console.log(error);
+       this.notification.showNotification(error,'X','error');
       });
     this.subject.next(this.orders);
   }
 
   deleteOrder(index: number) {
 
-    this.orderCommunication.removeOrderById(this.orders[index].id).subscribe(
+    this.orderCommunication.removeOrderById(this.orders[index].orderId).subscribe(
       (response) => {
-        console.log(response);
+        this.notification.showNotification
+        (`Order With Id:${this.orders[index].orderId} Deleted Successfully !!`,'✓','success');
+        this.orders.splice(index, 1);
+        this.subject.next(this.orders);
       },
       (error) => {
-        console.log(error);
+        this.notification.showNotification(error,'X','error');
       });
-    this.orders.splice(index, 1);
-    this.subject.next(this.orders);
+   
   }
 
   addOrder(userId: string, products: string, totalPrice: number, totalQuantity: number) {
@@ -65,13 +65,14 @@ export class OrderService {
       date1.toISOString().substring(0, 10), date2.toISOString().substring(0, 10));
     this.orderCommunication.addOrder(order).subscribe(
       (response) => {
-        console.log(response);
+        this.notification.showNotification('Order Has Been Made !!','✓','success');
+        this.orders.push(order);
+        this.subject.next(this.orders);
       },
       (error) => {
-        console.log(error);
+        this.notification.showNotification(error,'X','error');
       });
-    this.orders.push(order);
-    this.subject.next(this.orders);
+    
   }
 
   randomStr(len) {

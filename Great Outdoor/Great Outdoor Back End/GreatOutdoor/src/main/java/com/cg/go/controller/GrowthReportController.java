@@ -31,23 +31,23 @@ public class GrowthReportController {
 	}
 
 	@PostMapping()
-	public ResponseEntity<String> addGrowthReport() throws SalesReportException {
+	public ResponseEntity<?> addGrowthReport() throws SalesReportException {
 
 		growthReportService.addGrowthReport();
-		return new ResponseEntity<>("Growth Report Successfully Added", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteAll")
-	public ResponseEntity<String> deleteAllGrowthReport() throws GrowthReportException {
+	public ResponseEntity<?> deleteAllGrowthReport() throws GrowthReportException {
 
 		growthReportService.deleteAllGrowthReport();
-		return new ResponseEntity<String>("All Growth Report Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteGrowthReportById(@PathVariable("id") Long id) throws GrowthReportException {
+	public ResponseEntity<?> deleteGrowthReportById(@PathVariable("id") Long id) throws GrowthReportException {
 
 		growthReportService.deleteGrowthReportById(id);
-		return new ResponseEntity<String>("Growth Report with Id:" + id + " Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

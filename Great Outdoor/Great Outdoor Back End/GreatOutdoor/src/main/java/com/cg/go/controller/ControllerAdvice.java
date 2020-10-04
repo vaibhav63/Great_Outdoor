@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
+import com.cg.go.exception.ApiException;
 import com.cg.go.exception.CartException;
 import com.cg.go.exception.GrowthReportException;
 import com.cg.go.exception.IDNotFoundException;
@@ -22,37 +22,51 @@ public class ControllerAdvice {
 	}
 
 	@ExceptionHandler(ProductException.class)
-	public ResponseEntity<String> productExceptionHandler(ProductException exception) {
-		return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+	public ResponseEntity<ApiException> productExceptionHandler(ProductException exception) {
+
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(WishlistException.class)
-	public ResponseEntity<String> wishlistExceptonHandler(WishlistException exception) {
-		return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+	public ResponseEntity<ApiException> wishlistExceptonHandler(WishlistException exception) {
+		
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(CartException.class)
-	public ResponseEntity<String> cartExceptonHandler(CartException exception) {
-		return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+	public ResponseEntity<ApiException> cartExceptonHandler(CartException exception) {
+				
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(IDNotFoundException.class)
-	public ResponseEntity<String> userNotFound(IDNotFoundException e) {
-		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+	public ResponseEntity<ApiException> userNotFound(IDNotFoundException exception) {
+		
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(OrderException.class)
-	public ResponseEntity<String> orderExceptionHandler(OrderException exception) {
-		return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	public ResponseEntity<ApiException> orderExceptionHandler(OrderException exception) {
+		
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(SalesReportException.class)
-	public ResponseEntity<String> salesReportExceptionHandler(SalesReportException exception) {
-		return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	public ResponseEntity<ApiException> salesReportExceptionHandler(SalesReportException exception) {
+		
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(GrowthReportException.class)
-	public ResponseEntity<String> GrowthReportExceptionHandler(GrowthReportException exception) {
-		return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	public ResponseEntity<ApiException> GrowthReportExceptionHandler(GrowthReportException exception) {
+		
+		ApiException apiException=new ApiException(exception.getMessage(),exception,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
 	}
 }

@@ -44,26 +44,26 @@ public class OrderController {
 	}
 
 	@PutMapping("updateSchedule")
-	public ResponseEntity<String> updateSchedule(@RequestBody OrderEntity entity)
+	public ResponseEntity<?> updateSchedule(@RequestBody OrderEntity entity)
 			throws OrderException {
 
-		orderService.updateDate(entity.getId(), entity.getDispatchDate(), entity.getArrivalDate());
-		return new ResponseEntity<>("Schedule Is Updated !!", HttpStatus.OK);
+		orderService.updateDate(entity.getOrderId(), entity.getDispatchDate(), entity.getArrivalDate());
+		return new ResponseEntity<>( HttpStatus.OK);
 
 	}
 
 	@DeleteMapping("/removeAll")
-	public ResponseEntity<String> deleteAllOrder() throws OrderException {
+	public ResponseEntity<?> deleteAllOrder() throws OrderException {
 
 		orderService.deleteAllOrders();
-		return new ResponseEntity<>("Order List Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 
 	}
 
-	@DeleteMapping("/remove/{id}")
-	public ResponseEntity<String> deleteOrderById(@PathVariable("id") long id) throws OrderException {
+	@DeleteMapping("/remove/{orderId}")
+	public ResponseEntity<?> deleteOrderById(@PathVariable("orderId") String orderId) throws OrderException {
 
-		orderService.deleteOrderById(id);
-		return new ResponseEntity<>("Order Item Deleted Successfully !!", HttpStatus.OK);
+		orderService.deleteOrderById(orderId);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 }

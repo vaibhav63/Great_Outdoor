@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+    <h3>Delete Adress</h3>
+
+<form #addressForm="ngForm" (ngSubmit)='onSubmit(addressForm.value)'>
+
+    <div class="form-group">
+
+        <label>Address_ID: </label>
+
+        <input required minlength="1" type="number" #addr_idRef='ngModel' name="addr_id" ngModel class="form-control">
+
+        <div *ngIf='addr_idRef.errors && addr_idRef.touched' class="alert alert-danger">
+
+            <div [hidden]='!addr_idRef.errors.required'> Provide Address Id </div>
+
+        </div>
+    </div>
+
+    
+    <input [disabled]="addressForm.invalid" type="submit"   value="Delete" class="btn btn-primary">
+
+
+</form>
+
+
+<div align="center">
+<h2>{{message}}</h2>
+</div>
+
+

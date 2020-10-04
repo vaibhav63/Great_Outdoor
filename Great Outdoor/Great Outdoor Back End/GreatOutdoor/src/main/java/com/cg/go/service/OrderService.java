@@ -15,8 +15,8 @@ public interface OrderService {
 
 	public void deleteAllOrders() throws OrderException;
 
-	public void deleteOrderById(Long id) throws OrderException;
+	public void deleteOrderById(String orderId) throws OrderException;
 
-	public void updateDate(Long id, LocalDate dispatchDate, LocalDate arrivalDate) throws OrderException;
+	public void updateDate(String orderId, LocalDate dispatchDate, LocalDate arrivalDate) throws OrderException;
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { GrowthReport } from '../model/growth-report.model';
-import { GrowthReportCommunicationService } from './growth-report-communication.service';
+import { GrowthReportCommunicationService } from '../communication/growth-report-communication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class GrowthReportService {
 
   growthReport: Array<GrowthReport> = [];
   subject = new Subject<any>();
+  errorMessage:string;
 
   constructor(private growthReportCommunication: GrowthReportCommunicationService) {
 

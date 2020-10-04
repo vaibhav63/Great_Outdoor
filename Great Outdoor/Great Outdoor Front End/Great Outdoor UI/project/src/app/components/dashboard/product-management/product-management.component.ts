@@ -57,6 +57,7 @@ export class ProductManagementComponent implements OnInit, AfterViewInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.backdropClass = 'backdropBackground';
     dialogConfig.width = "60%";
     this.dialog.open(EditProductComponent, dialogConfig);
   }

@@ -31,23 +31,23 @@ public class SalesReportController {
 	}
 
 	@PutMapping()
-	public ResponseEntity<String> updateProductReport(@RequestBody SalesReportEntity entity) {
+	public ResponseEntity<?> updateProductReport(@RequestBody SalesReportEntity entity) {
 
 		salesReportService.updateProductReport(entity);
-		return new ResponseEntity<String>("Sales Report Updated Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteAll")
-	public ResponseEntity<String> deleteAllSalesReport() throws SalesReportException {
+	public ResponseEntity<?> deleteAllSalesReport() throws SalesReportException {
 
 		salesReportService.deleteAllSalesReport();
-		return new ResponseEntity<String>("All Sales Report Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteSalesReportById(@PathVariable("id") Long id) throws SalesReportException {
+	public ResponseEntity<?> deleteSalesReportById(@PathVariable("id") Long id) throws SalesReportException {
 
 		salesReportService.deleteSalesReportById(id);
-		return new ResponseEntity<String>("Sales Report with Id:" + id + " Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

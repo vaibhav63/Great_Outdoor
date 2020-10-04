@@ -52,18 +52,18 @@ public class WishlistController {
 	}
 
 	@DeleteMapping("/deleteWishlistItem/{productId}/{userId}")
-	public ResponseEntity<String> deleteWishlistItem(@PathVariable("productId") String productId,
+	public ResponseEntity<?> deleteWishlistItem(@PathVariable("productId") String productId,
 			@PathVariable("userId") String userId) throws WishlistException {
 
 		wishlistService.deleteWishlistItem(productId, userId);
-		return new ResponseEntity<>("Deleted Wishlist Item !!", HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteWishlist/{userId}")
-	public ResponseEntity<String> deleteWishlist(@PathVariable("userId") String userId) throws WishlistException {
+	public ResponseEntity<?> deleteWishlist(@PathVariable("userId") String userId) throws WishlistException {
 
 		wishlistService.deleteWishlist(userId);
-		return new ResponseEntity<>("Deleted Wishlist !!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
