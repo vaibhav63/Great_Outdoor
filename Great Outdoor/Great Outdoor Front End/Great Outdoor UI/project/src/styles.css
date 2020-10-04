@@ -2,12 +2,34 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 .backdropBackground {
     background-color: #000000;
     opacity: 0.9 !important;
   }
 
   .custom-dialog-container{
-      
     padding: 0;
+  }
+
+  snack-bar-container.success {
+    background-color: #5cb85c;
+    color : #fff;
+    border:3px solid green;
+  }
+
+  snack-bar-container.error {
+    background-color: #eb0202;
+    color : #fff;
+    border:3px solid rgb(133, 1, 1);
+  }
+
+
+  snack-bar-container.notification simple-snack-bar{
+    font-size: 18px !important;
+    font-weight: bold;
+  }
+  snack-bar-container.notification button{
+   background-color: yellow;
+   font-size: 25px;
   }

@@ -1,0 +1,127 @@
+<div class="container">
+
+        <h3>SignUp</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>UserId: </label>
+
+            <input required minlength="1" type="number" #useridRef='ngModel' name="userid" ngModel class="form-control">
+
+            <div *ngIf='useridRef.errors && useridRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!useridRef.errors.required'> Provide User Id </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>UserName: </label>
+
+            <input required minlength="6" type="text" #usernameRef='ngModel' name="username" ngModel class="form-control">
+
+            <div *ngIf='usernameRef.errors
+                        && usernameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!usernameRef.errors.required'>
+
+                    Provide User Name
+
+                </div>
+
+                <div *ngIf='usernameRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+
+            </div>
+
+        </div>
+
+        
+        <div class="form-group">
+
+            <label>UserPassword: </label>
+
+            <input required minlength="6" type="password" #userpasswordRef='ngModel' name="userpassword" ngModel class="form-control">
+
+            <div *ngIf='userpasswordRef.errors
+                        && userpasswordRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!userpasswordRef.errors.required'>
+
+                    Provide User Password
+
+                </div>
+
+        
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>UserType:(Customer) </label>
+
+            <input required minlength="6" type="text" #usertypeRef='ngModel' name="usertype" ngModel class="form-control">
+
+            <div *ngIf='usertypeRef.errors
+                        && usertypeRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!usertypeRef.errors.required'>
+
+                    Provide User Type
+
+                </div>
+
+                <div *ngIf='usertypeRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>User PhoneNumber: </label>
+
+            <input required  type="number"  pattern="^((\\+91-?)|0)?[0-9]{10}$" #userphoneRef='ngModel' name="userphone" ngModel class="form-control">
+
+            <div *ngIf='userphoneRef.errors && userphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!userphoneRef.errors.required'> Provide User Phone Number </div>
+
+                <div *ngIf='userphoneRef.errors.pattern'>Phone number should consists of 10 digits</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>User EmailID: </label>
+
+            <input required minlength="6" type="text" #useremailRef='ngModel' name="useremail" ngModel
+                class="form-control">
+
+            <div *ngIf='useremailRef.errors
+                        && useremailRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!useremailRef.errors.required'>
+
+                    Provide User MailID
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+        <input [disabled]="userForm.invalid" type="submit"   value="SignUp" class="btn btn-primary">
+
+    </form>
+
+</div>
+
+ <div align="center">
+    <h2>{{message}}</h2>
+</div>

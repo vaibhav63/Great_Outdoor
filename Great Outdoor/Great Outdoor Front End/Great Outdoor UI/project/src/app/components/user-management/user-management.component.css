@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: papayawhip;
+}
+.navbar{
+    background-color: #4056a1;
+}
+button{
+    background-color: #4056a1;
+    border: #4056a1;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: large;
+}
+#lo{
+    color: red;
+}

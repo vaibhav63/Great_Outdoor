@@ -37,6 +37,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			e.setRetailer_name(addr.getRetailer_name());
 			e.setBuilding_no(addr.getBuilding_no());
 			e.setCity(addr.getCity());
+		    e.setState(addr.getState());
 			e.setZip(addr.getZip());
 
 		}

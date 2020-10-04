@@ -18,10 +18,16 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
 	public List<OrderEntity> findAllByUserId(String userId);
 
+	boolean existsByOrderId(String orderId);
+
+	void deleteByOrderId(String orderId);
+
+	OrderEntity findByOrderId(String orderId);
+
 	@Modifying
 	@Transactional
-	@Query("update OrderEntity o set o.dispatchDate=:d_date ,o.arrivalDate=:a_date WHERE o.id=:id")
-	void updateDate(@Param("id") long id, @Param("d_date") LocalDate dispatchDate,
+	@Query("update OrderEntity o set o.dispatchDate=:d_date ,o.arrivalDate=:a_date WHERE o.orderId=:oid")
+	void updateDate(@Param("oid") String oid, @Param("d_date") LocalDate dispatchDate,
 			@Param("a_date") LocalDate arrivalDate);
 
 }

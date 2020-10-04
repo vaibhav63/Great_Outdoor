@@ -1,0 +1,12 @@
+form{
+    border: 3px solid black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #8f928c;
+    width: 400px;
+}
+h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}

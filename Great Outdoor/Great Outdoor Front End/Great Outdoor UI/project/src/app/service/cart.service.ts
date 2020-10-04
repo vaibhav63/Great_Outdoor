@@ -1,10 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Cart } from '../model/cart.model';
 import { SalesReport } from '../model/sales-report.model';
-import { CartCommunicationService } from './cart-communication.service';
+import { CartCommunicationService } from '../communication/cart-communication.service';
 import { OrderService } from './order.service';
 import { ProductService } from './product.service';
 import { SalesReportService } from './sales-report.service';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,10 @@ export class CartService implements OnInit {
   userId: string;
 
   constructor(public productService: ProductService, private cartCommunication: CartCommunicationService
-    , private orderService: OrderService, public salesReportService: SalesReportService) {
-    
-      this.onLoad();
+    , private orderService: OrderService, public salesReportService: SalesReportService,
+    private notification:NotificationService) {
+
+    this.onLoad();
   }
 
   ngOnInit() {
@@ -36,9 +38,6 @@ export class CartService implements OnInit {
         this.subTotal = this.findSubTotal();
         this.totalQuantity = this.findTotalQuantity();
         this.userId = cartItems[0].userId;
-        console.log(cartItems);
-      }, (error) => {
-        console.log(error);
       });
   }
 
@@ -47,10 +46,10 @@ export class CartService implements OnInit {
 
     this.cartCommunication.addItemToCart(cartItem).subscribe(
       (response) => {
-        console.log(response);
+        this.notification.showNotification('Cart Item Added Successfully !','✓','success');
       },
       (error) => {
-        console.log(error);
+        this.notification.showNotification(error,'X','error');
       });
     this.cartItems.unshift(cartItem);
   }
@@ -62,10 +61,11 @@ export class CartService implements OnInit {
     this.subTotal -= this.cartItems[index].cartItemPrice;
     this.cartCommunication.deleteCartItem(this.cartItems[index].cartId).subscribe(
       (response) => {
-        console.log(response);
+        this.notification.showNotification(
+          `Cart Item with Id:${this.cartItems[index].cartId} Deleted Successfully !!`,'✓','success');
       },
       (error) => {
-        console.log(error);
+        this.notification.showNotification(error,'X','error');
       });
     this.cartItems.splice(index, 1);
   }
@@ -86,10 +86,10 @@ export class CartService implements OnInit {
   clearCart() {
     this.cartCommunication.deleteCartlist(this.userId).subscribe(
       (response) => {
-        console.log(response);
+        this.notification.showNotification('Cart Is Empty Now !!','✓','success');
       },
       (error) => {
-        console.log(error);
+        this.notification.showNotification(error,'X','error');
       });
     this.cartItems = [];
     this.subTotal = 0;
@@ -114,8 +114,6 @@ export class CartService implements OnInit {
       this.salesReportService.updateSalesReport(salesReport);
       this.productService.updateProductQuantity(tempProduct.productQuantity - item.quantity,
         tempProduct.productId);
-      let index = this.productService.products.indexOf(tempProduct);
-      this.productService.products[index].productQuantity = tempProduct.productQuantity - item.quantity;
     }
   }
 }

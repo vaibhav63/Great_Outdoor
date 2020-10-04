@@ -13,7 +13,7 @@ public class Customer {
 	public int building_no;
 	public String city;
 	public String state;
-	public int Zip;
+	public int zip;
 
 	public int getAddr_id() {
 		return addr_id;
@@ -56,11 +56,11 @@ public class Customer {
 	}
 
 	public int getZip() {
-		return Zip;
+		return zip;
 	}
 
 	public void setZip(int zip) {
-		Zip = zip;
+		this.zip = zip;
 	}
 
 }

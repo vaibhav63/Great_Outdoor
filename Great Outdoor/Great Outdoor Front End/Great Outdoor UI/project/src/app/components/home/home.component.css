@@ -48,3 +48,8 @@
     color: rgb(255, 196, 0);
  }
 
+.no-items {
+   width: 100% !important;
+   height: 100% !important;
+}
+

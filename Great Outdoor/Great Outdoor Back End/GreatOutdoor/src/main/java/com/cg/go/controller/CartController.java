@@ -51,16 +51,16 @@ public class CartController {
 	}
 
 	@DeleteMapping("/deleteCartItem/{cartId}")
-	public ResponseEntity<String> deleteCartItem(@PathVariable("cartId") Long cartId) throws CartException {
+	public ResponseEntity<?> deleteCartItem(@PathVariable("cartId") Long cartId) throws CartException {
 
 		cartService.deleteCartItem(cartId);
-		return new ResponseEntity<>("Cart Item Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteCartlist/{userId}")
-	public ResponseEntity<String> deleteCartlist(@PathVariable("userId") String userId) throws CartException {
+	public ResponseEntity<?> deleteCartlist(@PathVariable("userId") String userId) throws CartException {
 
 		cartService.deleteCartlist(userId);
-		return new ResponseEntity<>("Cart List Is Deleted Successfully !!", HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
 	}
 }

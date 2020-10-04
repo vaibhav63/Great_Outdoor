@@ -27,13 +27,13 @@
             <owl-carousel-o [options]="customOptions">
                 <ng-container *ngFor="let item of service.products | productFilter:obj.category;let i=index">
                     <ng-template carouselSlide [id]="i">
-                        <div class="card m-3 pt-4">
-                            <img width="100%" height="300px" [src]="item.productImage" [alt]="" [title]="">
+                        <div class="card m-3 ">
+                            <img width="100%" height="300px" [src]="item.productImage" [alt]="" [title]="" [ngClass]="{'no-items':!item.productName}">
                             <a role="button" (click)="goToProduct(item)">
                                 <h1 class="mt-1">{{item.productName}}</h1>
                             </a>
-                            <h1>PRICE = {{item.productPrice}} RS</h1>
-                            <div class="d-flex justify-content-between text-warning">
+                            <h1 *ngIf="item.productName!=null">PRICE = {{item.productPrice}} RS</h1>
+                            <div *ngIf="item.productName!=null" class="d-flex justify-content-between text-warning">
                                 <a mat-icon-button [disableRipple]="true">
                                     <mat-icon>favorite</mat-icon>
                                 </a>
