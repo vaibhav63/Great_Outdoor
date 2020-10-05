@@ -12,8 +12,6 @@ import { NotificationService } from './notification.service';
 })
 export class CartService implements OnInit {
 
-
-  // cartItem: Cart;
   cartItems: Array<Cart> = [];
   subTotal: number;
   totalQuantity: number;
@@ -21,7 +19,7 @@ export class CartService implements OnInit {
 
   constructor(public productService: ProductService, private cartCommunication: CartCommunicationService
     , private orderService: OrderService, public salesReportService: SalesReportService,
-    private notification:NotificationService) {
+    private notification: NotificationService) {
 
     this.onLoad();
   }
@@ -41,33 +39,38 @@ export class CartService implements OnInit {
       });
   }
 
-  // Yet To be tested
   addToCart(cartItem: Cart) {
 
     this.cartCommunication.addItemToCart(cartItem).subscribe(
       (response) => {
-        this.notification.showNotification('Cart Item Added Successfully !','✓','success');
+        this.notification.showNotification('Cart Item Added Successfully !', '✓', 'success');
+        this.cartItems.unshift(cartItem);
+        this.subTotal = this.findSubTotal();
+        this.totalQuantity = this.findTotalQuantity();
+
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
-    this.cartItems.unshift(cartItem);
+
   }
 
 
   deleteItem(index) {
 
-    this.totalQuantity -= this.cartItems[index].quantity;
-    this.subTotal -= this.cartItems[index].cartItemPrice;
+
     this.cartCommunication.deleteCartItem(this.cartItems[index].cartId).subscribe(
       (response) => {
         this.notification.showNotification(
-          `Cart Item with Id:${this.cartItems[index].cartId} Deleted Successfully !!`,'✓','success');
+          `Cart Item with Id:${this.cartItems[index].cartId} Deleted Successfully !!`, '✓', 'success');
+        this.totalQuantity -= this.cartItems[index].quantity;
+        this.subTotal -= this.cartItems[index].cartItemPrice;
+        this.cartItems.splice(index, 1);
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
-    this.cartItems.splice(index, 1);
+
   }
 
 
@@ -86,14 +89,15 @@ export class CartService implements OnInit {
   clearCart() {
     this.cartCommunication.deleteCartlist(this.userId).subscribe(
       (response) => {
-        this.notification.showNotification('Cart Is Empty Now !!','✓','success');
+        this.notification.showNotification('Cart Is Empty Now !!', '✓', 'success');
+        this.cartItems = [];
+        this.subTotal = 0;
+        this.totalQuantity = 0;
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
-    this.cartItems = [];
-    this.subTotal = 0;
-    this.totalQuantity = 0;
+
   }
 
   createOrder() {
@@ -104,7 +108,6 @@ export class CartService implements OnInit {
       this.totalQuantity);
   }
 
-  //unfinished
   updateReport() {
 
     for (let item of this.cartItems) {

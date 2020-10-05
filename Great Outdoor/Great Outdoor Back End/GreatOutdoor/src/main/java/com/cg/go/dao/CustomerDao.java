@@ -10,6 +10,8 @@ public interface CustomerDao {
 
 	List<Customer> getAlladdress();
 
+	Customer getAddressByUserName(String userName);
+
 	Customer updateaddr(Customer addr);
 
 	Customer deleteaddrByID(int addr_id);

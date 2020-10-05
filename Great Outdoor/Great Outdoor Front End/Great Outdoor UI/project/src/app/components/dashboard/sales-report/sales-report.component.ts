@@ -17,6 +17,7 @@ export class SalesReportComponent implements OnInit, AfterViewInit {
     'totalSale'];
 
   dataSource: MatTableDataSource<SalesReport>;
+  totalRevenue: number = 0;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -48,5 +49,12 @@ export class SalesReportComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  getTotalRevenue() {
+    if (this.salesReportService.getTotalRevenue()) {
+      return this.totalRevenue = this.salesReportService.getTotalRevenue();
+    }
+    return this.totalRevenue;
   }
 }

@@ -1,4 +1,7 @@
+<!-- this page shows growth report ,how much profit or loss company is making-->
 <div class="growth-report-table">
+
+  <div class="show-label"><span class="badge badge-pill">GROWTH REPORT</span></div>
   <mat-form-field>
     <mat-label style="color: black;">Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Red" #input>
@@ -44,9 +47,29 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          <mat-spinner diameter=40 style="margin-left:80%;"></mat-spinner>
+        </td>
+      </tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex m-4">
+      <div class="symbol1 m-2"></div>
+      <p class="mt-2">: growth(%) < 2</p>
+    </div>
+    <div class="d-flex m-4">
+      <div class="symbol2 m-2"></div>
+      <p class="mt-2">: 2 < growth(%) < 50</p>
+    </div>
+    <div class="d-flex m-4">
+      <div class="symbol3 m-2"></div>
+      <p class="mt-2">: growth(%) > 50</p>
+    </div>
   </div>
 
 </div>

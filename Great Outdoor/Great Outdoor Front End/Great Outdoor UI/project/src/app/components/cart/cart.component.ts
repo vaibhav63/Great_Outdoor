@@ -9,16 +9,11 @@ import { PaymentGatewayComponent } from '../payment-gateway/payment-gateway.comp
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent{
 
 
   constructor(public cartService: CartService, private dialog: MatDialog) { }
 
-  ngOnInit(): void {
-
-    this.cartService.subTotal = this.cartService.findSubTotal();
-    this.cartService.totalQuantity = this.cartService.findTotalQuantity();
-  };
 
   onProceedToPay() {
     const dialogConfig = new MatDialogConfig();

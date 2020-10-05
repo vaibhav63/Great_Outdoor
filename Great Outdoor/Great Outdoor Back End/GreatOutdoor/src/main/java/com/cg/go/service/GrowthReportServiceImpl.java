@@ -46,9 +46,9 @@ public class GrowthReportServiceImpl implements GrowthReportService {
 				newEntity.setRevenue(currentRevenue);
 				amountChanged = currentRevenue - oldEntity.getRevenue();
 				newEntity.setAmountChange(amountChanged);
-				percentageGrowth = ((currentRevenue - oldEntity.getRevenue()) / currentRevenue) * 100;
+				percentageGrowth = Math.floor(((currentRevenue - oldEntity.getRevenue()) / currentRevenue) * 100);
 				newEntity.setPercentageGrowth(percentageGrowth);
-				if (percentageGrowth > 10) {
+				if (percentageGrowth > 50) {
 					newEntity.setColorCode("Green");
 				} else if (percentageGrowth > 2) {
 					newEntity.setColorCode("Blue");

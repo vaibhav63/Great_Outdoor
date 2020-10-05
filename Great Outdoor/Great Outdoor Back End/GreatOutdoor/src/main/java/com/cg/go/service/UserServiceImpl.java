@@ -22,16 +22,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional
-	public String loginUser(Userdata u) {
-		String flag = null;
-		String usertype = udao.findByusertype(u.getUsername(), u.getUserpassword());
-		if (usertype == null)
-			return "invalid";
-		if (usertype.equalsIgnoreCase("admin")) {
-			flag = "admin";
-		} else if (usertype.equalsIgnoreCase("customer")) {
-			flag = "customer";
-		}
-		return flag;
+	public Userdata loginUser(Userdata u)
+	{
+		Userdata user=udao.findByUsername(u.getUsername());
+		if((user.getUsername().equals(u.getUsername()))&&(user.getUserpassword().equals(u.getUserpassword())))
+		   return user;
+   else
+	   return null;
 	}
 }

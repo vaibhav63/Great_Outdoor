@@ -6,5 +6,5 @@ public interface UserService {
 	
 	public Userdata addUser(Userdata user);
 
-	public String loginUser(Userdata u);
+	public Userdata loginUser(Userdata u);
 }

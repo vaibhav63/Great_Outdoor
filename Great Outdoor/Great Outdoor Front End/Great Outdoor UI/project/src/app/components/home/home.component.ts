@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductService } from 'src/app/service/product.service';
@@ -10,7 +10,7 @@ import { ProductComponent } from '../product/product.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent {
 
   carouselInfo = [
     { imageURL: "https://goldwallpapers.com/uploads/posts/fashion-wallpaper/fashion_wallpaper_001.jpg" },
@@ -43,7 +43,7 @@ export class HomeComponent{
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     navSpeed: 700,
     navText: ['', ''],
     autoplay: false,
@@ -66,7 +66,9 @@ export class HomeComponent{
     nav: false
   }
 
-  constructor(private dialog: MatDialog, public service: ProductService) {}
+  constructor(private dialog: MatDialog, public service: ProductService) {
+    service.searchProduct("");
+  }
 
   goToProduct(item) {
     const dialogConfig = new MatDialogConfig();

@@ -1,3 +1,5 @@
+<!--home page where admin and retailer can view all products -->
+
 <div class="home-page">
 
     <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -7,7 +9,7 @@
         </ul>
         <div class="carousel-inner">
             <div class="carousel-item " *ngFor="let obj of carouselInfo;let i =index" [ngClass]="{'active' : i == 0}">
-                <img width="100%" height="687px" [src]="obj.imageURL" alt="New Slide"
+                <img width="100%" height="647px" [src]="obj.imageURL" alt="New Slide"
                     style="object-fit: cover;object-position:top;">
             </div>
         </div>
@@ -22,13 +24,13 @@
     <div class="categories d-flex justify-content-center align-items-center" *ngFor="let obj of categories"
         style="background-image: linear-gradient( rgba(116, 116, 116, 0.3), rgba(116, 116, 116, 0.3)), url({{obj.imageURL}}) ">
         <div class="category-section">
-            <div class="display-3 mb-3 d-inline"
+            <div class="display-3 mb-5 d-inline"
                 style="color: rgb(219, 179, 0);font-weight:bold;text-shadow: 0 10px 10px black;">{{obj.category}}</div>
             <owl-carousel-o [options]="customOptions">
                 <ng-container *ngFor="let item of service.products | productFilter:obj.category;let i=index">
                     <ng-template carouselSlide [id]="i">
-                        <div class="card m-3 ">
-                            <img width="100%" height="300px" [src]="item.productImage" [alt]="" [title]="" [ngClass]="{'no-items':!item.productName}">
+                        <div class="card m-3 pt-2" [ngClass]="{'no-items':!item.productName}">
+                            <img width="100%" height="300px" [src]="item.productImage" [alt]="" [title]="">
                             <a role="button" (click)="goToProduct(item)">
                                 <h1 class="mt-1">{{item.productName}}</h1>
                             </a>

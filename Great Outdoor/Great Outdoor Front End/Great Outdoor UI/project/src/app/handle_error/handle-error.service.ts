@@ -8,9 +8,9 @@ import { throwError } from 'rxjs';
 export class HandleErrorService {
 
 
-  public handleError(errorResponse:HttpErrorResponse){
-    
-      console.error('Generated Error',errorResponse);
-      return throwError(errorResponse.error.message);
+  public handleError(errorResponse: HttpErrorResponse) {
+
+    console.error('Generated Error', errorResponse);
+    return throwError(errorResponse.error.message);
   }
 }

@@ -89,14 +89,14 @@ public class ProductController {
 			@PathVariable("productId") String productId) {
 
 		productService.updateProductQuantity(quantity, productId);
-		return new ResponseEntity<>( HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteProduct(@PathVariable(value = "id") String id) throws ProductException {
 
 		productService.deleteByProductId(id);
-		return new ResponseEntity<>( HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }

@@ -11,10 +11,9 @@ export class SalesReportService {
 
   salesReport: Array<SalesReport> = [];
   subject = new Subject<any>();
-  errorMessage:string;
 
   constructor(private salesReportCommunication: SalesReportCommunicationService,
-    private notification:NotificationService) {
+    private notification: NotificationService) {
 
     salesReportCommunication.getAllSalesReport().subscribe(
       (salesReport) => {
@@ -26,10 +25,10 @@ export class SalesReportService {
   updateSalesReport(salesReport: SalesReport) {
 
     var index = this.salesReport.map(e => e.productId).indexOf(salesReport.productId);
-    
+
     this.salesReportCommunication.updateSalesReport(salesReport).subscribe(
       (response) => {
-        this.notification.showNotification('Sales Report Updated !!','✓','success');
+        this.notification.showNotification('Sales Report Updated !!', '✓', 'success');
         if (index !== -1) {
           this.salesReport[index].quantitySold += salesReport.quantitySold;
           this.salesReport[index].totalSale += salesReport.totalSale;
@@ -38,7 +37,11 @@ export class SalesReportService {
         }
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
+  }
+
+  getTotalRevenue() {
+    return this.salesReport.map(s => s.totalSale).reduce((a, b) => a + b, 0);
   }
 }

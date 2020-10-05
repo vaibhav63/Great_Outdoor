@@ -15,7 +15,7 @@ export class ProductService {
   products: Array<Product> = [];
 
   constructor(public fb: FormBuilder, private productCommunication: ProductCommunicationService
-    ,private notification:NotificationService) {
+    , private notification: NotificationService) {
 
     productCommunication.getProducts().subscribe(
       (products) => {
@@ -36,20 +36,20 @@ export class ProductService {
     productSpecification: ['', Validators.required],
   });
 
-  initializeFormGroup(index: number) {
+  initializeFormGroup(item: any) {
 
-    this.tempIndex = index;
-    if (this.products[index] != null) {
+    if (item != null) {
+      this.tempIndex = this.products.indexOf(item);
       this.formGroup.setValue({
-        productId: this.products[index].productId,
-        productName: this.products[index].productName,
-        productImage: this.products[index].productImage,
-        productPrice: this.products[index].productPrice,
-        productColor: this.products[index].productColor,
-        productCategory: this.products[index].productCategory,
-        productQuantity: this.products[index].productQuantity,
-        productManufacturer: this.products[index].productManufacturer,
-        productSpecification: this.products[index].productSpecification
+        productId: item.productId,
+        productName: item.productName,
+        productImage: item.productImage,
+        productPrice: item.productPrice,
+        productColor: item.productColor,
+        productCategory: item.productCategory,
+        productQuantity: item.productQuantity,
+        productManufacturer: item.productManufacturer,
+        productSpecification: item.productSpecification
       });
     } else {
       this.formGroup.reset();
@@ -59,96 +59,78 @@ export class ProductService {
   saveProduct() {
 
     if (this.tempIndex != -1) {
+      console.log(this.tempIndex);
       this.productCommunication.updateProduct(this.formGroup.value).subscribe(
         (response) => {
-          this.notification.showNotification('Successfully Updated !!','✓','success');
+          this.notification.showNotification('Successfully Updated !!', '✓', 'success');
           this.products[this.tempIndex] = this.formGroup.value;
+          this.subject.next(this.products);
+
         },
         (error) => {
-          this.notification.showNotification(error,'X','error');
+          this.notification.showNotification(error, 'X', 'error');
         });
     } else {
-      
+
       this.productCommunication.addProduct(this.formGroup.value).subscribe(
         (response) => {
-          this.notification.showNotification('Successfully Added !!','✓','success');
+          this.notification.showNotification('Successfully Added !!', '✓', 'success');
           this.products.push(this.formGroup.value);
+          this.subject.next(this.products);
         },
         (error) => {
-          this.notification.showNotification(error,'X','error');
+          this.notification.showNotification(error, 'X', 'error');
         });
     }
-    this.subject.next(this.products);
+
   }
 
   updateProductQuantity(quantity: number, productId: string) {
     this.productCommunication.updateProductQuantity(quantity, productId).subscribe(
       (response) => {
-        this.notification.showNotification('Product Quantity Updated Successfully !!','✓','success');
+        this.notification.showNotification('Product Quantity Updated Successfully !!', '✓', 'success');
         var index = this.products.map(p => p.productId).indexOf(productId);
         this.products[index].productQuantity = quantity;
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
   }
-  // splice will return deleted elements I'm taking first element of that array
 
-  deleteProduct(index: number) {
-    
-    this.productCommunication.deleteProduct(this.products[index].productId).subscribe(
+  deleteProduct(item: any) {
+    const index = this.products.indexOf(item);
+    this.productCommunication.deleteProduct(item.productId).subscribe(
       (response) => {
         this.notification.showNotification(
-          `Product with Id:${this.products[index].productId} Deleted Successfully !!`,'✓','success');
-           this.products.splice(index, 1);
-           this.subject.next(this.products);
+          `Product with Id:${item.productId} Deleted Successfully !!`, '✓', 'success');
+        this.products.splice(index, 1);
+        this.subject.next(this.products);
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
-    
+
   }
 
 
 
-  searchProduct(keyword:string){
+  searchProduct(keyword: string) {
 
-
-
-
-    if(keyword!=null){
+    if (keyword != "") {
       console.log(keyword);
       this.productCommunication.productSearch(keyword).subscribe(
-        (products)=>{
+        (products) => {
           this.products = products;
           this.subject.next(products);
         });
-    }else{
+    } else {
       console.log(keyword);
       this.productCommunication.getProducts().subscribe(
-        (products)=>{
+        (products) => {
           this.products = products;
           this.subject.next(products);
         });
     }
-   
+
   }
-
-
-  //Not used Yet
-  // getProductById(productId) {
-
-  //   this.productCommunication.getProductById(productId).subscribe(
-  //     (product) => {
-  //       console.log(product);
-  //     });
-  // }
-
-
-  // getProductsByCategory(category: string) {
-
-  //   console.log(this.products);
-  //   console.log(this.products.filter(product =>
-  //   product.productCategory.toLowerCase().indexOf(category.toLowerCase()) !== -1));
-  // }
 }

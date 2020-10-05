@@ -10,7 +10,7 @@ export class GrowthReportService {
 
   growthReport: Array<GrowthReport> = [];
   subject = new Subject<any>();
-  errorMessage:string;
+  errorMessage: string;
 
   constructor(private growthReportCommunication: GrowthReportCommunicationService) {
 

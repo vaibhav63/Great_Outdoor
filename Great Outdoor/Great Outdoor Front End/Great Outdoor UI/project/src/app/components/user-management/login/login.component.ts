@@ -10,6 +10,7 @@ import { Userdata, UserService } from 'src/app/service/user.service';
 export class LoginComponent implements OnInit {
  
   buttonText='username';
+  user:any;
   constructor(private ser:UserService,private router:Router) { }
 
   msg:string="Enter Correct UserName and Password";
@@ -24,15 +25,21 @@ export class LoginComponent implements OnInit {
   onSubmit(u:Userdata){
    
     this.ser.login(u).subscribe(
-      users=>{
-
-        this.ser.isLogin=true;
-        if(users=="admin")
-            this.router.navigate(['app-adminoperations']);
-        else if(users=="customer")
-            this.router.navigate(['app-customeroperations']);
-        else if(users=="invalid")
+      user=>{
+        this.user=user;
+        this.ser.sharedId=this.user.userid;
+        if(this.user.usertype =="admin"){
+          this.ser.userRole='admin';
+          this.router.navigate(['/home']);
+        }
+        else if(this.user.usertype=="customer"){
+          this.ser.userRole='customer';
+          this.router.navigate(['home']);
+        }  
+        else if(this.user.usertype=="invalid"){
           alert("Enter correct credentials");
+        }
+          
       }
     );
   }
