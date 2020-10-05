@@ -56,7 +56,7 @@ public class WishlistController {
 			@PathVariable("userId") String userId) throws WishlistException {
 
 		wishlistService.deleteWishlistItem(productId, userId);
-		return new ResponseEntity<>( HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteWishlist/{userId}")

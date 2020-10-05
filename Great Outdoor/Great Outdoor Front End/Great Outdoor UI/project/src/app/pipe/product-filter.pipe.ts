@@ -11,15 +11,15 @@ export class ProductFilterPipe implements PipeTransform {
     if (!products || !category) {
       return products;
     }
-      var tempList:Product[]= products.filter(product =>
+    var tempList: Product[] = products.filter(product =>
       product.productCategory.toLowerCase().indexOf(category.toLowerCase()) !== -1);
 
-      if(tempList.length){
-        return tempList;
-      }else{
-        tempList=[new Product("1",null,null,null,null,null,null,null,"https://www.aquafresh-ro.in/images/pnf.jpg")];
-        return tempList;
-      }
+    if (tempList.length) {
+      return tempList;
+    } else {
+      tempList = [new Product("1", null, null, null, null, null, null, null, "https://www.aquafresh-ro.in/images/pnf.jpg")];
+      return tempList;
+    }
   }
-  
+
 }

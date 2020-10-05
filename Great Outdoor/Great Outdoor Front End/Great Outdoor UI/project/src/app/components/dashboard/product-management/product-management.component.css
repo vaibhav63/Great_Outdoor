@@ -46,3 +46,17 @@ table {
   background-color: rgb(243, 189, 11); 
   outline: none;
 }
+
+
+.show-label {
+  text-align: center;
+  font-size: 50px;
+  margin-top:-20px;
+  margin-bottom:30px;
+}
+
+.badge{
+  color:rgb(95, 0, 173);
+  font-family:'Aclonica', sans-serif;
+  text-decoration: underline;
+}

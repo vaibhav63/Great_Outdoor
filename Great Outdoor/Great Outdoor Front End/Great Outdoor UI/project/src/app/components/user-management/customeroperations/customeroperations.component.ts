@@ -7,11 +7,11 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './customeroperations.component.html',
   styleUrls: ['./customeroperations.component.css']
 })
-export class CustomeroperationsComponent implements OnInit {
+export class CustomeroperationsComponent{
+  msg:any;
+  
+  constructor(private myservice: UserService,private router: Router) { 
 
-  constructor(public service:UserService,public router:Router) { }
-
-  ngOnInit(): void {
+    this.msg=this.myservice.sharedId;
   }
-   
 }

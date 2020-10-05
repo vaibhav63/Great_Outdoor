@@ -1,4 +1,6 @@
 
+<div style="position: absolute; z-index:5;width:100%">
+
   <div class="text-center bg-primary mb-5"> 
     <h1>User Management system</h1>
   </div>
@@ -8,9 +10,11 @@
     <button class="btn btn-success" routerLink='app-addresscreation'>Enter Address</button>&nbsp;
     <button class="btn btn-success" routerLink='app-deleteaddr'>Delete Address</button>&nbsp;
     <button class="btn btn-success" routerLink='app-updateaddr'>Update Address</button>&nbsp;
-    
+    <h3>UserID:{{msg}}</h3>
      </div>  
 
 
 
    <router-outlet></router-outlet>
+</div>
+  

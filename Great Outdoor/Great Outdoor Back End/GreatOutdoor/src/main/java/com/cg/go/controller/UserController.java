@@ -35,15 +35,11 @@ public class UserController {
    		}		
     }
     
-    //login user
     @PutMapping("/loginUser")
-	public String loginUser(@RequestBody Userdata u)
-	 {
-	 		
- 		 return userservice.loginUser(u);
- 		 
-		}
-         
+	public Userdata loginUser(@RequestBody Userdata u)
+	 {	
+ 		 return userservice.loginUser(u); 
+	 }
 }		
 	
 				

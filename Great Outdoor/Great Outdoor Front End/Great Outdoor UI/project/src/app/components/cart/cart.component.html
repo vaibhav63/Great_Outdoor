@@ -1,4 +1,4 @@
-<div class="cart-page">
+<div class="cart-page"  style="position: absolute; z-index:5;width: 100%;">
 
     <h1 class=" m-3 font-weight-bold" style="font-family: 'Aclonica';">Shopping Cart</h1>
     <div class=" d-flex">
@@ -25,14 +25,14 @@
                         </div>
 
                         <div class="col-md-4 text-right mt-3">
-                            <h3>{{item.cartItemPrice}}Rs.</h3>
+                            <h3>{{item.cartItemPrice}} ₹</h3>
                             <p style="margin-top: 35%;margin-left:10%">Quantity({{item.quantity}})</p>
                         </div>
                     </div>
                 </li>
 
             </ul>
-            <h2 class="float-right">Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}}Rs</h2>
+            <h2 class="float-right">Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}} ₹</h2>
         </div>
 
         <div class="payment-details col-md-3" style="margin-left: -15px;">
@@ -41,8 +41,9 @@
                     <h3 class="text-success">Your order is eligible for FREE Delivery.</h3>
                 </li>
                 <li class="list-group-item text-center" style="background-color:rgba(0, 0, 0, 0.089);">
-                    <h1>Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}}Rs.</h1>
-                    <button class="mt-2 w-75 create-button" mat-raised-button (click)="onProceedToPay()">Proceed to
+                    <h1>Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}} ₹</h1>
+                    <button class="mt-2 w-75 create-button" mat-raised-button (click)="onProceedToPay()"
+                    [disabled]="!cartService.subTotal">Proceed to
                         Buy</button>
                 </li>
             </ul>

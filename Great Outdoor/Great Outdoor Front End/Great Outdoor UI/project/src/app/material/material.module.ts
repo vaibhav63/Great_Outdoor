@@ -17,13 +17,16 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 const MaterialComponents = [MatListModule, MatButtonModule, MatIconModule,
   MatToolbarModule, MatMenuModule, MatSidenavModule, MatCardModule,
   MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule,
   MatSortModule, MatSnackBarModule, MatNativeDateModule, MatDatepickerModule,
-  MatGridListModule, MatDialogModule, MatSelectModule,MatSnackBarModule];
+  MatGridListModule, MatDialogModule, MatSelectModule,MatSnackBarModule,
+  MatProgressSpinnerModule];
 
 @NgModule({
   imports: [MaterialComponents], exports: [MaterialComponents]

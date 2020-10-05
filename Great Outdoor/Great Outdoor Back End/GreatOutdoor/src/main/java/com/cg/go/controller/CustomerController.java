@@ -1,6 +1,4 @@
 package com.cg.go.controller;
-
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -38,10 +36,10 @@ public class CustomerController {
 
 	// Get All addresses
 
-	@GetMapping("/getAlladdress")
-	private ResponseEntity<List<Customer>> getAlladdress() {
-		List<Customer> addrlist = serviceobj.getAlladdress();
-		return new ResponseEntity<List<Customer>>(addrlist, new HttpHeaders(), HttpStatus.OK);
+	@GetMapping("/getAddress/{userName}")
+	private ResponseEntity<Customer> getaddress(@PathVariable("userName") String userName) {
+		Customer customer = serviceobj.getAddressByUserName(userName);
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
 
 	// Updating address

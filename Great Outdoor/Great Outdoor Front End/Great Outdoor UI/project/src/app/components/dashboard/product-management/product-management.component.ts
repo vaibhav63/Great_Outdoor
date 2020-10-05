@@ -52,7 +52,7 @@ export class ProductManagementComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onCreate(row: number) {
+  onCreate(row:any) {
     this.productService.initializeFormGroup(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -63,7 +63,7 @@ export class ProductManagementComponent implements OnInit, AfterViewInit {
   }
 
 
-  deleteProduct(row: number) {
+  deleteProduct(row:any) {
     this.productService.deleteProduct(row);
   }
 }

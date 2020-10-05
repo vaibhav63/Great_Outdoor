@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-
-  isLogin:boolean=false;
-  userRole:string='customer';
+  
+  userRole:string=null;
+  sharedId:string;
   
   constructor(private ser:HttpClient) { }
   
@@ -26,10 +26,13 @@ export class UserService {
   }
 
 
-  login(u:Userdata){
+  login(u:Userdata):Observable<any>{
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.ser.put("http://localhost:8000/admin/loginUser", u,  { headers, responseType: 'text'});
+    return this.ser.put("http://localhost:8000/admin/loginUser", u);
   }
+
+
+
 }
 export class Userdata{
   userid:number;

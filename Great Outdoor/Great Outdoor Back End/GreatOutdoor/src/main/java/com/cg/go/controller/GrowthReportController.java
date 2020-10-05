@@ -41,7 +41,7 @@ public class GrowthReportController {
 	public ResponseEntity<?> deleteAllGrowthReport() throws GrowthReportException {
 
 		growthReportService.deleteAllGrowthReport();
-		return new ResponseEntity<>( HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")

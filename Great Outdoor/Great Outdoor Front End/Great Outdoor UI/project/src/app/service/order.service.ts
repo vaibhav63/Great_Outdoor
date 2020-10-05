@@ -14,9 +14,9 @@ export class OrderService {
   orders: Array<Order> = [];
   arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  
-    constructor(private orderCommunication: OrderCommunicationService,
-    private notification:NotificationService) {
+
+  constructor(private orderCommunication: OrderCommunicationService,
+    private notification: NotificationService) {
 
     orderCommunication.getAllOrders().subscribe(
       (orders) => {
@@ -32,10 +32,10 @@ export class OrderService {
     this.orders[index].arrivalDate = arrivalDate;
     this.orderCommunication.updateOrderSchedule(this.orders[index]).subscribe(
       (response) => {
-        this.notification.showNotification('Order Schedule Updated Successfully !!','✓','success');
+        this.notification.showNotification('Order Schedule Updated Successfully !!', '✓', 'success');
       },
       (error) => {
-       this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
     this.subject.next(this.orders);
   }
@@ -45,14 +45,14 @@ export class OrderService {
     this.orderCommunication.removeOrderById(this.orders[index].orderId).subscribe(
       (response) => {
         this.notification.showNotification
-        (`Order With Id:${this.orders[index].orderId} Deleted Successfully !!`,'✓','success');
+          (`Order With Id:${this.orders[index].orderId} Deleted Successfully !!`, '✓', 'success');
         this.orders.splice(index, 1);
         this.subject.next(this.orders);
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
-   
+
   }
 
   addOrder(userId: string, products: string, totalPrice: number, totalQuantity: number) {
@@ -65,14 +65,14 @@ export class OrderService {
       date1.toISOString().substring(0, 10), date2.toISOString().substring(0, 10));
     this.orderCommunication.addOrder(order).subscribe(
       (response) => {
-        this.notification.showNotification('Order Has Been Made !!','✓','success');
+        this.notification.showNotification('Order Has Been Made !!', '✓', 'success');
         this.orders.push(order);
         this.subject.next(this.orders);
       },
       (error) => {
-        this.notification.showNotification(error,'X','error');
+        this.notification.showNotification(error, 'X', 'error');
       });
-    
+
   }
 
   randomStr(len) {

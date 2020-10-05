@@ -30,6 +30,14 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
+	public Customer getAddressByUserName(String userName){
+
+		TypedQuery<Customer> q=em.createQuery("select m from Customer m where m.retailer_name =:name",Customer.class);
+		q.setParameter("name", userName);
+		return q.getSingleResult();
+	}
+
+	@Override
 	public Customer updateaddr(Customer addr) {
 		Customer e = em.find(Customer.class, addr.getAddr_id());
 		if (e != null) {

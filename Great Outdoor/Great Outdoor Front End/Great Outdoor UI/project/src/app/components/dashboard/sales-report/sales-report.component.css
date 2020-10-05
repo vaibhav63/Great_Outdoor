@@ -36,5 +36,26 @@
 
 ::ng-deep.mat-form-field-ripple {
  /*change color of underline when focused*/
- background-color:black !important;;
+ background-color:black !important;
+}
+.show-label {
+  text-align: center;
+  font-size: 50px;
+  margin-top:-20px;
+  margin-bottom:30px;
+}
+
+.badge{
+  color:rgb(95, 0, 173);
+  font-family:'Aclonica', sans-serif;
+  text-decoration: underline;
+}
+
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
 }

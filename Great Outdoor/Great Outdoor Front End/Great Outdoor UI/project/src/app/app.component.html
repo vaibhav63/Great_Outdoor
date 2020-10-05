@@ -1,23 +1,24 @@
 <div class="main-page">
 
-  <nav>
+  <nav [ngClass]="{'sticky-top':state2 && router.url=='/home'}">
     <mat-toolbar class="px-5">
-      <a mat-icon-button [disableRipple]="true" class="mr-4">
-        <img  width="50px" height="50px" src="/assets/images/go1.png">
+      <a [@expansion]="state2" mat-icon-button [disableRipple]="true" class="mr-5">
+        <img width="50px" height="60px" src="/assets/images/go1.png" style="margin-top: -10px;">
       </a>
-      <span style="font-size:30px;">GREAT OUTDOOR</span>
-      <a mat-button routerLink="home" routerLinkActive="active">HOME</a>
-      <a mat-button routerLink="cart" routerLinkActive="active">MY CART</a>
-      <a mat-button routerLink="#" routerLinkActive="active">WISHLIST</a>
-      <a mat-button routerLink="#" routerLinkActive="active" (click)="isHidden=isHidden?false:true">CATEGORIES</a>
+      <span [hidden]="state2" style="font-size:30px;">GREAT OUTDOOR</span>
+      <a class="menu-items" mat-button routerLink="home" routerLinkActive="active">HOME</a>
+      <a class="menu-items" mat-button routerLink="cart" routerLinkActive="active">MY CART</a>
+      <a class="menu-items" mat-button routerLink="#" routerLinkActive="active">WISHLIST</a>
+      <a class="menu-items" mat-button routerLink="#" routerLinkActive="active"
+        (click)="state1=state1=='slide'?null:'slide'">CATEGORIES</a>
       <span class="example-spacer"></span>
-      <a mat-button routerLink="user/app-login" *ngIf="!userService.isLogin">Sign in</a>
-      <a mat-button routerLink="user/app-signup" *ngIf="!userService.isLogin">Sign up</a>
+      <a class="validation" mat-button routerLink="user/app-login" *ngIf="!userService.userRole">Sign in</a>
+      <a class="validation" mat-button routerLink="user/app-signup" *ngIf="!userService.userRole">Sign up</a>
       <a mat-icon-button [matMenuTriggerFor]="menu" [disableRipple]="true">
         <mat-icon>settings</mat-icon>
       </a>
       <mat-menu #menu="matMenu">
-        <button routerLink="dashboard/manage_products" routerLinkActive="active" mat-menu-item >
+        <button routerLink="dashboard/manage_products" routerLinkActive="active" mat-menu-item>
           <mat-icon>dashboard</mat-icon>
           <span>Dashboard</span>
         </button>
@@ -25,48 +26,48 @@
           <mat-icon>home</mat-icon>
           <span>Address Management</span>
         </button>
-        <button mat-menu-item routerLink="home" (click)="userService.isLogin=false" [disabled]="!userService.isLogin">
+        <button mat-menu-item routerLink="home" (click)="userService.userRole=null;" [disabled]="!userService.userRole">
           <mat-icon>exit_to_app</mat-icon>
           <span>Sign Out</span>
         </button>
       </mat-menu>
     </mat-toolbar>
-      <div *ngIf="router.url=='/home'" style="background-color: black;color:white;font-size:12px;height:40px;">
-        <div  class="search-bar col-md-3">
-          <input  type="text"  placeholder="Find.."  autocomplete="off" #keyword>
-          <a  mat-icon-button  [disableRipple]="true" (click)="productService.searchProduct(keyword.value)" >
-            <mat-icon>search</mat-icon>
-          </a>
-        </div>
-        
-
-        <div class="col-md-9">
-          <p style="margin-left: 20%;margin-top: 10px;">
-            Free shipping when your order is above €99.99 | 2
-            Year Limited Warranty.
-          </p>
-          
-        </div>
+    <div [@expansion]="state3" class="d-flex" *ngIf="router.url=='/home'"
+      style="background-color: black;color:white;font-size:12px;height:40px;width: 100%;">
+      <div class="search-bar col-md-3">
+        <input type="text" placeholder="Find.." autocomplete="off" #keyword>
+        <a mat-icon-button [disableRipple]="true" (click)="productService.searchProduct(keyword.value)">
+          <mat-icon>search</mat-icon>
+        </a>
       </div>
-    <div class="categories  text-center" [ngStyle]="{'display':isHidden?'none':'flex'}">
+      <div class="col-md-9">
+        <p style="margin-left: 20%;margin-top: 10px;">
+          Free shipping when your order is above €99.99 | 2
+          Year Limited Warranty.
+        </p>
+      </div>
+    </div>
+    <div [@expansion]="state1" class="categories d-flex text-center">
       <div class="col-md-3">
-        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <img width="100%" height="70%" src="https://wallpapercave.com/wp/wp4810853.jpg">
         <h1 class="mt-4">MOBILE</h1>
       </div>
       <div class="col-md-3">
-        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <img width="100%" height="70%"
+          src="https://www.hdwallback.net/wp-content/uploads/2015/10/jennifer-lawrence-desktop-images.jpg">
         <h1 class="mt-4">CLOTHES</h1>
       </div>
       <div class="col-md-3">
-        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <img width="100%" height="70%" src="https://all4desktop.com/data_images/original/4235841-nba-wallpaper.jpg">
         <h1 class="mt-4">SPORTS</h1>
       </div>
       <div class="col-md-3">
-        <img width="100%" height="70%" src="https://cdn.mos.cms.futurecdn.net/7xuuL9GAGDDjhietMy3RGJ.jpg">
+        <img width="100%" height="70%"
+          src="https://wallpapermemory.com/uploads/339/vegetables-wallpaper-full-hd-1920x1080-114842.jpg">
         <h1 class="mt-4">GROCERY</h1>
       </div>
     </div>
   </nav>
-
   <router-outlet></router-outlet>
+
 </div>

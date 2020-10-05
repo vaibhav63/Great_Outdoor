@@ -28,6 +28,11 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+	public Customer getAddressByUserName(String userName) {
+		return dao.getAddressByUserName(userName);
+	}
+
+	@Override
 	public Customer updateaddr(Customer addr) {
 		return dao.updateaddr(addr);
 	}

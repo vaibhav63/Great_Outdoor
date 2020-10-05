@@ -1,4 +1,10 @@
-<div class="container">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div style="position: absolute; z-index:5;width: 100%;">
+
+    <div class="container">
 
         <h3>SignUp</h3>
 
@@ -62,7 +68,7 @@
 
         <div class="form-group">
 
-            <label>UserType:(Customer) </label>
+            <label>UserType:(customer) </label>
 
             <input required minlength="6" type="text" #usertypeRef='ngModel' name="usertype" ngModel class="form-control">
 
@@ -110,9 +116,6 @@
                     Provide User MailID
 
                 </div>
-
-                
-
             </div>
 
         </div>
@@ -124,4 +127,6 @@
 
  <div align="center">
     <h2>{{message}}</h2>
+</div>
+
 </div>
