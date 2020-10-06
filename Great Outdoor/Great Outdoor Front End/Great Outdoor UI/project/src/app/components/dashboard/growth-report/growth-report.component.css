@@ -1,4 +1,4 @@
-table {
+ table {
     width: 100%;
   }
 
@@ -47,26 +47,24 @@ table {
 }
 
 .badge{
-  /* border: 4px solid rgb(95, 0, 173); */
   color:rgb(95, 0, 173);
   text-decoration: underline;
   font-family:'Aclonica', sans-serif;
 }
 
 .symbol1{
-
   height: 20px;
   width: 20px;
   background-color: red;
 }
-.symbol2{
 
+.symbol2{
   height: 20px;
   width: 20px;
   background-color: blue;
 }
-.symbol3{
 
+.symbol3{
   height: 20px;
   width: 20px;
   background-color: rgb(70, 190, 0);

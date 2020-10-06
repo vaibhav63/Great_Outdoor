@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Cart } from 'src/app/model/cart.model';
 import { Product } from 'src/app/model/product.model';
 import { CartService } from 'src/app/service/cart.service';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { CartService } from 'src/app/service/cart.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent{
+export class ProductComponent {
 
   product: Product;
   specificationArray = [];
@@ -19,7 +20,7 @@ export class ProductComponent{
   quantity: number = 1;
 
   constructor(private dialogRef: MatDialogRef<ProductComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
-    public cartService: CartService) {
+    public cartService: CartService, private user: UserService) {
     this.product = data.product;
     this.specificationArray = this.product['productSpecification'].split(',');
     this.maxValue = this.product.productQuantity;
@@ -39,7 +40,7 @@ export class ProductComponent{
 
   addToCart() {
     this.dialogRef.close();
-    const cartItem = new Cart(1, '11', this.product.productId,
+    const cartItem = new Cart(1, this.user.sharedId, this.product.productId,
       this.product.productPrice * this.quantity, this.quantity);
     this.cartService.addToCart(cartItem);
   }

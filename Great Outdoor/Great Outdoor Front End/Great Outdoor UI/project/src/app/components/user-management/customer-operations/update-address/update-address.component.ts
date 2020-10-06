@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { Address, AddressService } from 'src/app/service/address.service';
 
 @Component({
-  selector: 'app-updateaddr',
-  templateUrl: './updateaddr.component.html',
-  styleUrls: ['./updateaddr.component.css']
+  selector: 'app-update-address',
+  templateUrl: './update-address.component.html',
+  styleUrls: ['./update-address.component.css']
 })
-export class UpdateaddrComponent implements OnInit {
+export class UpdateAddressComponent implements OnInit {
   obj1: any;
   customer: Address[];
   message:string;

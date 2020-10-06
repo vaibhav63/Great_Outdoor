@@ -25,7 +25,6 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findById(id).orElse(null);
 	}
 
-
 	@Override
 	public List<ProductEntity> findByProductCategory(String productCategory) {
 
@@ -58,10 +57,10 @@ public class ProductServiceImpl implements ProductService {
 		return productEntity;
 	}
 
-    @Override
-	public void updateProductQuantity(Integer quantity,String productId){
+	@Override
+	public void updateProductQuantity(Integer quantity, String productId) {
 
-		 productRepository.updateQuantity(quantity, productId);
+		productRepository.updateQuantity(quantity, productId);
 	}
 
 	@Override

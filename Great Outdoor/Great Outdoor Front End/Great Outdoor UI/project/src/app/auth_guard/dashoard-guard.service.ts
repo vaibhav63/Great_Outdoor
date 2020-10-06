@@ -7,10 +7,10 @@ import { UserService } from '../service/user.service';
 })
 export class DashboardGuardService implements CanActivate {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) { }
 
-  canActivate(route:ActivatedRouteSnapshot,state:RouterStateSnapshot):boolean{
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-    return  this.userService.userRole.toLowerCase()=='admin';
+    return this.userService.userRole.toLowerCase() == 'admin';
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { OrderCommunicationService } from '../communication/order-communication.service';
 import { Order } from '../model/order.model';
+import { AddressService } from './address.service';
 import { NotificationService } from './notification.service';
 
 
@@ -16,7 +17,7 @@ export class OrderService {
     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   constructor(private orderCommunication: OrderCommunicationService,
-    private notification: NotificationService) {
+    private notification: NotificationService, private addressService: AddressService) {
 
     orderCommunication.getAllOrders().subscribe(
       (orders) => {
@@ -25,7 +26,7 @@ export class OrderService {
       });
   }
 
-
+// updating Schedule for departure and arrival time of order
   updateSchedule(index: number, dispatchDate: string, arrivalDate: string) {
 
     this.orders[index].dispatchDate = dispatchDate;
@@ -52,7 +53,6 @@ export class OrderService {
       (error) => {
         this.notification.showNotification(error, 'X', 'error');
       });
-
   }
 
   addOrder(userId: string, products: string, totalPrice: number, totalQuantity: number) {
@@ -61,7 +61,7 @@ export class OrderService {
     var date2 = new Date();
     date2.setDate(date2.getDate() + 3);
     var orderId = this.randomStr(15);
-    const order = new Order(1, orderId, userId, products, totalPrice, totalQuantity, "001",
+    const order = new Order(1, orderId, userId, products, totalPrice, totalQuantity, this.addressService.addressId.toString(),
       date1.toISOString().substring(0, 10), date2.toISOString().substring(0, 10));
     this.orderCommunication.addOrder(order).subscribe(
       (response) => {
@@ -72,9 +72,9 @@ export class OrderService {
       (error) => {
         this.notification.showNotification(error, 'X', 'error');
       });
-
   }
 
+  // generating random order id 
   randomStr(len) {
     var ans = '';
     for (var i = len; i > 0; i--) {

@@ -20,6 +20,8 @@ export class PaymentGatewayComponent {
     this.quantity = data.quantity;
   }
 
+  // on pay we are invoking all the neccessary fuctions for making order, 
+  // updating our reports
   onPay() {
     this.cartService.createOrder();
     this.cartService.updateReport();

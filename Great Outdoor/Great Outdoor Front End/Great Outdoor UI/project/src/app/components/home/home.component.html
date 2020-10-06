@@ -23,7 +23,7 @@
 
     <div class="categories d-flex justify-content-center align-items-center" *ngFor="let obj of categories"
         style="background-image: linear-gradient( rgba(116, 116, 116, 0.3), rgba(116, 116, 116, 0.3)), url({{obj.imageURL}}) ">
-        <div class="category-section">
+        <div class="category-section" [id]="obj.category">
             <div class="display-3 mb-5 d-inline"
                 style="color: rgb(219, 179, 0);font-weight:bold;text-shadow: 0 10px 10px black;">{{obj.category}}</div>
             <owl-carousel-o [options]="customOptions">

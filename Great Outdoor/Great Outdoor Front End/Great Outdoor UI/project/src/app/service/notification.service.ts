@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
+
+// notification service for showing error and success messages
 export class NotificationService {
 
   constructor(public snackBar: MatSnackBar) { }

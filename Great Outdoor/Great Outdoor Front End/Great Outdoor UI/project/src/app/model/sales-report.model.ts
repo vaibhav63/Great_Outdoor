@@ -1,3 +1,4 @@
+// model for sales report
 export class SalesReport {
 
     constructor(public salesReportId: number, public productId: string,

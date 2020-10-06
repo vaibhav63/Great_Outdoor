@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-customeroperations',
-  templateUrl: './customeroperations.component.html',
-  styleUrls: ['./customeroperations.component.css']
+  selector: 'app-customer-operations',
+  templateUrl: './customer-operations.component.html',
+  styleUrls: ['./customer-operations.component.css']
 })
-export class CustomeroperationsComponent{
+export class CustomerOperationsComponent {
   msg:any;
   
   constructor(private myservice: UserService,private router: Router) { 

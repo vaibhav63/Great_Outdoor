@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -26,7 +27,7 @@ const MaterialComponents = [MatListModule, MatButtonModule, MatIconModule,
   MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule,
   MatSortModule, MatSnackBarModule, MatNativeDateModule, MatDatepickerModule,
   MatGridListModule, MatDialogModule, MatSelectModule,MatSnackBarModule,
-  MatProgressSpinnerModule];
+  MatProgressSpinnerModule,MatTooltipModule];
 
 @NgModule({
   imports: [MaterialComponents], exports: [MaterialComponents]

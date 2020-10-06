@@ -1,8 +1,8 @@
 <div class="main-page">
 
-  <nav [ngClass]="{'sticky-top':state2 && router.url=='/home'}">
+  <nav [ngClass]="{'sticky-top':state2}">
     <mat-toolbar class="px-5">
-      <a [@expansion]="state2" mat-icon-button [disableRipple]="true" class="mr-5">
+      <a [@expansion]="state2" routerLink="home" mat-icon-button [disableRipple]="true" class="mr-5">
         <img width="50px" height="60px" src="/assets/images/go1.png" style="margin-top: -10px;">
       </a>
       <span [hidden]="state2" style="font-size:30px;">GREAT OUTDOOR</span>
@@ -26,7 +26,7 @@
           <mat-icon>home</mat-icon>
           <span>Address Management</span>
         </button>
-        <button mat-menu-item routerLink="home" (click)="userService.userRole=null;" [disabled]="!userService.userRole">
+        <button mat-menu-item routerLink="home" (click)="onLogOut()" [disabled]="!userService.userRole">
           <mat-icon>exit_to_app</mat-icon>
           <span>Sign Out</span>
         </button>
@@ -50,21 +50,33 @@
     <div [@expansion]="state1" class="categories d-flex text-center">
       <div class="col-md-3">
         <img width="100%" height="70%" src="https://wallpapercave.com/wp/wp4810853.jpg">
-        <h1 class="mt-4">MOBILE</h1>
+        <a class="mt-4" (click)="state1=state1=='slide'?null:'slide'" mat-button routerLink="mobile"
+          routerLinkActive="active">
+          <h1>MOBILE</h1>
+        </a>
       </div>
       <div class="col-md-3">
         <img width="100%" height="70%"
           src="https://www.hdwallback.net/wp-content/uploads/2015/10/jennifer-lawrence-desktop-images.jpg">
-        <h1 class="mt-4">CLOTHES</h1>
+        <a class="mt-4" (click)="state1=state1=='slide'?null:'slide'" mat-button routerLink="clothes"
+          routerLinkActive="active">
+          <h1>CLOTHES</h1>
+        </a>
       </div>
       <div class="col-md-3">
         <img width="100%" height="70%" src="https://all4desktop.com/data_images/original/4235841-nba-wallpaper.jpg">
-        <h1 class="mt-4">SPORTS</h1>
+        <a class="mt-4" (click)="state1=state1=='slide'?null:'slide'" mat-button routerLink="sports"
+          routerLinkActive="active">
+          <h1>SPORTS</h1>
+        </a>
       </div>
       <div class="col-md-3">
         <img width="100%" height="70%"
           src="https://wallpapermemory.com/uploads/339/vegetables-wallpaper-full-hd-1920x1080-114842.jpg">
-        <h1 class="mt-4">GROCERY</h1>
+        <a class="mt-4" (click)="state1=state1=='slide'?null:'slide'" mat-button routerLink="grocery"
+          routerLinkActive="active">
+          <h1>GROCERY</h1>
+        </a>
       </div>
     </div>
   </nav>

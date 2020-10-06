@@ -36,8 +36,6 @@ export class HomeComponent {
     category: "GROCERY"
   }];
 
-
-
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -70,6 +68,8 @@ export class HomeComponent {
     service.searchProduct("");
   }
 
+  // opening a dialog box for product where all the details about product is going
+  // to be shown
   goToProduct(item) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;

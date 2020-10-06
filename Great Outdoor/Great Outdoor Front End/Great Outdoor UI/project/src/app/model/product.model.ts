@@ -1,4 +1,4 @@
-
+// model for product
 export class Product {
 
     constructor(public productId: string, public productName: string, public productPrice: number,

@@ -1,4 +1,8 @@
 
+.main-page{
+  background-color: rgb(49, 42, 42); 
+}
+
 .example-spacer {
     flex: 1 1 auto;
   }

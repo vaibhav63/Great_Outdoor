@@ -1,5 +1,6 @@
 <!-- This page shows product details -->
 <div class="edit-product">
+
   <mat-toolbar>
     <span>{{header}}</span>
     <span class="example-spacer"></span>
@@ -7,41 +8,49 @@
       <mat-icon>cancel</mat-icon>
     </button>
   </mat-toolbar>
+
   <form [formGroup]="productService.formGroup" (ngSubmit)="onSubmit()">
 
     <mat-grid-list cols="3" rowHeight="100px">
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT ID</mat-label>
           <input formControlName="productId" matInput placeholder="Product Id*">
-          <mat-hint>Hint</mat-hint>
-          <mat-error>Id is mandatory.</mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productId'].errors?.required">Id is mandatory.
+          </mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productId'].errors?.pattern">Id should be number only and
+            not 0.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT NAME</mat-label>
           <input formControlName="productName" matInput placeholder="Product Name*">
-          <mat-hint>Hint</mat-hint>
           <mat-error>Name is mandatory.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT PRICE</mat-label>
           <input formControlName="productPrice" matInput placeholder="Product Price*">
-          <mat-hint>Hint</mat-hint>
-          <mat-error>Price is mandatory.</mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productPrice'].errors?.required">Price is mandatory.
+          </mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productPrice'].errors?.pattern">It should be number only.
+          </mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT COLOR</mat-label>
           <input formControlName="productColor" matInput placeholder="Product Color*">
-          <mat-hint>Hint</mat-hint>
           <mat-error>Color is mandatory.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT CATEGORY</mat-label>
@@ -52,26 +61,36 @@
             <mat-option value="Sports">Sports</mat-option>
             <mat-option value="Grocery">Grocery</mat-option>
           </mat-select>
-          <mat-hint>Hint</mat-hint>
+          <mat-hint>You have to select one</mat-hint>
           <mat-error>Category is mandatory.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT QUANTITY</mat-label>
           <input formControlName="productQuantity" matInput placeholder="Product Quantity*">
-          <mat-hint>Hint</mat-hint>
-          <mat-error>Quantity is mandatory.</mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productQuantity'].errors?.required">Quantity is
+            mandatory.</mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productQuantity'].errors?.maxlength">Quantity can be max
+            999.</mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productQuantity'].errors?.pattern">It should be in number
+            only and not 0.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT MANUFACTURER</mat-label>
           <input formControlName="productManufacturer" matInput placeholder="Product Manufacturer*">
-          <mat-hint>Hint</mat-hint>
-          <mat-error>Manufacturer is mandatory.</mat-error>
+          <mat-hint>It is actually brand name</mat-hint>
+          <mat-error *ngIf="productService.formGroup.controls['productManufacturer'].errors?.required">Manufacturer is
+            mandatory.</mat-error>
+          <mat-error *ngIf="productService.formGroup.controls['productManufacturer'].errors?.pattern">It should be in
+            alphabets only.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile colspan="2" rowspan="2">
         <img [src]="image.value"
           onerror="this.src='https://icons.iconarchive.com/icons/custom-icon-design/flatastic-11/256/Shopping-basket-add-icon.png'"
@@ -79,19 +98,20 @@
         <mat-form-field appearance="standard" style="left:96px;top:-50px;">
           <mat-label>PRODUCT IMAGE</mat-label>
           <input formControlName="productImage" matInput placeholder="Product Image*" #image>
-          <mat-hint>Hint</mat-hint>
           <mat-error>Image is mandatory.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="standard">
           <mat-label>PRODUCT SPECIFICATION</mat-label>
           <input formControlName="productSpecification" matInput placeholder="Product Specification*">
-          <mat-hint>Hint</mat-hint>
           <mat-error>Specification is mandatory.</mat-error>
         </mat-form-field>
       </mat-grid-tile>
+
     </mat-grid-list>
+
     <div class="d-flex justify-content-center">
       <button class="m-3" mat-raised-button color="primary" type="submit"
         [disabled]="productService.formGroup.invalid">Submit</button>

@@ -36,11 +36,7 @@ export class SalesReportComponent implements OnInit, AfterViewInit {
         this.dataSource = new MatTableDataSource(salesReport);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+      });
   }
 
   applyFilter(event: Event) {

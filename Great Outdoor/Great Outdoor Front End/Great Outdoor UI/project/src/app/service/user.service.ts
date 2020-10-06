@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   
   userRole:string=null;
-  sharedId:string;
+  sharedId:string=null;
   
   constructor(private ser:HttpClient) { }
   

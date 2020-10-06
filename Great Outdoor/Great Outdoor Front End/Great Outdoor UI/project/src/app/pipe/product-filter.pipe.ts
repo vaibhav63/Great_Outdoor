@@ -5,6 +5,8 @@ import { Product } from '../model/product.model';
   name: 'productFilter',
   pure: false
 })
+
+// pipe to filter product array on the basis of category 
 export class ProductFilterPipe implements PipeTransform {
 
   transform(products: Product[], category: string): Product[] {

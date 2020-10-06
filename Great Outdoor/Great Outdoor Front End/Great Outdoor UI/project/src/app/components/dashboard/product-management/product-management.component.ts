@@ -22,10 +22,6 @@ export class ProductManagementComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-
-  // this is how im producing loading effect by providing data ngOnInit rather than
-  // constructor so until the time constructor will run it will show loading
-
   constructor(private dialog: MatDialog, public productService: ProductService) {
     this.dataSource = new MatTableDataSource(productService.products);
   }
@@ -52,7 +48,7 @@ export class ProductManagementComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onCreate(row:any) {
+  onCreate(row: any) {
     this.productService.initializeFormGroup(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -62,8 +58,7 @@ export class ProductManagementComponent implements OnInit, AfterViewInit {
     this.dialog.open(EditProductComponent, dialogConfig);
   }
 
-
-  deleteProduct(row:any) {
+  deleteProduct(row: any) {
     this.productService.deleteProduct(row);
   }
 }

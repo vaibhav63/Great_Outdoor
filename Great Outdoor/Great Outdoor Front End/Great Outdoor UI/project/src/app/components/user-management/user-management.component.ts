@@ -8,7 +8,6 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserManagementComponent{
 
- 
   constructor(public service:UserService) {
    }
 

@@ -25,14 +25,15 @@ export class ProductService {
   }
 
   formGroup: FormGroup = this.fb.group({
-    productId: ['', Validators.required],
+    productId: ['', [Validators.required, Validators.pattern("^[1-9]\d*$")]],
     productName: ['', Validators.required],
     productImage: ['', Validators.required],
-    productPrice: ['', Validators.required],
+    productPrice: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     productColor: ['', Validators.required],
     productCategory: ['', Validators.required],
-    productQuantity: ['', Validators.required],
-    productManufacturer: ['', Validators.required],
+    productQuantity: ['', [Validators.required,
+    Validators.pattern("^[1-9]\d*$"), Validators.maxLength(3)]],
+    productManufacturer: ['', [Validators.required, Validators.pattern("^[a-zA-Z ]*$")]],
     productSpecification: ['', Validators.required],
   });
 
@@ -53,25 +54,23 @@ export class ProductService {
       });
     } else {
       this.formGroup.reset();
+      this.tempIndex = -1;
     }
   }
 
   saveProduct() {
 
     if (this.tempIndex != -1) {
-      console.log(this.tempIndex);
       this.productCommunication.updateProduct(this.formGroup.value).subscribe(
         (response) => {
           this.notification.showNotification('Successfully Updated !!', '✓', 'success');
           this.products[this.tempIndex] = this.formGroup.value;
           this.subject.next(this.products);
-
         },
         (error) => {
           this.notification.showNotification(error, 'X', 'error');
         });
     } else {
-
       this.productCommunication.addProduct(this.formGroup.value).subscribe(
         (response) => {
           this.notification.showNotification('Successfully Added !!', '✓', 'success');
@@ -82,7 +81,6 @@ export class ProductService {
           this.notification.showNotification(error, 'X', 'error');
         });
     }
-
   }
 
   updateProductQuantity(quantity: number, productId: string) {
@@ -109,10 +107,7 @@ export class ProductService {
       (error) => {
         this.notification.showNotification(error, 'X', 'error');
       });
-
   }
-
-
 
   searchProduct(keyword: string) {
 
@@ -131,6 +126,5 @@ export class ProductService {
           this.subject.next(products);
         });
     }
-
   }
 }
