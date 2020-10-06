@@ -10,13 +10,13 @@ import { GrowthReportService } from 'src/app/service/growth-report.service';
   templateUrl: './growth-report.component.html',
   styleUrls: ['./growth-report.component.css']
 })
-export class GrowthReportComponent implements OnInit, AfterViewInit {
 
+export class GrowthReportComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['growthReportId', 'currentdate', 'revenue',
     'amountChange', 'percentageGrowth', 'colorCode'];
-  dataSource: MatTableDataSource<GrowthReport>;
 
+  dataSource: MatTableDataSource<GrowthReport>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -40,7 +40,6 @@ export class GrowthReportComponent implements OnInit, AfterViewInit {
       (error) => {
         console.log(error);
       });
-
   }
 
   applyFilter(event: Event) {
@@ -50,5 +49,4 @@ export class GrowthReportComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

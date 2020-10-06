@@ -1,7 +1,7 @@
-<div class="cart-page"  style="position: absolute; z-index:5;width: 100%;">
+<div class="cart-page" style="position: absolute; z-index:5;width: 100%;">
 
     <h1 class=" m-3 font-weight-bold" style="font-family: 'Aclonica';">Shopping Cart</h1>
-    <div class=" d-flex">
+    <div *ngIf="cartService.totalQuantity;else NoItemFound" class=" d-flex">
         <div class="cart-list col-md-9">
             <ul class="list-group" *ngFor="let item of cartService.cartItems;let i = index">
                 <li class="list-group-item">
@@ -17,7 +17,7 @@
                             <p>Eligible for FREE Shipping</p>
                             <span class="badge badge-pill badge-dark">Fulfilled</span><br>
                             <button mat-flat-button style="margin-left:-13px;"
-                                (click)=cartService.deleteItem(i)>Delete</button>
+                                (click)=cartService.deleteItem(item)>Delete</button>
                             <span class="divider"></span>
                             <button mat-flat-button>Save for later</button>
                             <span class="divider"></span>
@@ -30,7 +30,6 @@
                         </div>
                     </div>
                 </li>
-
             </ul>
             <h2 class="float-right">Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}} ₹</h2>
         </div>
@@ -43,10 +42,14 @@
                 <li class="list-group-item text-center" style="background-color:rgba(0, 0, 0, 0.089);">
                     <h1>Subtotal({{cartService.totalQuantity}} item) : {{cartService.subTotal}} ₹</h1>
                     <button class="mt-2 w-75 create-button" mat-raised-button (click)="onProceedToPay()"
-                    [disabled]="!cartService.subTotal">Proceed to
+                        [disabled]="!cartService.subTotal">Proceed to
                         Buy</button>
                 </li>
             </ul>
         </div>
     </div>
+    <ng-template #NoItemFound>
+        <img style="margin-left: 30%;" width="900px" height="600px"
+            src="https://star-leather.com/public/assets/frontend/images/shopping_cart_empty.jpg">
+    </ng-template>
 </div>

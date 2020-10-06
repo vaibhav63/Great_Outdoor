@@ -25,7 +25,6 @@ export class GrowthReportService {
       });
   }
 
-
   addGrowthReport() {
 
     this.growthReportCommunication.addGrowthReport().subscribe(

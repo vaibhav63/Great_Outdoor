@@ -15,19 +15,19 @@ public class SalesReportSerivceImpl implements SalesReportService {
 
 	@Override
 	public List<SalesReportEntity> findAllSalesReport() {
-		
+
 		return salesReportRepository.findAll();
 	}
 
 	@Override
 	public void updateProductReport(SalesReportEntity salesReportEntity) {
-		
+
 		if (salesReportEntity != null) {
 			if (salesReportRepository.existsByProductId(salesReportEntity.getProductId())) {
-				SalesReportEntity tempEntity=findSalesReportByProductId(salesReportEntity.getProductId());
+				SalesReportEntity tempEntity = findSalesReportByProductId(salesReportEntity.getProductId());
 				salesReportRepository.updateProductReport(salesReportEntity.getProductId(),
-						salesReportEntity.getQuantitySold()+tempEntity.getQuantitySold(),
-						salesReportEntity.getTotalSale()+tempEntity.getTotalSale());
+						salesReportEntity.getQuantitySold() + tempEntity.getQuantitySold(),
+						salesReportEntity.getTotalSale() + tempEntity.getTotalSale());
 
 			} else {
 				salesReportRepository.save(salesReportEntity);

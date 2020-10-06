@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=El+Messiri:wght@500&family=Srisakdi:wght@700&display=swap');
 
 .description button{
-        
     background-color: transparent;
     color: blue;
     outline: none;
 }
+
 .divider {
     height: 15px;
     width: 1px;
@@ -15,7 +15,6 @@
   }
 
   .create-button{
-   
     border: 1px solid black;
     background-color: rgb(233, 197, 39); 
     outline: none;

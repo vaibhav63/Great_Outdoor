@@ -66,10 +66,11 @@
       <ng-container matColumnDef="actions">
         <th class="pl-3" mat-header-cell *matHeaderCellDef mat-sort-header> ACTIONS </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="onCreate(row)">
+          <button mat-icon-button matTooltip="Update product" (click)="onCreate(row)">
             <mat-icon>launch</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteProduct(row)">
+
+          <button mat-icon-button matTooltip="Delete product" color="warn" (click)="deleteProduct(row)">
             <mat-icon>delete_outline</mat-icon>
           </button>
         </td>

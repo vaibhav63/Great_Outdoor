@@ -1,4 +1,4 @@
-
+// model for growth report
 export class GrowthReport {
 
     constructor(public growthReportId: number, public currentdate: string,

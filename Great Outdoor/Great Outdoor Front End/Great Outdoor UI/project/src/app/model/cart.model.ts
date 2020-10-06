@@ -1,4 +1,4 @@
-
+// model for cart
 export class Cart {
 
     constructor(public cartId: number, public userId: string, public productId: string,

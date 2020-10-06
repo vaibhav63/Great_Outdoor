@@ -11,7 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SalesReportComponent } from './components/dashboard/sales-report/sales-report.component';
 import { GrowthReportComponent } from './components/dashboard/growth-report/growth-report.component';
 import { EditProductComponent } from './components/dashboard/edit-product/edit-product.component';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductOrdersComponent } from './components/dashboard/product-orders/product-orders.component';
 import { ProductService } from './service/product.service';
 import { OrderService } from './service/order.service';
@@ -28,20 +28,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { SalesReportService } from './service/sales-report.service';
 import { GrowthReportService } from './service/growth-report.service';
 import { ProductFilterPipe } from './pipe/product-filter.pipe';
-import { HandleErrorService} from './handle_error/handle-error.service';
-import { AddresscreationComponent } from './components/user-management/customeroperations/addresscreation/addresscreation.component';
-import { UpdateaddrComponent } from './components/user-management/customeroperations/updateaddr/updateaddr.component';
-import { DeleteaddrComponent } from './components/user-management/customeroperations/deleteaddr/deleteaddr.component';
-import { AdminoperationsComponent} from './components/user-management/adminoperations/adminoperations.component';
-import { CustomeroperationsComponent } from './components/user-management/customeroperations/customeroperations.component';
+import { HandleErrorService } from './handle_error/handle-error.service';
+import { AddressCreationComponent } from './components/user-management/customer-operations/address-creation/address-creation.component';
+import { UpdateAddressComponent } from './components/user-management/customer-operations/update-address/update-address.component';
+import { DeleteAddressComponent } from './components/user-management/customer-operations/delete-address/delete-address.component';
+import { CustomerOperationsComponent } from './components/user-management/customer-operations/customer-operations.component';
 import { LoginComponent } from './components/user-management/login/login.component';
 import { SignupComponent } from './components/user-management/signup/signup.component';
-import { AddressService} from './service/address.service';
-import { UserService} from './service/user.service';
+import { AddressService } from './service/address.service';
+import { UserService } from './service/user.service';
 import { UserManagementComponent } from './components/user-management/user-management.component';
-import { NotificationService} from './service/notification.service';
-import {AddressManagementGuardService } from './auth_guard/address-management-guard.service';
-import {DashboardGuardService } from './auth_guard/dashoard-guard.service';
+import { NotificationService } from './service/notification.service';
+import { AddressManagementGuardService } from './auth_guard/address-management-guard.service';
+import { DashboardGuardService } from './auth_guard/dashoard-guard.service';
 
 @NgModule({
   declarations: [
@@ -57,14 +56,13 @@ import {DashboardGuardService } from './auth_guard/dashoard-guard.service';
     ProductComponent,
     PaymentGatewayComponent,
     ProductFilterPipe,
-    AddresscreationComponent,
-    UpdateaddrComponent,
-    DeleteaddrComponent,
-    AdminoperationsComponent,
-    CustomeroperationsComponent,
     LoginComponent,
     SignupComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    CustomerOperationsComponent,
+    AddressCreationComponent,
+    DeleteAddressComponent,
+    UpdateAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -79,8 +77,8 @@ import {DashboardGuardService } from './auth_guard/dashoard-guard.service';
   providers: [ProductService, OrderService, CartService, ProductCommunicationService,
     CartCommunicationService, GrowthReportCommunicationService,
     OrderCommunicationService, SalesReportCommunicationService,
-    SalesReportService, GrowthReportService,HandleErrorService,
-    AddressService,UserService, NotificationService,AddressManagementGuardService,
+    SalesReportService, GrowthReportService, HandleErrorService,
+    AddressService, UserService, NotificationService, AddressManagementGuardService,
     DashboardGuardService],
   bootstrap: [AppComponent],
   entryComponents: [EditProductComponent, ProductComponent, PaymentGatewayComponent]

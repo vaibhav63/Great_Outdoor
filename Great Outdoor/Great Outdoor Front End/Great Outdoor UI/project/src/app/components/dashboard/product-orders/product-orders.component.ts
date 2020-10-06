@@ -20,6 +20,7 @@ import { OrderService } from 'src/app/service/order.service';
     ]),
   ]
 })
+
 export class ProductOrdersComponent implements OnInit, AfterViewInit {
 
   columnsToDisplay: string[] = ['orderId', 'userId', 'products', 'totalPrice',
@@ -27,7 +28,6 @@ export class ProductOrdersComponent implements OnInit, AfterViewInit {
 
   date1: string;
   date2: string;
-  //Yet to understand
   expandedElement: Product | null;
   dataSource: MatTableDataSource<Order>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,7 +36,6 @@ export class ProductOrdersComponent implements OnInit, AfterViewInit {
   constructor(private dialog: MatDialog, public orderService: OrderService) {
     this.dataSource = new MatTableDataSource(orderService.orders);
   }
-
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -49,9 +48,7 @@ export class ProductOrdersComponent implements OnInit, AfterViewInit {
         this.dataSource = new MatTableDataSource(orders);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-      }
-    )
-
+      });
   }
 
   applyFilter(event: Event) {
@@ -62,7 +59,6 @@ export class ProductOrdersComponent implements OnInit, AfterViewInit {
     }
   }
 
-  //need to check
   updateSchedule(orderId) {
     let index = this.orderService.orders.findIndex(x => x.orderId === orderId);
     if (this.date1 == null) {
@@ -78,7 +74,6 @@ export class ProductOrdersComponent implements OnInit, AfterViewInit {
     let index = this.orderService.orders.findIndex(x => x.orderId === orderId);
     this.orderService.deleteOrder(index);
   }
-
 }
 
 

@@ -27,6 +27,7 @@ export class EditProductComponent implements OnInit {
     this.dialogRef.close();
   }
 
+
   onClear() {
     this.productService.formGroup.reset();
   }

@@ -1,6 +1,8 @@
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AddressService } from './service/address.service';
+import { CartService } from './service/cart.service';
 import { ProductService } from './service/product.service';
 import { UserService } from './service/user.service';
 
@@ -43,11 +45,13 @@ import { UserService } from './service/user.service';
       transition('*<=>slide-up', animate(300))
     ])]
 })
+
 export class AppComponent {
 
   state1 = 'slide';
   state2 = null;
   state3 = null;
+
   @HostListener("document:scroll")
   scrollFunction() {
     if (document.documentElement.scrollTop > 0) {
@@ -56,12 +60,18 @@ export class AppComponent {
     } else {
       this.state2 = null;
       this.state3 = null;
-
     }
   }
 
   constructor(public router: Router, public userService: UserService,
-    public productService: ProductService) {
+    public productService: ProductService, private cartService: CartService,
+    private address: AddressService) {
   }
 
+  onLogOut() {
+    this.userService.userRole = null;
+    this.userService.sharedId = null;
+    this.cartService.onLoad();
+    this.address.addressId = null;
+  }
 }

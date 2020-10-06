@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CartService } from 'src/app/service/cart.service';
-import { OrderService } from 'src/app/service/order.service';
 import { PaymentGatewayComponent } from '../payment-gateway/payment-gateway.component';
 
 @Component({
@@ -9,11 +8,9 @@ import { PaymentGatewayComponent } from '../payment-gateway/payment-gateway.comp
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent{
-
+export class CartComponent {
 
   constructor(public cartService: CartService, private dialog: MatDialog) { }
-
 
   onProceedToPay() {
     const dialogConfig = new MatDialogConfig();
@@ -25,5 +22,4 @@ export class CartComponent{
     dialogConfig.data = { amount: this.cartService.subTotal, quantity: this.cartService.totalQuantity };
     this.dialog.open(PaymentGatewayComponent, dialogConfig);
   }
-
 }

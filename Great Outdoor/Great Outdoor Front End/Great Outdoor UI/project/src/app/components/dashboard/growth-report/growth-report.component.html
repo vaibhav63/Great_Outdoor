@@ -2,6 +2,7 @@
 <div class="growth-report-table">
 
   <div class="show-label"><span class="badge badge-pill">GROWTH REPORT</span></div>
+
   <mat-form-field>
     <mat-label style="color: black;">Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Red" #input>
@@ -10,18 +11,15 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
-
       <ng-container matColumnDef="growthReportId">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> GROWTH REPORT ID </th>
         <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.growthReportId}} </td>
       </ng-container>
 
-
       <ng-container matColumnDef="currentdate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> CURRENT DATE </th>
         <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.currentdate}} </td>
       </ng-container>
-
 
       <ng-container matColumnDef="revenue">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> REVENUE </th>
@@ -38,12 +36,10 @@
         <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.percentageGrowth}}% </td>
       </ng-container>
 
-
       <ng-container matColumnDef="colorCode">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> COLOR CODE </th>
         <td mat-cell *matCellDef="let row" [style.color]="row.colorCode"> {{row.colorCode}} </td>
       </ng-container>
-
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

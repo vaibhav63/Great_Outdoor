@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Address, AddressService } from 'src/app/service/address.service';
 
-
 @Component({
-  selector: 'app-addresscreation',
-  templateUrl: './addresscreation.component.html',
-  styleUrls: ['./addresscreation.component.css']
+  selector: 'app-address-creation',
+  templateUrl: './address-creation.component.html',
+  styleUrls: ['./address-creation.component.css']
 })
-export class AddresscreationComponent implements OnInit {
+export class AddressCreationComponent implements OnInit {
+
   message:string;
   constructor(private ser:AddressService,private router:Router) { }
   ngOnInit(): void {

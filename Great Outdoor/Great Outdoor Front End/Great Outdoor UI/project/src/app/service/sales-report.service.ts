@@ -25,7 +25,6 @@ export class SalesReportService {
   updateSalesReport(salesReport: SalesReport) {
 
     var index = this.salesReport.map(e => e.productId).indexOf(salesReport.productId);
-
     this.salesReportCommunication.updateSalesReport(salesReport).subscribe(
       (response) => {
         this.notification.showNotification('Sales Report Updated !!', '✓', 'success');
@@ -41,6 +40,7 @@ export class SalesReportService {
       });
   }
 
+  // finding total revenue made from the product sales
   getTotalRevenue() {
     return this.salesReport.map(s => s.totalSale).reduce((a, b) => a + b, 0);
   }

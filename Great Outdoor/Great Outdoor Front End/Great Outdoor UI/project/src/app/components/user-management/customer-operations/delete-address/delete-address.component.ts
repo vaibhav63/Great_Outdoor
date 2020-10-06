@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { Address, AddressService } from 'src/app/service/address.service';
 
 @Component({
-  selector: 'app-deleteaddr',
-  templateUrl: './deleteaddr.component.html',
-  styleUrls: ['./deleteaddr.component.css']
+  selector: 'app-delete-address',
+  templateUrl: './delete-address.component.html',
+  styleUrls: ['./delete-address.component.css']
 })
-export class DeleteaddrComponent implements OnInit {
+export class DeleteAddressComponent implements OnInit {
+
   message:string;
   constructor(private ser:AddressService,private router:Router) { }
   ngOnInit(): any {

@@ -1,4 +1,4 @@
-
+// model for order
 export class Order {
 
     constructor(public id: number, public orderId: string, public userId: string,
